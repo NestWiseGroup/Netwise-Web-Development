@@ -21,8 +21,8 @@ export default function PageLoader() {
 
     const timeout = setTimeout(() => {
       setFading(true);
-      setTimeout(() => setLoading(false), 450);
-    }, 850);
+      setTimeout(() => setLoading(false), 250);
+    }, 400);
 
     return () => {
       clearInterval(interval);

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Sparkles } from "@/components/shared/Icons";
 
 export default function FaqSection() {
@@ -34,11 +35,17 @@ export default function FaqSection() {
   ];
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-[#FDFAF5] border-b border-[#E6DCB8]/60">
+    <section id="faq" className="py-20 lg:py-28 bg-[#FDFAF5] border-b border-[#E6DCB8]/60 overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
-        <div className="text-center mb-14 space-y-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14 space-y-3"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E3A8A]/5 border border-[#B8860B]/30">
             <Sparkles className="w-3.5 h-3.5 text-[#B8860B]" />
             <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#B8860B]">
@@ -51,15 +58,19 @@ export default function FaqSection() {
           <p className="text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-xl mx-auto">
             Everything you need to know about our 22% fee model, local King County regulations, and onboarding logistics.
           </p>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion List */}
         <div className="space-y-3.5">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.4, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] as const }}
                 className={`bg-white rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen ? "border-[#B8860B] shadow-md" : "border-[#E6DCB8] hover:border-[#B8860B]/50"
                 }`}
@@ -80,24 +91,41 @@ export default function FaqSection() {
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 text-sm text-[#4B5563] leading-relaxed border-t border-slate-100 animate-in fade-in duration-200">
-                    <p>{faq.a}</p>
-                  </div>
-                )}
-              </div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 sm:px-6 pb-6 pt-1 text-sm text-[#4B5563] leading-relaxed border-t border-slate-100">
+                        <p>{faq.a}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Support Question Footer */}
-        <div className="mt-12 text-center p-6 bg-white rounded-2xl border border-[#E6DCB8] text-xs sm:text-sm text-[#4B5563]">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-12 text-center p-6 bg-white rounded-2xl border border-[#E6DCB8] text-xs sm:text-sm text-[#4B5563]"
+        >
           Have a unique regulatory or portfolio question? Call our direct executive desk at{" "}
           <a href="tel:+14254146819" className="text-[#B8860B] font-bold hover:underline">
             +1 (425) 414-6819
           </a>
           .
-        </div>
+        </motion.div>
 
       </div>
     </section>

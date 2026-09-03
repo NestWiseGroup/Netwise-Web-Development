@@ -54,23 +54,23 @@ export default function Footer() {
               </h5>
               <ul className="space-y-2 text-xs text-slate-300">
                 <li>
-                  <Link href="/#how-we-work" className="hover:text-white transition-colors">
+                  <Link href="/" className="hover:text-white transition-colors">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/how-we-work" className="hover:text-white transition-colors">
                     How We Work
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#faq" className="hover:text-white transition-colors">
+                  <Link href="/faq" className="hover:text-white transition-colors">
                     FAQ
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#why" className="hover:text-white transition-colors">
+                  <Link href="/about" className="hover:text-white transition-colors">
                     About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#audit-value" className="hover:text-white transition-colors">
-                    5-Point Audit Dossier
                   </Link>
                 </li>
               </ul>

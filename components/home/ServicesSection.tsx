@@ -92,7 +92,7 @@ export default function ServicesSection() {
             The Guardrails of Elite Co-Hosting
           </h2>
           <p className="text-base sm:text-lg text-[#4B5563] leading-relaxed">
-            Four commitments transformed into operational certainties. We don't guess. We orchestrate.
+            Four commitments transformed into operational certainties. We don&apos;t guess. We orchestrate.
           </p>
         </div>
 

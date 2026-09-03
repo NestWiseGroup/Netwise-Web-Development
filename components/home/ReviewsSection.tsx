@@ -162,7 +162,7 @@ export default function ReviewsSection() {
 
                 {/* Quote Body */}
                 <p className="text-sm sm:text-base text-[#374151] leading-relaxed italic font-normal">
-                  "{rev.quote}"
+                  &ldquo;{rev.quote}&rdquo;
                 </p>
               </div>
 
