@@ -189,7 +189,7 @@ export default function ComparisonMatrix({
             <motion.div
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
-              className="rounded-3xl p-7 sm:p-9 bg-linear-to-b from-[#1E3A8A] via-[#162C6D] to-[#0D1C44] text-white shadow-2xl border-2 border-[#B8860B] relative overflow-hidden flex flex-col justify-between order-1 lg:order-2 ring-4 ring-[#B8860B]/20"
+              className="rounded-3xl p-7 sm:p-9 bg-linear-to-b from-[#1e3a8a] via-[#1e3a8a] to-[#1e3a8a] text-white shadow-2xl border-2 border-[#B8860B] relative overflow-hidden flex flex-col justify-between order-1 lg:order-2 ring-4 ring-[#B8860B]/20"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#B8860B]/20 rounded-bl-full pointer-events-none blur-2xl" />
               

@@ -361,7 +361,7 @@ export default function AuditValueProp() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-[#0A132C] rounded-2xl p-4 sm:p-5 text-white border border-[#B8860B]/40 shadow-md hover:shadow-xl transition-shadow duration-300"
+                className="bg-[#1e3a8a] rounded-2xl p-4 sm:p-5 text-white border border-[#B8860B]/40 shadow-md hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between border-b border-white/10 pb-3 gap-1">
                   <div>

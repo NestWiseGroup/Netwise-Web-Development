@@ -182,7 +182,7 @@ export default function WhySection() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] as const }}
             onMouseEnter={() => setHoveredCard("solution")}
             onMouseLeave={() => setHoveredCard(null)}
-            className={`lg:col-span-6 bg-gradient-to-br from-[#0A132C] via-[#1E3A8A] to-[#172554] text-white rounded-3xl p-7 sm:p-9 border-2 border-[#B8860B]/40 shadow-2xl flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-gold-glow ${
+            className={`lg:col-span-6 bg-gradient-to-br from-[#1e3a8a] via-[#1e3a8a] to-[#1e3a8a] text-white rounded-3xl p-7 sm:p-9 border-2 border-[#B8860B]/40 shadow-2xl flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-gold-glow ${
               hoveredCard === "solution" ? "border-[#D4AF37]" : ""
             }`}
           >

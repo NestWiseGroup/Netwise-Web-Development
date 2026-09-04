@@ -7,7 +7,7 @@ import { MapPin, Phone, ArrowRight } from "@/components/shared/Icons";
 
 export default function Footer() {
   return (
-    <footer id="footer" className="bg-[#0A132C] text-slate-300 pt-14 pb-10 border-t border-[#B8860B]/30">
+    <footer id="footer" className="bg-[#1e3a8a] text-slate-300 pt-14 pb-10 border-t border-[#B8860B]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Streamlined Main Footer Grid */}
@@ -18,7 +18,7 @@ export default function Footer() {
             <Link href="/" className="inline-block">
               <div className="relative h-14 sm:h-16 w-56 sm:w-72 flex items-center">
                 <Image
-                  src="/NestWise_Logo_Horizontal_White_Transparent.png"
+                  src="/NestWise_Logo_Matched.png"
                   alt="NestWise Group"
                   width={280}
                   height={70}

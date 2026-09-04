@@ -135,7 +135,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Bottom Banner */}
-        <div className="mt-14 p-8 rounded-3xl bg-gradient-to-r from-[#0A132C] via-[#1E3A8A] to-[#172554] text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-luxury-lg">
+        <div className="mt-14 p-8 rounded-3xl bg-gradient-to-r from-[#1e3a8a] via-[#1e3a8a] to-[#1e3a8a] text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-luxury-lg">
           <div>
             <span className="text-xs uppercase font-bold tracking-widest text-[#D4AF37]">
               Seattle & Bellevue Operations Command

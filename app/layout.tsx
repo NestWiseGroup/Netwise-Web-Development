@@ -42,6 +42,10 @@ export const metadata: Metadata = {
     "Medina vacation rental co-hosting",
   ],
   authors: [{ name: "NestWise Group LLC" }],
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({

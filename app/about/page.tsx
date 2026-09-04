@@ -83,7 +83,7 @@ const MARKETS = [
     name: "Bellevue & Medina",
     subtitle: "Downtown, West Bellevue, Medina Estates, Somerset",
     highlight: "High Executive & Tech Relocation Demand",
-    color: "from-blue-900/10 to-blue-600/5",
+    color: "from-[#1e3a8a]/10 to-[#1e3a8a]/5",
   },
   {
     id: "seattle-core",
@@ -308,7 +308,7 @@ export default function AboutPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A132C]/80 via-[#0A132C]/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a8a]/80 via-[#1e3a8a]/20 to-transparent" />
                 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

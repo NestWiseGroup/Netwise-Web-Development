@@ -40,10 +40,10 @@ export default function PageLoader() {
     >
       <div className="relative flex flex-col items-center space-y-6">
         
-        {/* Stacked Navy Logo Display */}
+        {/* Brand Logo Display */}
         <div className="relative w-44 sm:w-52 h-20 sm:h-24 flex items-center justify-center animate-pulse">
           <Image
-            src="/NestWise_Logo_Stacked_Navy_Transparent.png"
+            src="/NestWise_Logo_Matched.png"
             alt="NestWise Group"
             width={220}
             height={90}

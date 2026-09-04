@@ -171,14 +171,14 @@ const PhaseCard = ({
             priority={index === 0}
             loading={index === 0 ? "eager" : "lazy"}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A132C]/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a8a]/80 via-transparent to-transparent" />
           
           {/* Floating Badge with Pulse Animation */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.4 }}
-            className="absolute top-5 left-5 px-4 py-1.5 rounded-full bg-[#0A132C]/80 backdrop-blur-md border border-[#B8860B]/50 text-[#D4AF37] text-xs font-bold shadow-lg"
+            className="absolute top-5 left-5 px-4 py-1.5 rounded-full bg-[#1e3a8a]/80 backdrop-blur-md border border-[#B8860B]/50 text-[#D4AF37] text-xs font-bold shadow-lg"
           >
             {phase.badge}
           </motion.div>

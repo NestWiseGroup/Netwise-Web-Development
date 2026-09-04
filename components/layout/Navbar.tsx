@@ -12,11 +12,11 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-[#1E3A8A] border-b border-[#B8860B]/30 shadow-lg transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
         
-        {/* Brand Logo - Stacked White Transparent */}
+        {/* Brand Logo */}
         <Link href="/" className="flex items-center py-1 group">
           <div className="relative h-14 sm:h-16 w-48 sm:w-64 flex items-center">
             <Image
-              src="/NestWise_Logo_Stacked_White_Transparent.png"
+              src="/NestWise_Logo_Matched.png"
               alt="NestWise Group"
               width={260}
               height={75}
@@ -68,12 +68,12 @@ export default function Navbar() {
             <span>(425) 414-6819</span>
           </a>
 
-          {/* Primary CTA Button: Request Free Audit */}
+          {/* Primary CTA Button */}
           <Link
             href="/audit"
             className="btn-gold px-5 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-serif font-bold tracking-wide flex items-center gap-2 uppercase shadow-md border border-white/15 hover:shadow-gold-glow transition-all"
           >
-            <span>Request Free Audit</span>
+            <span>Book A Call</span>
           </Link>
         </div>
 
@@ -83,7 +83,7 @@ export default function Navbar() {
             href="/audit"
             className="btn-gold px-3 py-1.5 rounded-lg text-[11px] font-serif font-bold uppercase tracking-wider sm:hidden"
           >
-            Free Audit
+            Book A Call
           </Link>
 
           <button
@@ -103,7 +103,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0A132C] border-b border-[#B8860B]/30 px-5 pt-4 pb-6 space-y-4 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200 text-white">
+        <div className="md:hidden bg-[#1e3a8a] border-b border-[#B8860B]/30 px-5 pt-4 pb-6 space-y-4 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200 text-white">
           <nav className="flex flex-col space-y-3 text-sm font-semibold text-slate-200">
             <Link
               href="/"

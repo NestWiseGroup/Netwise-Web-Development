@@ -16,7 +16,7 @@ export default function EarningsPotentialCard({ className = "" }: EarningsPotent
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`relative rounded-3xl sm:rounded-[36px] overflow-hidden border border-[#E6DCB8]/40 shadow-2xl bg-linear-to-br from-[#070E20] via-[#0E1C42] to-[#081228] text-white p-8 sm:p-12 lg:p-16 ${className}`}
+      className={`relative rounded-3xl sm:rounded-[36px] overflow-hidden border border-[#E6DCB8]/40 shadow-2xl bg-linear-to-br from-[#1e3a8a] via-[#1e3a8a] to-[#1e3a8a] text-white p-8 sm:p-12 lg:p-16 ${className}`}
     >
       {/* Background Decorative Ambient Glows */}
       <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#B8860B]/15 rounded-full blur-3xl pointer-events-none" />

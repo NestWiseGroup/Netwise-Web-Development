@@ -2,8 +2,8 @@
 
 :root {
   --primary-royal: #1E3A8A;
-  --primary-royal-dark: #0F1F47;
-  --primary-royal-light: #2563EB;
+  --primary-royal-dark: #1e3a8a;
+  --primary-royal-light: #1e3a8a;
   --accent-gold: #B8860B;
   --accent-gold-light: #D4AF37;
   --accent-gold-pale: #FDF6E2;
@@ -22,8 +22,8 @@
   --font-serif: var(--font-serif-heading), 'Playfair Display', Georgia, serif;
   --font-sans: var(--font-sans-body), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --color-royal-blue: #1E3A8A;
-  --color-royal-dark: #0F1F47;
-  --color-royal-deep: #0A132C;
+  --color-royal-dark: #1e3a8a;
+  --color-royal-deep: #1e3a8a;
   --color-gold: #B8860B;
   --color-gold-light: #D4AF37;
   --color-gold-pale: #FDF6E2;
@@ -51,7 +51,7 @@ h1, h2, h3, .font-serif {
 }
 
 .bg-royal-gradient {
-  background: linear-gradient(135deg, #0A132C 0%, #1E3A8A 50%, #172554 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e3a8a 50%, #1e3a8a 100%);
 }
 
 .bg-gold-shimmer {
