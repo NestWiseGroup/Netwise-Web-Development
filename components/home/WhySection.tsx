@@ -7,67 +7,66 @@ import {
   XCircle, 
   Zap, 
   CheckCircle2, 
-  Award,
-  Lock,
-  Percent,
-  Headphones,
-  Clock,
-  MapPin,
-  TrendingUp,
-  Sparkles
+  Lock, 
+  Percent, 
+  Headphones, 
+  Clock, 
+  MapPin, 
+  TrendingUp, 
+  Sparkles,
+  PhoneCall
 } from "@/components/shared/Icons";
 
 export default function WhySection() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
-  // Pain points data
+  // Pain points data (National managers & DIY)
   const painPoints = [
     {
+      icon: Headphones,
+      title: "Call Centers 2,000 Miles Away",
+      desc: "When something goes wrong, national companies route your guest to a distant call center agent who has never seen your street and doesn't know which streets flood in November."
+    },
+    {
       icon: Lock,
-      title: "Strict 12-Month Lock-in Penalties",
-      desc: "National managers force owners into year-long binding contracts with steep early termination fees and calendar forfeiture."
+      title: "12-Month Lock-in Contracts",
+      desc: "Legacy managers tie you down with year-long binding contracts, early cancellation penalties, and you lose control of your calendar."
     },
     {
       icon: Percent,
-      title: "28% – 30% Cuts + Hidden Surcharges",
-      desc: "Hefty commission rates padded with linen replacement deductions, admin surcharges, and costly maintenance markups."
-    },
-    {
-      icon: Headphones,
-      title: "Faceless Out-of-State Call Centers",
-      desc: "Guest communications routed to remote agents with zero knowledge of King County geography or local noise ordinances."
+      title: "28% – 30% Fees + Hidden Deductions",
+      desc: "Steep commissions padded with hidden administrative surcharges, linen replacement deductions, and maintenance markups."
     },
     {
       icon: Clock,
-      title: "DIY Owner Burnout & Guesswork",
-      desc: "Self-hosting forces you to answer midnight lockout messages, schedule cleaners, and manually guess dynamic weekend pricing."
+      title: "Self-Hosting Burnout & Guesswork",
+      desc: "Doing it yourself means answering guest lockouts at 11pm, cleaners cancelling last minute, and pricing that is really just guessing."
     }
   ];
 
-  // Solutions data
+  // Solutions data (NestWise Group)
   const solutions = [
     {
+      icon: PhoneCall,
+      title: "Someone Nearby Picks Up",
+      desc: "We live right here in Washington. When your guest is locked out at 11pm, someone nearby answers. We know the permit rules city by city and the local tradespeople."
+    },
+    {
       icon: CheckCircle2,
-      title: "Transparent 22% Flat Fee",
-      desc: "Single, all-inclusive rate on gross bookings. Zero onboarding fees, zero linen markups, and zero hidden line items."
+      title: "22% Flat Fee (Zero Hidden Deductions)",
+      desc: "A clean 22% management fee on gross bookings, plus a stated $600 one-time onboarding fee. No linen charges, no hidden line items."
     },
     {
       icon: Sparkles,
-      title: "Month-to-Month Freedom (No Lock-in)",
-      desc: "We earn your trust every single month. If your goals change, you can walk away anytime with simple 30-day notice."
-    },
-    {
-      icon: MapPin,
-      title: "Bellevue-Based Command Desk & < 3 Min SLA",
-      desc: "Dedicated local operations team monitoring guest inquiries 24/7/365, ensuring 5-star Superhost status."
+      title: "No Lock-in Contract (30 Days Notice)",
+      desc: "We earn your trust every single month. If your plans change, you can walk away anytime with a simple 30 days notice."
     },
     {
       icon: TrendingUp,
-      title: "Dynamic Multi-Channel AI Pricing",
-      desc: "Nightly rates recalibrated around Seattle concerts, conferences, and supply dips across Airbnb, VRBO, and Booking.com."
+      title: "Daily Pricing & Turno Cleaners",
+      desc: "Nightly rates updated daily from live market data, and professional background-checked cleaners booked through Turno with photo proof after every stay."
     }
   ];
-
 
   return (
     <section 
@@ -75,12 +74,12 @@ export default function WhySection() {
       className="py-20 lg:py-28 bg-gradient-to-b from-[#FDFAF5] via-[#FFFBF5] to-[#FDFAF5] border-b border-[#E6DCB8]/60 relative overflow-hidden"
     >
       {/* Ambient Gradient Orbs */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#B8860B]/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#1E3A8A]/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#B8860B]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#1E3A8A]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Heading */}
+        {/* Section Heading - Section 4 CEO Copy */}
         <motion.div 
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,32 +87,26 @@ export default function WhySection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16 space-y-4"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E3A8A]/5 border border-[#B8860B]/30 shadow-xs">
-            <ShieldAlert className="w-4 h-4 text-[#B8860B]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#B8860B]">
-              THE VACATION RENTAL DILEMMA
-            </span>
+          <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
+            WHY LOCAL MATTERS
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight leading-[1.15]">
-            Why Traditional Property Management{" "}
-            <span className="bg-gradient-to-r from-[#B8860B] to-[#D4A017] bg-clip-text text-transparent block sm:inline">
-              Fails Luxury Owners
+            We live here.{" "}
+            <span className="bg-gradient-to-r from-[#B8860B] to-[#D4A017] bg-clip-text text-transparent">
+              That changes everything.
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-2xl mx-auto">
-            Property owners are caught between exhausting self-hosting burnout and predatory national franchises.{" "}
-            <span className="font-semibold text-[#1E3A8A]">
-              NestWise was engineered as the superior alternative.
-            </span>
+          <p className="text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-2xl mx-auto font-normal">
+            When something goes wrong at your property, national companies route your guest to a call center two thousand miles away. We&apos;re based right here in Washington. We know the neighborhoods, city permit rules, and local tradespeople.
           </p>
         </motion.div>
 
         {/* 2-Column Comparison Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Pain Points Column */}
+          {/* Pain Points Column (National Managers) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -132,11 +125,10 @@ export default function WhySection() {
                 </div>
                 <div>
                   <h3 className="font-serif text-xl font-bold text-slate-900">
-                    The Pain Points of Legacy Management
+                    National Managers &amp; Call Centers
                   </h3>
-                  <span className="text-xs text-rose-600 font-semibold flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rose-600 animate-ping" />
-                    Rigid Contracts & Eroded Margins
+                  <span className="text-xs text-rose-600 font-semibold flex items-center">
+                    Vacasa, Evolve &amp; Distant Phone Trees
                   </span>
                 </div>
               </div>
@@ -166,15 +158,15 @@ export default function WhySection() {
             <div className="pt-5 mt-5 border-t-2 border-rose-100 text-xs text-rose-600 font-semibold flex items-center justify-between">
               <span className="flex items-center gap-2">
                 <span>⚠️</span>
-                <span>Result: Sub-optimal revenues & constant stress</span>
+                <span>Unresolved guest delays &amp; lost control</span>
               </span>
-              <span className="text-[10px] text-rose-400 font-medium">
-                No asset control
+              <span className="text-[11px] text-rose-400 font-medium">
+                Remote call centers
               </span>
             </div>
           </motion.div>
 
-          {/* Solution Column */}
+          {/* Solution Column (NestWise Group) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -199,9 +191,9 @@ export default function WhySection() {
                   <h3 className="font-serif text-xl font-bold text-white">
                     The NestWise Co-Hosting Solution
                   </h3>
-                  <span className="text-xs text-[#D4AF37] font-semibold flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
-                    Complete Local Command & Maximum Yield
+                  <span className="text-xs text-[#D4AF37] font-semibold flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                    Local Washington People You Can Actually Call
                   </span>
                 </div>
               </div>
@@ -231,29 +223,29 @@ export default function WhySection() {
             <div className="pt-5 mt-5 border-t border-white/10 text-xs text-[#D4AF37] font-semibold flex items-center justify-between relative z-10">
               <span className="flex items-center gap-2">
                 <span>✦</span>
-                <span>Owner keeps 78% of gross revenues cleanly</span>
+                <span>Owner keeps 78% cleanly · 30 days notice to leave</span>
               </span>
               <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full text-white text-[11px]">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Bellevue Ground Team
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                Our Team in Washington
               </span>
             </div>
           </motion.div>
 
         </div>
 
-        {/* Call to Action at Bottom */}
+        {/* CEO Pull Quote - Section 4 */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-12 text-center"
+          className="mt-14 text-center max-w-2xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 text-sm font-semibold text-[#B8860B] bg-white px-6 py-3 rounded-full border border-[#E6DCB8]/60 shadow-md hover:shadow-lg transition-all cursor-default">
-            <Award className="w-4 h-4 text-[#B8860B]" />
-            <span>Trusted by 200+ Luxury Property Owners across Greater Seattle</span>
-            <span className="w-2 h-2 rounded-full bg-[#B8860B] animate-pulse" />
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E6DCB8] shadow-md">
+            <blockquote className="font-serif text-xl sm:text-2xl font-bold text-[#1E3A8A] italic">
+              &ldquo;Feet on the ground, not a phone tree.&rdquo;
+            </blockquote>
           </div>
         </motion.div>
 

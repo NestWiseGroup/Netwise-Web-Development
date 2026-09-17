@@ -44,26 +44,40 @@ export async function POST(request: Request) {
       }
     }
 
-    // 3. Forward Payload to Make.com / Zapier / HubSpot Webhook if configured
-    const webhookUrl = process.env.MAKE_WEBHOOK_URL || process.env.AUDIT_WEBHOOK_URL;
+    // 3. Generate Reference Code and Standardized Payload for Hunter's Webhook
+    const referenceCode = `NW-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+    const webhookPayload = {
+      event: "audit_requested",
+      timestamp: new Date().toISOString(),
+      source: "website_audit_form",
+      lead: {
+        fullName,
+        email,
+        phone,
+        propertyAddress: address,
+        propertyType: propertyType || "Single Family Home",
+        bedrooms: bedrooms || "4",
+        existingListingUrl: listingUrl || "",
+      },
+      metadata: {
+        referenceCode,
+        userAgent: request.headers.get("user-agent") || "",
+        referer: request.headers.get("referer") || "",
+      },
+    };
+
+    // 4. Forward Payload to Hunter's Webhook / Zapier / Make.com endpoint
+    const webhookUrl = 
+      process.env.HUNTER_WEBHOOK_URL || 
+      process.env.AUDIT_WEBHOOK_URL || 
+      process.env.MAKE_WEBHOOK_URL;
+
     if (webhookUrl) {
       try {
         await fetch(webhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            source: "NestWise Group Landing Page - 48-Hour Audit Request",
-            timestamp: new Date().toISOString(),
-            lead: {
-              fullName,
-              email,
-              phone,
-              address,
-              propertyType: propertyType || "Single Family Estate",
-              bedrooms: bedrooms || "4",
-              listingUrl: listingUrl || "N/A",
-            },
-          }),
+          body: JSON.stringify(webhookPayload),
         });
       } catch (webhookErr) {
         console.error("Failed to forward lead to webhook:", webhookErr);
@@ -76,8 +90,8 @@ export async function POST(request: Request) {
         success: true,
         message: "Your 48-Hour Property Revenue Audit request has been received.",
         data: {
-          submittedAt: new Date().toISOString(),
-          referenceCode: `NW-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
+          submittedAt: webhookPayload.timestamp,
+          referenceCode,
         },
       },
       { status: 200 }

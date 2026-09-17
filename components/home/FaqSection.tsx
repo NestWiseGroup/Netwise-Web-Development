@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Sparkles } from "@/components/shared/Icons";
+import { ChevronRight } from "@/components/shared/Icons";
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -10,27 +10,27 @@ export default function FaqSection() {
   const faqs = [
     {
       q: "How does the 22% flat fee structure work?",
-      a: "NestWise charges a single, transparent 22% fee on gross booking revenues. There are zero onboarding fees, zero linen replacement deductions, and zero hidden admin markups. You retain 78% of your gross earnings with complete monthly ledger reconciliation.",
+      a: "NestWise charges a single, transparent 22% management fee on gross booking revenues. There is a stated one-time $600 onboarding fee to professionally photograph, stage, and set up your multi-channel listings. There are zero hidden deductions, zero linen markups, and zero administrative surcharges.",
     },
     {
-      q: "What is your contract length and lock-in policy?",
-      a: "We have zero long-term lock-in contracts. Our agreements are strictly month-to-month. If your personal goals or plans change, you can walk away anytime with a simple 30-day notice with zero calendar forfeiture.",
+      q: "What is your contract duration and lock-in policy?",
+      a: "We have zero long-term lock-in contracts. Our agreements are month-to-month. If your personal plans or portfolio goals change, you can walk away anytime with a simple 30-day notice. You never lose control of your calendar.",
+    },
+    {
+      q: "How do you handle cleaning and property turnovers?",
+      a: "We partner with vetted, background-checked professional cleaners through Turno. After every checkout, cleaners follow a rigorous inspection checklist and take verification photos, ensuring your home is pristine before the next guest arrives.",
+    },
+    {
+      q: "How does your dynamic pricing work?",
+      a: "We update your nightly rate daily using live market data and competitor benchmarks. We factor in local demand surges, Washington events, concerts, conferences, and seasonal patterns so you never underprice peak dates or sit vacant during slow periods.",
     },
     {
       q: "How does NestWise handle Seattle SMC 6.600 and Bellevue STR permits?",
-      a: "Seattle limits short-term operators to two dwelling units (primary residence plus one secondary). Bellevue requires city transient lodging registration and King County lodging tax filings. NestWise handles 100% of the compliance paperwork, tax filings, and license renewals.",
+      a: "Seattle limits short-term operators to two dwelling units (primary residence plus one secondary unit). Bellevue requires city transient lodging registration and King County lodging tax filings. We help navigate the permit paperwork and quarterly lodging tax filings to keep your home fully compliant.",
     },
     {
       q: "Why is the 5-Point Property Revenue Audit 100% free?",
-      a: "We benchmark your property against 12 local comparables using live AirDNA and MLS data to demonstrate our operational upside before you commit. The custom dossier is yours to keep and act on independently with no obligation.",
-    },
-    {
-      q: "How fast can NestWise onboard my property?",
-      a: "Standard onboarding takes 5 to 7 business days from on-site walk-through. This includes professional HDR photography, smart lock and Minut noise sensor deployment, inventory audits, and multi-channel synchronization across Airbnb, VRBO, and Booking.com.",
-    },
-    {
-      q: "How do you protect my home against unruly guests and damage?",
-      a: "We screen every guest through identity verification, enforce 25+ age minimums for luxury homes, deploy 24/7 Minut noise telemetry sensors (privacy-compliant, zero audio recording), and back every stay with $3,000,000 institutional Host Cover protection.",
+      a: "We benchmark your property against 12 nearby comparable homes to show you what you're charging, what the market is earning, and what you're leaving on the table. The report is delivered in 48 hours, is 100% free, and is yours to keep with no obligation.",
     },
   ];
 
@@ -46,11 +46,8 @@ export default function FaqSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14 space-y-3"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E3A8A]/5 border border-[#B8860B]/30">
-            <Sparkles className="w-3.5 h-3.5 text-[#B8860B]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#B8860B]">
-              FREQUENTLY ASKED QUESTIONS
-            </span>
+          <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
+            FREQUENTLY ASKED QUESTIONS
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight">
             Frequently Asked Questions

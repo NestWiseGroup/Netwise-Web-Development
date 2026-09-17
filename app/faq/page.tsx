@@ -6,7 +6,6 @@ import {
   Search, 
   ChevronRight, 
   Phone, 
-  HelpCircle, 
   DollarSign, 
   Scale, 
   Shield, 
@@ -26,73 +25,73 @@ const FAQS: FaqItem[] = [
     {
       category: "pricing",
       q: "How does the 22% flat fee structure work?",
-      a: "NestWise charges a single, transparent 22% fee on gross booking revenue. Unlike traditional property managers who add 28% to 35% commission plus linen replacement deductions, credit card processing surcharges, and maintenance markups, we take a clean 22%. You retain 78% of your gross earnings with complete monthly ledger reconciliation.",
+      a: "NestWise charges a single, transparent 22% management fee on gross booking revenues. Unlike national franchises that charge 28% to 30% plus linen markups and administrative surcharges, we take a clean 22%. You retain 78% of your gross earnings with an itemized monthly report.",
     },
     {
       category: "pricing",
       q: "Are there any upfront onboarding or setup charges?",
-      a: "Zero. We do not charge onboarding fees, professional photography fees, or digital listing creation costs. We invest our own capital into your property setup because our compensation is directly tied to the revenue we generate for you.",
+      a: "We charge a transparent, one-time $600 onboarding fee — we state it directly rather than hiding it in fine print. This covers professional photography, cross-channel digital listing creation across Airbnb, Vrbo, Booking.com, Google, and Agoda, and master calendar synchronization.",
     },
     {
       category: "pricing",
       q: "How and when do I receive payouts?",
-      a: "All net booking revenues are disbursed directly to your bank account via automated ACH on the 5th of each month for the preceding calendar month. Every payment is accompanied by an itemized, audit-ready financial statement outlining gross nights, nightly ADRs, guest-paid cleaning fees, and King County lodging tax collections.",
+      a: "Net booking revenues are deposited directly to your bank account via automated ACH on the 5th of each month for the preceding calendar month. Every deposit includes an itemized financial report outlining booked nights, nightly rates, guest-paid cleaning fees, and lodging taxes.",
     },
     {
       category: "pricing",
       q: "What is your contract duration and lock-in policy?",
-      a: "Our agreements are strictly month-to-month with zero long-term lock-in. We believe we must earn your business every single month. If your personal or portfolio goals change, you can terminate the partnership anytime with a standard 30-day notice with zero calendar forfeiture or penalty fees.",
+      a: "Our agreements are strictly month-to-month with zero long-term lock-in. If your personal or portfolio plans change, you can terminate anytime with a standard 30-day notice with zero penalty. You never lose control of your calendar.",
     },
 
     // Regulations
     {
       category: "regulations",
       q: "How does NestWise handle Seattle SMC 6.600 regulations?",
-      a: "Under Seattle Municipal Code 6.600, short-term rental operators may operate a maximum of two dwelling units in the city (a primary residence and one secondary unit). NestWise ensures full compliance by auditing your property parcel, obtaining the necessary Seattle STR Operator License, submitting quarterly King County lodging tax filings, and ensuring all platform listings display required municipal license numbers.",
+      a: "Under Seattle Municipal Code 6.600, short-term rental operators may operate a maximum of two dwelling units in the city (a primary residence and one secondary unit). NestWise assists by auditing property records, coordinating the necessary Seattle STR Operator License, and keeping your listings fully compliant.",
     },
     {
       category: "regulations",
       q: "What are the rules for short-term rentals in Bellevue and the Eastside?",
-      a: "Bellevue requires transient lodging registration, adherence to city noise ordinances, and collection of Washington State Retail Sales Tax and King County Lodging Taxes. Our Bellevue command desk manages 100% of these filings on your behalf, keeping your residence in flawless standing with local authorities.",
+      a: "Bellevue requires transient lodging registration and remittance of Washington State Retail Sales Tax and King County Lodging Taxes. Our local Washington team assists with these registrations and filings on your behalf, keeping your property in good standing with local authorities.",
     },
     {
       category: "regulations",
       q: "Can I do short-term rentals in an HOA condominium?",
-      a: "HOA CC&Rs vary widely across Greater Seattle. During our initial 48-Hour Audit, we perform a thorough review of your HOA bylaws. If your building prohibits stays under 30 days, we configure an executive 30+ day medium-term rental model tailored to Amazon, Microsoft, and Google corporate transferees.",
+      a: "HOA CC&Rs vary widely across Greater Seattle. During our initial 48-Hour Audit, we perform a thorough review of your HOA bylaws. If your building prohibits stays under 30 days, we can configure an executive 30+ day medium-term rental model tailored to corporate relocations.",
     },
 
     // Security & Property Care
     {
       category: "security",
-      q: "How do you protect my luxury residence from unauthorized parties?",
-      a: "We implement a proactive three-layer protection shield: (1) Mandatory 25+ age requirement and biometric ID verification on all bookings; (2) Privacy-safe Minut decibel and occupancy sensors that monitor noise spikes in real time without recording audio or violating guest privacy; and (3) Immediate local dispatch from our Bellevue team if noise thresholds are breached.",
+      q: "How do you protect my property from unauthorized parties?",
+      a: "We enforce strict guest screening: mandatory identity verification, prior host review checks, 25+ age requirements, and clear house rules prohibiting unauthorized events. Because our team lives right here in Washington, we handle local issues with immediate responsiveness.",
     },
     {
       category: "security",
       q: "What insurance coverage is in place for property damage?",
-      a: "Every reservation is protected by our primary $3,000,000 Host Cover insurance policy, covering accidental property damage, structural protection, and guest liability. In addition, we collect security deposits or accidental damage waivers on luxury bookings, ensuring you are never left out-of-pocket.",
+      a: "Every booking is backed by platform protections (including Airbnb AirCover and Vrbo host protection), along with guest damage waivers or security deposits where appropriate, ensuring you are protected against accidental guest damages.",
     },
     {
       category: "security",
       q: "Who handles housekeeping and property turnovers?",
-      a: "We work exclusively with our dedicated, hospital-grade cleaning teams trained in five-star hospitality standards. After every departure, cleaners execute a 45-point inspection checklist, photograph the home's condition, replenish premium toiletries, and ensure fresh hotel-quality linens.",
+      a: "We outsource cleaning assignments to vetted, background-checked professional cleaners through Turno. After every departure, cleaners follow an extensive turnover checklist and upload photo-verified inspection reports so you know your property is in pristine condition for every guest.",
     },
 
     // Operations
     {
       category: "operations",
       q: "Can I still use my home for personal vacations or family stays?",
-      a: "Absolutely. Through your 24/7 Owner Portal, you can block out any dates for personal use with a single click. There are zero penalties or limitations on owner usage as long as the dates are reserved prior to an incoming guest booking.",
+      a: "Absolutely. You can block out any dates for personal use whenever you wish. There are zero penalties or limitations on owner usage as long as the dates are reserved prior to an incoming guest booking.",
     },
     {
       category: "operations",
       q: "How quickly can NestWise launch my listing?",
-      a: "Our standard onboarding takes 5 to 7 business days from physical key handover. This timeframe covers professional HDR photography, 3D Matterport scanning, smart lock configuration, decibel sensor calibration, and cross-channel listing syndication across Airbnb, VRBO, and Booking.com.",
+      a: "Our standard onboarding takes 5 to 7 business days from physical key handover. This covers professional photography, smart lock configuration, listing copy across Airbnb, Vrbo, Booking.com, Google, and Agoda, and master calendar synchronization.",
     },
     {
       category: "operations",
-      q: "What makes your dynamic pricing engine superior?",
-      a: "Unlike amateur hosts who set static seasonal rates, our AI pricing algorithm recalculates rates hourly based on live King County occupancy, airline flight data, Lumen Field and Climate Pledge Arena event schedules, weather patterns, and competitive neighborhood pricing dips.",
+      q: "How does your dynamic pricing work?",
+      a: "We update your nightly rate daily using live market data and competitor benchmarks. We factor in local demand surges, Washington events, concerts, conferences, and seasonal patterns so you never underprice peak dates or sit vacant during slow periods.",
     },
   ];
 
@@ -148,11 +147,8 @@ export default function FaqPage() {
             <span className="text-[#1E3A8A]">FAQ</span>
           </nav>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E3A8A]/5 border border-[#B8860B]/30">
-            <HelpCircle className="w-3.5 h-3.5 text-[#B8860B]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#B8860B]">
-              KNOWLEDGE BASE & ADVISORY
-            </span>
+          <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
+            KNOWLEDGE BASE &amp; ADVISORY
           </div>
 
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#1E3A8A] tracking-tight">
@@ -241,7 +237,7 @@ export default function FaqPage() {
               }`}
             >
               <Shield className="w-3.5 h-3.5 text-[#B8860B]" />
-              <span>$3M Shield & Care</span>
+              <span>Property Care & Protection</span>
             </button>
 
             <button
@@ -356,14 +352,14 @@ export default function FaqPage() {
               </div>
               <div className="space-y-1 text-left">
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#B8860B] uppercase tracking-wider">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  Bellevue Operations Command
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  Washington Operations Team
                 </div>
                 <h4 className="font-serif text-xl font-bold text-[#1E3A8A]">
                   Have a Unique Regulatory or Portfolio Question?
                 </h4>
                 <p className="text-xs text-[#64748B] max-w-md">
-                  Marcus Vance, Principal Director of Operations, is available for private consultation regarding multi-unit portfolios and King County municipal guidelines.
+                  Our team is available for direct consultation regarding short-term rental permits, city regulations, and how our 22% flat fee model works for your property.
                 </p>
               </div>
             </div>

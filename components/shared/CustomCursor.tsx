@@ -98,7 +98,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Precision Center Dot (Hardware-accelerated translate3d) */}
+      {/* Precision Center Dot */}
       <div
         ref={dotRef}
         className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform -translate-x-1/2 -translate-y-1/2"
@@ -106,16 +106,14 @@ export default function CustomCursor() {
       >
         <div
           className={`rounded-full transition-all duration-150 ${
-            hoverState === "gold"
-              ? "w-3 h-3 bg-[#1E3A8A] ring-2 ring-white shadow-md scale-125"
-              : hoverState === "interactive"
-              ? "w-2.5 h-2.5 bg-[#D4AF37] scale-125 shadow-sm"
+            hoverState === "gold" || hoverState === "interactive"
+              ? "w-2.5 h-2.5 bg-[#B8860B] shadow-sm ring-2 ring-[#D4AF37]/40 scale-125"
               : "w-2 h-2 bg-[#B8860B]"
           }`}
         />
       </div>
 
-      {/* Trailing Outer Ring (Smooth Lerp RAF) */}
+      {/* Subtle Trailing Accent Ring - No distracting blue fills */}
       <div
         ref={ringRef}
         className="fixed top-0 left-0 pointer-events-none z-[9998] will-change-transform -translate-x-1/2 -translate-y-1/2"
@@ -123,11 +121,9 @@ export default function CustomCursor() {
       >
         <div
           className={`rounded-full border transition-all duration-200 ${
-            hoverState === "gold"
-              ? "w-11 h-11 border-[#1E3A8A] bg-[#1E3A8A]/15 shadow-sm scale-110"
-              : hoverState === "interactive"
-              ? "w-10 h-10 border-[#D4AF37] bg-[#B8860B]/10 scale-105"
-              : "w-7 h-7 border-[#B8860B]/40 bg-transparent"
+            hoverState === "gold" || hoverState === "interactive"
+              ? "w-8 h-8 border-[#B8860B]/50 bg-[#B8860B]/5 scale-110"
+              : "w-6 h-6 border-[#B8860B]/25 bg-transparent"
           }`}
         />
       </div>

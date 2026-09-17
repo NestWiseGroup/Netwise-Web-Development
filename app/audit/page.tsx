@@ -1,13 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
 import AuditForm from "@/components/shared/AuditForm";
-import ComparisonMatrix from "@/components/shared/ComparisonMatrix";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Free 48-Hour Property Revenue Audit | NestWise Group",
   description:
-    "Request your personalized, deeply benchmarked market report matching your Seattle or Bellevue property against its 12 closest real-time market comparables.",
+    "Request your personalized, deeply benchmarked market report matching your Greater Seattle or Washington State property against its 12 closest real-time market comparables.",
 };
 
 export default function AuditPage() {
@@ -29,16 +28,14 @@ export default function AuditPage() {
             <span className="text-[#1E3A8A]">Property Revenue Audit</span>
           </nav>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E3A8A]/5 border border-[#B8860B]/30">
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#B8860B]">
-              INSTITUTIONAL ASSET INTELLIGENCE
-            </span>
+          <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
+            FREE 5-POINT REVENUE AUDIT
           </div>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight">
             Free 48-Hour Property Revenue Audit
           </h1>
           <p className="text-base sm:text-lg text-[#4B5563] max-w-2xl mx-auto leading-relaxed">
-            Receive a personalized, deeply benchmarked market report matching your home against its 12 closest real-time comparables in King County.
+            Receive an honest, personalized market report matching your home against its 12 closest real-time comparables in Washington State.
           </p>
         </div>
       </section>
@@ -49,8 +46,8 @@ export default function AuditPage() {
           <AuditForm
             variant="full"
             title="Complete Your Property Profile"
-            subtitle="Our analytics desk pulls live AirDNA data, recent MLS short-term transactions, and King County seasonality curves to formulate your bespoke yield model."
-            buttonText="Generate My 48-Hour Revenue Audit"
+            subtitle="Our team benchmarks your property against 12 nearby comparable homes to show you what you're charging, what the market is earning, and what you're leaving on the table."
+            buttonText="Get My Free Property Audit"
           />
 
           {/* Guarantee Badges */}
@@ -60,7 +57,7 @@ export default function AuditPage() {
                 12-Comp Deep Dive
               </div>
               <p className="text-xs text-[#6B7280]">
-                Exact revenue, occupancy, and ADR matching against neighborhood peers.
+                Exact revenue, occupancy, and nightly rate matching against neighborhood peers.
               </p>
             </div>
             <div className="p-6 bg-white rounded-2xl border border-[#E6DCB8] shadow-sm">
@@ -68,7 +65,7 @@ export default function AuditPage() {
                 Zero Sales Pressure
               </div>
               <p className="text-xs text-[#6B7280]">
-                Advisory market report delivered in clean PDF format directly to your inbox.
+                Clean market report delivered within 48 hours. Yours to keep, no obligation.
               </p>
             </div>
             <div className="p-6 bg-white rounded-2xl border border-[#E6DCB8] shadow-sm">
@@ -80,19 +77,8 @@ export default function AuditPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Embedded Condensed Comparison Matrix */}
-      <section className="py-14 sm:py-16 bg-white border-t border-[#E6DCB8]/60">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ComparisonMatrix
-            variant="condensed"
-            title="Why Audit Before Hiring A Manager?"
-            subtitle="Most luxury owners switch to NestWise after seeing the true cost of 30%+ legacy contracts. Compare the fundamental operating differences below."
-          />
-
-          <div className="mt-8 text-center">
+          <div className="mt-12 text-center">
             <Link href="/" className="text-xs font-semibold text-[#1E3A8A] hover:text-[#B8860B] underline">
               ← Return to NestWise Group Homepage
             </Link>

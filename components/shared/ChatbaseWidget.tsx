@@ -19,7 +19,7 @@ export default function ChatbaseWidget({
   >([
     {
       role: "bot",
-      text: "Welcome to NestWise Group Operational Intelligence. Ask me anything regarding Seattle SMC 6.600 STR rules, our 22% flat fee structure, or onboarding turnarounds.",
+      text: "Welcome to NestWise Group. Ask me anything about our 22% flat fee, $600 onboarding fee, Turno cleaning process, daily pricing updates, or Seattle and Bellevue short-term rental rules.",
       time: "Just now",
     },
   ]);
@@ -27,12 +27,13 @@ export default function ChatbaseWidget({
   const [isTyping, setIsTyping] = useState(false);
 
   const quickPrompts = [
-    "What are Seattle's 2-unit STR rules?",
-    "How does your 22% flat fee work?",
-    "What is the onboarding timeline?",
+    "How does the 22% flat fee work?",
+    "How do you handle cleaning & Turno?",
+    "How does daily pricing work?",
+    "What are Seattle's 2-unit rules?",
   ];
 
-  const handleSend = (queryText?: string) => {
+  const handleSend = async (queryText?: string) => {
     const textToSend = queryText || inputQuestion;
     if (!textToSend.trim()) return;
 
@@ -41,29 +42,27 @@ export default function ChatbaseWidget({
     if (!queryText) setInputQuestion("");
     setIsTyping(true);
 
-    setTimeout(() => {
-      let reply = "";
-      const lower = textToSend.toLowerCase();
-      if (lower.includes("fee") || lower.includes("22%") || lower.includes("cost") || lower.includes("charge")) {
-        reply =
-          "NestWise Group operates on a transparent 22% flat fee on gross booking revenues. There are zero onboarding fees, zero linen replacement deductions, and zero long-term cancellation penalties.";
-      } else if (lower.includes("seattle") || lower.includes("rule") || lower.includes("permit") || lower.includes("smc") || lower.includes("compliance")) {
-        reply =
-          "In Seattle (SMC 6.600), operators can host up to two STR units: your primary residence plus one additional unit. In Bellevue, STRs require city registration and King County lodging tax filings. We handle 100% of regulatory paperwork and compliance guardrails.";
-      } else if (lower.includes("timeline") || lower.includes("onboard") || lower.includes("start") || lower.includes("fast")) {
-        reply =
-          "Onboarding is completed within 5 to 7 business days from on-site inspection. This covers professional HDR architectural staging, smart lock deployment, dynamic rate curve calibration, and multi-channel OTA syndication.";
-      } else {
-        reply =
-          "Our local Bellevue & Seattle team manages 24/7 guest communications, automated AI yield pricing, and hotel-grade turnovers. Would you like to connect directly via +1 (425) 414-6819?";
-      }
-
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: textToSend }),
+      });
+      const data = await res.json();
+      const reply = data.response || "Our team is here to help. You can call us directly at (425) 414-6819 or request a free Property Audit.";
+      setMessages((prev) => [...prev, { role: "bot", text: reply, time: "Just now" }]);
+    } catch {
       setMessages((prev) => [
         ...prev,
-        { role: "bot", text: reply, time: "Just now" },
+        {
+          role: "bot",
+          text: "We provide full-service vacation rental co-hosting across Washington State for a flat 22% fee. Feel free to call Emmanuel N. Muvunyi directly at (425) 414-6819.",
+          time: "Just now",
+        },
       ]);
+    } finally {
       setIsTyping(false);
-    }, 900);
+    }
   };
 
   const widgetContent = (
@@ -74,15 +73,15 @@ export default function ChatbaseWidget({
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
           <div>
             <span className="text-xs font-serif font-bold text-[#FDF6E2] block">
-              NestWise AI Operational Assistant
+              NestWise Assistant
             </span>
             <span className="text-[10px] text-slate-300 block">
-              Trained on PNW Short-Term Rental Codes
+              Washington Short-Term Rental Co-Hosting
             </span>
           </div>
         </div>
         <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded text-slate-200 border border-white/15">
-          Chatbase Core
+          Online
         </span>
       </div>
 

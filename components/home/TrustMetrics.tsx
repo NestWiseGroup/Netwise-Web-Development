@@ -7,26 +7,26 @@ export default function TrustMetrics() {
   const metrics = [
     {
       value: "22%",
-      label: "Flat Co-Hosting Commission",
-      subtext: "Zero hidden add-on surcharges or linen deductions",
+      label: "Flat fee.",
+      subtext: "Nothing hidden.",
       highlight: true,
     },
     {
-      value: "< 3 Min",
-      label: "Average Guest Response SLA",
-      subtext: "24/7/365 dedicated Seattle-Bellevue command team",
-      highlight: false,
-    },
-    {
-      value: "4.98 ★",
-      label: "Average Review Sentiment",
-      subtext: "Maintained across 1,400+ verified luxury bookings",
-      highlight: false,
-    },
-    {
       value: "0 Days",
-      label: "Contract Lock-in Obligation",
-      subtext: "Month-to-month flexibility with zero cancellation penalties",
+      label: "Lock-in.",
+      subtext: "Leave any time.",
+      highlight: false,
+    },
+    {
+      value: "5+",
+      label: "Booking sites,",
+      subtext: "one calendar",
+      highlight: false,
+    },
+    {
+      value: "Under 3 min",
+      label: "Guest response,",
+      subtext: "day or night",
       highlight: false,
     },
   ];
@@ -57,7 +57,7 @@ export default function TrustMetrics() {
               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F2937] mt-2">
                 {m.label}
               </div>
-              <div className="text-[11px] text-[#6B7280] mt-1 max-w-[220px]">
+              <div className="text-xs text-[#6B7280] mt-0.5">
                 {m.subtext}
               </div>
             </motion.div>

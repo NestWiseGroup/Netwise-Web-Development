@@ -4,12 +4,14 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, Sparkles } from "@/components/shared/Icons";
+import { ArrowRight, MapPin } from "@/components/shared/Icons";
+import BookingModal from "@/components/shared/BookingModal";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 500, y: 300 });
   const [isHovered, setIsHovered] = useState(false);
+  const [bookingModalOpen, setBookingModalOpen] = useState(false);
 
   // Dynamic interactive pointer tracking for Antigravity-style grid illumination
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -93,61 +95,72 @@ export default function Hero() {
             className="lg:col-span-6 flex flex-col space-y-5 text-left"
           >
             
-            {/* Small Overline Pill */}
-            <motion.div 
-              variants={itemVariants}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E3A8A]/5 border border-[#B8860B]/30 self-start shadow-xs"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-[#B8860B]" />
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#B8860B]">
-                PREMIUM AI CO-HOSTING
+            {/* Minimal Kicker without pill container */}
+            <motion.div variants={itemVariants}>
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
+                Full-Service Co-Hosting · Greater Seattle &amp; Washington State
               </span>
             </motion.div>
 
-            {/* Clear, Punchy Headline */}
+            {/* Headline */}
             <motion.h1 
               variants={itemVariants}
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] leading-[1.12] tracking-tight"
+              className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#1E3A8A] leading-[1.16] tracking-tight"
             >
-              Maximize Earning. Erase Effort.
+              You own the property. <br className="hidden sm:block" />
+              <span className="text-[#B8860B]">We&apos;ll run everything else.</span>
             </motion.h1>
 
-            {/* Concise Value Proposition */}
+            {/* Subheading - Clear, punchy and balanced text size */}
             <motion.p 
               variants={itemVariants}
-              className="text-base sm:text-lg text-[#374151] leading-relaxed font-normal max-w-lg"
+              className="text-sm sm:text-base text-[#4B5563] leading-relaxed font-normal max-w-lg"
             >
-              Full-scale luxury property operations across Airbnb and VRBO for a flat <strong className="text-[#1E3A8A] font-bold">22% fee</strong>. Zero lock-in contracts. Complete local accountability.
+              We handle multi-platform listings, 24/7 guest communication, live dynamic pricing, and housekeeping turnover. You earn passive rental income without touching a thing.
             </motion.p>
 
-            {/* Trust & Location */}
+            {/* Supporting Line */}
             <motion.div 
               variants={itemVariants}
-              className="flex items-center gap-2 text-xs sm:text-sm text-[#4B5563] font-medium"
+              className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#1E3A8A]"
             >
-              <MapPin className="w-4 h-4 text-[#B8860B] shrink-0" />
-              <span>Headquartered in <strong className="text-[#1E3A8A]">Bellevue, WA</strong> · Greater Seattle & Eastside</span>
+              <MapPin className="w-3.5 h-3.5 text-[#B8860B] shrink-0" />
+              <span>22% flat fee · No lock-in contract · Local Seattle team</span>
             </motion.div>
 
-            {/* Unified Primary Action & Demoted Secondary Link */}
-            <motion.div variants={itemVariants} className="pt-2 flex flex-col items-start gap-2.5">
-              <motion.div 
-                whileHover={{ scale: 1.03 }} 
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <Link
-                  href="/audit"
-                  className="btn-gold py-4 px-8 rounded-xl font-serif font-bold text-sm sm:text-base uppercase tracking-wider flex items-center justify-center gap-3 shadow-luxury hover:shadow-gold-glow transition-all"
+            {/* Buttons: Primary & Secondary */}
+            <motion.div variants={itemVariants} className="pt-2 flex flex-col items-start gap-3">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+                <motion.div 
+                  whileHover={{ scale: 1.02 }} 
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <span>Request Free Property Audit</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </motion.div>
-              <div className="text-xs text-[#6B7280] flex items-center gap-2 pl-1">
-                <span>Free 48-hour dossier</span>
+                  <Link
+                    href="/audit"
+                    className="btn-gold py-3 px-6 sm:px-7 rounded-xl font-serif font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-luxury hover:shadow-gold-glow transition-all"
+                  >
+                    <span>Get My Free Property Audit</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </motion.div>
+
+                <motion.button
+                  type="button"
+                  onClick={() => setBookingModalOpen(true)}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="py-3 px-6 rounded-xl font-serif font-bold text-xs sm:text-sm text-[#1E3A8A] bg-white border border-[#E6DCB8] hover:border-[#B8860B] hover:bg-[#FDFAF5] transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                >
+                  <span>Book a Call</span>
+                </motion.button>
+              </div>
+
+              {/* Under the Buttons */}
+              <div className="text-[11px] sm:text-xs text-[#6B7280] flex flex-wrap items-center gap-2 pl-1">
+                <span>Free, no obligation · Report within 48 hours</span>
                 <span>·</span>
-                <span>Prefer to talk? <a href="tel:+14254146819" className="text-[#1E3A8A] font-semibold hover:underline">Call (425) 414-6819</a></span>
+                <span>Prefer to call? <a href="tel:+14254146819" className="text-[#1E3A8A] font-semibold hover:underline">(425) 414-6819</a></span>
               </div>
             </motion.div>
 
@@ -185,6 +198,11 @@ export default function Hero() {
 
         </div>
       </div>
+
+      <BookingModal
+        isOpen={bookingModalOpen}
+        onClose={() => setBookingModalOpen(false)}
+      />
     </section>
   );
 }

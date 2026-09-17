@@ -35,6 +35,14 @@
 html {
   font-family: var(--font-sans-body), 'Plus Jakarta Sans', system-ui, sans-serif;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
 }
 
 h1, h2, h3, .font-serif {

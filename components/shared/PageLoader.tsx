@@ -62,7 +62,7 @@ export default function PageLoader() {
 
         {/* Subtitle */}
         <div className="text-[10px] uppercase font-bold tracking-[0.25em] text-[#1E3A8A]/75">
-          Seattle · Bellevue · Medina
+          Greater Seattle &amp; Washington State
         </div>
       </div>
     </div>

@@ -27,26 +27,26 @@ const CORE_VALUES = [
   {
     id: "hyper-local",
     icon: MapPin,
-    title: "Hyper-Local Command Desk",
-    desc: "Based at 500 108th Ave NE in Bellevue, WA. When an on-site issue arises, our local ground team responds in person within minutes—not via an overseas ticket queue.",
+    title: "Locally Based in Washington State",
+    desc: "Based in Renton, WA, and serving Greater Seattle & Washington State. When an on-site issue arises, our local team is nearby to resolve it in person—not through an overseas phone tree.",
   },
   {
     id: "algorithmic-yield",
     icon: TrendingUp,
-    title: "Algorithmic Yield Engineering",
-    desc: "We replace manual guesswork with hourly dynamic pricing models synced with King County convention calendars, sporting events, and flight arrival density.",
+    title: "Daily Smart Pricing",
+    desc: "We replace flat rate guesswork with daily dynamic pricing synced with local Washington events, regional conferences, and live market comps.",
   },
   {
     id: "radical-transparency",
     icon: HeartHandshake,
-    title: "Radical Transparency & 22% Flat Fee",
-    desc: "Zero hidden line items. Zero linen replacement surcharges. Zero lock-in contracts. You retain 78% of your gross earnings with complete monthly audit-ready reports.",
+    title: "22% Flat Fee & 30-Day Notice",
+    desc: "Zero hidden line items. Stated $600 onboarding fee. Zero lock-in contract. You retain 78% of your gross earnings with an itemized monthly report.",
   },
   {
     id: "asset-stewardship",
     icon: ShieldCheck,
-    title: "Uncompromising Asset Stewardship",
-    desc: "Every stay is guarded by privacy-safe Minut decibel sensors, 25+ age minimums, biometric guest ID checks, and a $3,000,000 Host Cover insurance shield.",
+    title: "Vetted Guests & Turno Cleaners",
+    desc: "Guest screening, mandatory 25+ age minimums, and vetted background-checked professional cleaners booked through Turno with photo proof.",
   },
 ];
 
@@ -54,34 +54,34 @@ const DIFFERENTIATORS = [
   {
     id: "rapid-dispatch",
     icon: Zap,
-    title: "Bellevue On-Site Rapid Dispatch",
-    desc: "Physical ground presence within 30 minutes for urgent maintenance, noise alerts, or lockout assistance.",
+    title: "Local People You Can Call",
+    desc: "When your guest is locked out at 11pm, someone nearby answers your phone and takes care of the issue immediately.",
   },
   {
     id: "hospital-grade",
     icon: Star,
-    title: "Hospital-Grade Dedicated Cleaners",
-    desc: "Rigorous 70-point turnover protocol backed by photographic time-stamped inspection logs before every stay.",
+    title: "Turno Professional Cleaners",
+    desc: "Cleaners follow an extensive turnover checklist and upload photo-verified inspection logs before every stay.",
   },
   {
     id: "multi-point-security",
     icon: Shield,
-    title: "Multi-Point Security & Telemetry",
-    desc: "Privacy-compliant Minut decibel monitors, mandatory 25+ age screening, and comprehensive $3M insurance protection.",
+    title: "Guest Vetting & Clear Rules",
+    desc: "Identity verification, guest review vetting, and strict party prevention rules to protect your home.",
   },
   {
     id: "municipal-compliance",
     icon: Building2,
-    title: "Turnkey Municipal Compliance",
-    desc: "Seamless legal filings and tax remittance under Seattle SMC 6.600 and City of Bellevue lodging regulations.",
+    title: "Municipal Compliance Guidance",
+    desc: "Turnkey permit guidance and quarterly tax remittance support under Seattle SMC 6.600 and City of Bellevue rules.",
   },
 ];
 
 const MARKETS = [
   {
-    id: "bellevue-medina",
-    name: "Bellevue & Medina",
-    subtitle: "Downtown, West Bellevue, Medina Estates, Somerset",
+    id: "eastside-bellevue",
+    name: "Bellevue & Eastside",
+    subtitle: "Downtown, West Bellevue, Renton, Kirkland, Somerset",
     highlight: "High Executive & Tech Relocation Demand",
     color: "from-[#1e3a8a]/10 to-[#1e3a8a]/5",
   },
@@ -102,8 +102,8 @@ const MARKETS = [
   {
     id: "mercer-island",
     name: "Mercer Island",
-    subtitle: "First Hill, East Seattle, Mid-Island Luxury Estates",
-    highlight: "Ultra-High Net Worth Estate Stewardship",
+    subtitle: "First Hill, East Seattle, Mid-Island Residential Homes",
+    highlight: "High-Standard Island Property Stewardship",
     color: "from-purple-900/10 to-purple-600/5",
   },
   {
@@ -137,11 +137,8 @@ const SectionHeader = ({
     transition={{ duration: 0.6 }}
     className={`${centered ? 'text-center' : ''} max-w-3xl mx-auto mb-14 space-y-3`}
   >
-    <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E3A8A]/5 border border-[#B8860B]/30 ${centered ? '' : ''}`}>
-      <Sparkles className="w-3.5 h-3.5 text-[#B8860B]" />
-      <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#B8860B]">
-        {badge}
-      </span>
+    <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
+      {badge}
     </div>
     <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight">
       {title}
@@ -241,11 +238,8 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E3A8A]/5 border border-[#B8860B]/30 mb-6">
-                
-                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#B8860B]">
-                  About NestWise
-                </span>
+              <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none mb-6">
+                About NestWise
               </div>
               
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1E3A8A] tracking-tight leading-tight">
@@ -265,9 +259,9 @@ export default function AboutPage() {
                 className="mt-8 flex flex-wrap justify-center gap-6"
               >
                 {[
-                  { icon: Star, text: "4.97★ Average Rating" },
-                  { icon: Users, text: "500+ Happy Owners" },
-                  { icon: Home, text: "100+ Properties Managed" },
+                  { icon: Star, text: "22% Flat Management Fee" },
+                  { icon: Users, text: "Zero Lock-in (30 Days Notice)" },
+                  { icon: Home, text: "Nightly Rates Updated Daily" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2">
                     <item.icon className="w-4 h-4 text-[#B8860B]" />
@@ -303,7 +297,7 @@ export default function AboutPage() {
               <div className="relative h-80 sm:h-[420px] w-full rounded-3xl overflow-hidden shadow-2xl border border-[#E6DCB8] group">
                 <Image
                   src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
-                  alt="NestWise luxury property management in Bellevue, Washington"
+                  alt="NestWise property co-hosting in Washington State"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -321,7 +315,7 @@ export default function AboutPage() {
                     King County Precision
                   </span>
                   <p className="font-serif text-base sm:text-lg font-bold leading-snug">
-                    Curated luxury staging matching executive travel expectations in Seattle & Bellevue.
+                    Curated staging matching high-standard guest expectations across Greater Seattle.
                   </p>
                 </motion.div>
               </div>
@@ -338,19 +332,16 @@ export default function AboutPage() {
               
               <div className="space-y-4">
                 <h3 className="font-serif text-2xl font-bold text-[#1E3A8A]">
-                  The Vision Behind NestWise
+                  The Founder Behind NestWise
                 </h3>
                 <p className="text-[#475569] leading-relaxed">
-                  NestWise was founded in 2024 with a single mission: to bring institutional-grade 
-                  property management to luxury short-term rentals in the Pacific Northwest. 
-                  We saw too many property owners struggling with impersonal national chains 
-                  that lacked local knowledge and hands-on care.
+                  NestWise Group was founded by Emmanuel N. Muvunyi, who brings over fifteen years of operations leadership running mission-critical organizations where delays meant people went without.
                 </p>
                 <p className="text-[#475569] leading-relaxed">
-                  Our team brings decades of combined experience in real estate operations, 
-                  hospitality management, and algorithmic pricing. We combine this expertise 
-                  with a deep understanding of King County&apos;s unique micro-markets to deliver 
-                  superior returns for our clients.
+                  Based right here in Washington State and a graduate of the Community Police Academy, Emmanuel has spent more than a decade building genuine relationships with local vendors, tradespeople, and community partners.
+                </p>
+                <p className="text-[#475569] leading-relaxed">
+                  Our dedicated four-person Washington team manages every aspect of your rental: listing your property across all major booking channels, answering guest messages around the clock, pricing every night using live market data, and sending you a clear report on the 5th of every month.
                 </p>
               </div>
 
@@ -359,14 +350,16 @@ export default function AboutPage() {
                 <div className="absolute bottom-0 left-0 w-20 h-20 bg-[#1E3A8A]/5 rounded-tr-full pointer-events-none" />
                 
                 <div className="flex items-center gap-2 text-xs font-bold text-[#B8860B] uppercase tracking-wider mb-3 relative">
-                  <span className="w-2 h-2 rounded-full bg-[#B8860B] animate-pulse" />
-                  <span>Our Promise</span>
+                  <span className="w-2 h-2 rounded-full bg-[#B8860B]" />
+                  <span>Our Guiding Principle</span>
                 </div>
                 
                 <blockquote className="font-serif text-base sm:text-lg text-[#1E3A8A] font-semibold italic leading-relaxed relative">
-                  &ldquo;We don&apos;t just manage properties—we protect and grow your most valuable asset, 
-                  treating every home as if it were our own.&rdquo;
+                  &ldquo;Feet on the ground, not a phone tree. When your guest has a question or needs help at 11pm, someone nearby picks up.&rdquo;
                 </blockquote>
+                <div className="mt-3 text-xs text-[#6B7280]">
+                  — <strong>Emmanuel N. Muvunyi</strong>, President/CEO · NestWise Group LLC
+                </div>
               </div>
 
             </motion.div>
@@ -428,7 +421,7 @@ export default function AboutPage() {
           <SectionHeader
             badge="OUR FOUNDATION"
             title="The 4 Pillars of Our Operation"
-            subtitle="The core principles behind our industry-leading owner satisfaction and five-star ratings."
+            subtitle="The core operational principles behind our honest, hands-on Washington co-hosting model."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

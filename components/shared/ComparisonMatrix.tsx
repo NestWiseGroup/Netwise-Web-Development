@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, X, Zap, ArrowRight, ShieldCheck, Clock, TrendingUp, Sparkles } from "@/components/shared/Icons";
+import { Check, X, ArrowRight, ShieldCheck, Clock, TrendingUp, Sparkles } from "@/components/shared/Icons";
 
 interface ComparisonMatrixProps {
   variant?: "full" | "condensed";
@@ -28,64 +28,62 @@ export default function ComparisonMatrix({
     {
       metric: "Management Fee",
       icon: TrendingUp,
-      nestwise: { title: "22% Flat Rate", detail: "Single fee. Zero hidden deductions or markups." },
-      legacy: { title: "28% – 35% Surcharges", detail: "Padded with linen replacement & admin fees." },
-      diy: { title: "0% Cash Fee", detail: "Hidden cost: 20+ hours per week of owner burnout." },
+      nestwise: { title: "22% Flat Fee", detail: "Single transparent fee. Stated $600 onboarding. Zero hidden deductions." },
+      legacy: { title: "28% – 30% Commissions", detail: "Padded with linen replacement fees and administrative surcharges." },
+      diy: { title: "0% Cash Fee", detail: "Hidden cost: 15–20 hours a week of owner stress and burnout." },
     },
     {
       metric: "Contract Freedom",
       icon: Clock,
-      nestwise: { title: "Month-to-Month", detail: "30-day exit. We earn your partnership each month." },
-      legacy: { title: "12-Month Lock-in", detail: "Hefty penalty fees & mandatory calendar forfeiture." },
-      diy: { title: "No Contract", detail: "Total personal responsibility with 100% stress." },
+      nestwise: { title: "No Lock-in (30 Days)", detail: "Leave anytime with simple 30 days notice. We earn your business every month." },
+      legacy: { title: "12-Month Lock-in", detail: "Binding year-long contracts, termination penalties, and you lose control of your calendar." },
+      diy: { title: "No Contract", detail: "Total personal responsibility with 100% midnight guest interruption." },
     },
     {
       metric: "Dynamic Pricing",
       icon: Sparkles,
-      nestwise: { title: "Hourly AI Curve", detail: "Automated recalibration for local King County surges." },
-      legacy: { title: "Static Seasonal", detail: "Manual weekly adjustments that miss event rate peaks." },
-      diy: { title: "Manual Guesswork", detail: "Underpriced peak weekends and missed revenue." },
+      nestwise: { title: "Daily Market Pricing", detail: "Nightly rates updated daily from live local competitor and event data." },
+      legacy: { title: "Static Weekly Rates", detail: "Manual weekly guesses that leave peak revenue on the table." },
+      diy: { title: "Manual Guessing", detail: "Setting flat rates and missing local event surges." },
     },
     {
-      metric: "Guest Response SLA",
+      metric: "Guest Response Time",
       icon: Clock,
-      nestwise: { title: "< 3 Minutes (Bellevue)", detail: "Local operations desk responding 24/7/365." },
-      legacy: { title: "Hours (Offshore)", detail: "Remote call center with zero local market knowledge." },
-      diy: { title: "Whenever Free", detail: "Late-night lockouts interrupt your sleep and life." },
+      nestwise: { title: "Under 3 Minutes", detail: "Our Washington team answers guest messages day and night." },
+      legacy: { title: "Hours (Call Centers)", detail: "Remote call centers 2,000 miles away with zero local knowledge." },
+      diy: { title: "Whenever Available", detail: "Late-night lockouts interrupt your sleep and life." },
     },
     {
-      metric: "Asset Protection",
+      metric: "Turnover & Care",
       icon: ShieldCheck,
-      nestwise: { title: "$3M Shield + Sensors", detail: "Minut decibel monitors & 25+ age screening." },
-      legacy: { title: "Basic Minimums", detail: "Standard platform limits with slow claim approvals." },
-      diy: { title: "100% Personal Risk", detail: "Self-insured exposure to unauthorized parties." },
+      nestwise: { title: "Turno Cleaners & Photos", detail: "Background-checked cleaners with photo proof after every stay." },
+      legacy: { title: "Unvetted Subcontractors", detail: "Inconsistent cleaning standards and linen fee deductions." },
+      diy: { title: "Clean It Yourself", detail: "Last-minute cleaner cancellations and dirty turnover reviews." },
     },
     {
       metric: "Municipal Compliance",
       icon: ShieldCheck,
-      nestwise: { title: "Turnkey Filings", detail: "Full management of Seattle SMC 6.600 & Bellevue permits." },
-      legacy: { title: "Owner Burden", detail: "Franchises disclaim all regulatory responsibility." },
-      diy: { title: "Complex Paperwork", detail: "High penalty risks for licensing non-compliance." },
+      nestwise: { title: "Local Permit Guidance", detail: "Assistance navigating Seattle SMC 6.600 2-unit caps and Bellevue lodging rules." },
+      legacy: { title: "Owner Burden", detail: "National franchises disclaim all regulatory responsibility." },
+      diy: { title: "Complex Paperwork", detail: "High penalty risks for city tax and licensing non-compliance." },
     },
   ];
 
-  const rows = variant === "condensed" ? comparisonData.slice(0, 5) : comparisonData;
+  // Preserve all 6 rows across both condensed and full variants so Municipal Compliance is never omitted
+  const rows = comparisonData;
 
   return (
     <div id={id} className={`w-full ${className}`}>
       {showTitle && (
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-4">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E3A8A]/5 border border-[#B8860B]/30"
+            className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none"
           >
-            <Zap className="w-3.5 h-3.5 text-[#B8860B]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#B8860B]">
-              THE HEAD-TO-HEAD COMPARISON
-            </span>
+            THE HEAD-TO-HEAD COMPARISON
           </motion.div>
 
           <motion.h2 
@@ -95,7 +93,7 @@ export default function ComparisonMatrix({
             transition={{ duration: 0.5, delay: 0.1 }}
             className="font-serif text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight"
           >
-            {title || "Why Luxury Owners Choose NestWise"}
+            {title || "Why Property Owners Choose NestWise"}
           </motion.h2>
 
           <motion.p 
@@ -106,7 +104,7 @@ export default function ComparisonMatrix({
             className="text-sm sm:text-base text-[#475569] max-w-2xl mx-auto leading-relaxed"
           >
             {subtitle ||
-              "Clutter-free clarity: See the exact operational differences between our dedicated Bellevue model, corporate franchises, and solo management."}
+              "See the exact operational differences between our local Washington co-hosting model, national corporate franchises, and self-hosting."}
           </motion.p>
 
           {/* Interactive View Switcher (Declutters information for skimmers) */}
@@ -198,7 +196,7 @@ export default function ComparisonMatrix({
                   <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-linear-to-r from-[#B8860B] to-[#D4AF37] px-3 py-1 rounded-full shadow-xs">
                     ★ Partner Choice
                   </span>
-                  <span className="text-xs font-bold text-[#D4AF37]">Bellevue HQ</span>
+                  <span className="text-xs font-bold text-[#D4AF37]">Local Washington Team</span>
                 </div>
 
                 <div>
@@ -206,7 +204,7 @@ export default function ComparisonMatrix({
                     NestWise Group
                   </h3>
                   <p className="text-xs text-slate-300 mt-1">
-                    Bespoke Luxury Co-Hosting & AI Yield Management
+                    Full-Service Co-Hosting · Greater Seattle &amp; Washington State
                   </p>
                 </div>
 
@@ -235,11 +233,11 @@ export default function ComparisonMatrix({
                   href="/audit"
                   className="btn-gold w-full py-3.5 rounded-xl font-serif font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md hover:shadow-gold-glow transition-all"
                 >
-                  <span>Request Free Property Audit</span>
+                  <span>Get My Free Property Audit</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <p className="text-[11px] text-center text-slate-300">
-                  Zero onboarding fees · Month-to-month freedom
+                  22% Flat Fee · No lock-in contract · 30 days notice
                 </p>
               </div>
             </motion.div>

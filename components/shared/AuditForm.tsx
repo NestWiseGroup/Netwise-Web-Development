@@ -13,8 +13,8 @@ interface AuditFormProps {
 export default function AuditForm({
   variant = "card",
   title = "Request Your Free 48-Hour Property Revenue Audit",
-  subtitle = "We benchmark your property against its 12 closest real-time market comparables in Seattle & Bellevue.",
-  buttonText = "Generate My 48-Hour Revenue Audit",
+  subtitle = "We benchmark your property against its 12 closest real-time market comparables across Greater Seattle & Washington State.",
+  buttonText = "Get My Free Property Audit",
   className = "",
 }: AuditFormProps) {
   const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ export default function AuditForm({
     email: "",
     phone: "",
     address: "",
-    propertyType: "Single Family Estate",
+    propertyType: "Single Family Home",
     bedrooms: "4",
     listingUrl: "",
   });
@@ -118,8 +118,8 @@ export default function AuditForm({
             Audit Request Confirmed
           </h4>
           <p className="text-sm text-[#374151] max-w-md mx-auto leading-relaxed">
-            Thank you, <strong className="text-[#1E3A8A]">{formData.fullName || "Partner"}</strong>. Our Bellevue analytics desk is actively synthesizing MLS benchmarks and real-time AirDNA metrics for{" "}
-            <span className="font-semibold text-[#1E3A8A]">{formData.address || "your property"}</span>. Your comprehensive strategic report will arrive within 48 hours.
+            Thank you, <strong className="text-[#1E3A8A]">{formData.fullName || "Partner"}</strong>. We&apos;re benchmarking your property against its 12 closest comparables in the area for{" "}
+            <span className="font-semibold text-[#1E3A8A]">{formData.address || "your property"}</span>. Your comprehensive strategic report will arrive in your inbox within 48 hours.
           </p>
           <div className="pt-2">
             <button
@@ -130,7 +130,7 @@ export default function AuditForm({
                   email: "",
                   phone: "",
                   address: "",
-                  propertyType: "Single Family Estate",
+                  propertyType: "Single Family Home",
                   bedrooms: "4",
                   listingUrl: "",
                 });
@@ -222,7 +222,7 @@ export default function AuditForm({
               id="address"
               type="text"
               required
-              placeholder="e.g. 1024 106th Ave NE, Bellevue, WA 98004"
+              placeholder="e.g. 560 Naches Ave SW, Renton, WA 98057"
               value={formData.address}
               onChange={(e) => setFormData({ ...formData, address: e.target.value })}
               className="w-full px-4 py-3 rounded-lg border border-[#D1D5DB] bg-[#FDFAF5]/60 text-sm text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#B8860B] focus:border-transparent transition-all"
@@ -244,9 +244,10 @@ export default function AuditForm({
                 onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
                 className="w-full px-4 py-3 rounded-lg border border-[#D1D5DB] bg-[#FDFAF5]/60 text-sm text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#B8860B] focus:border-transparent transition-all"
               >
-                <option value="Single Family Estate">Single Family Luxury Estate</option>
-                <option value="Waterfront Villa">Waterfront / Lake Villa</option>
-                <option value="Urban Penthouse">Urban Penthouse / Condo</option>
+                <option value="Single Family Home">Single Family Home</option>
+                <option value="Townhome">Townhome / Rowhouse</option>
+                <option value="Condo / Apartment">Condo / Apartment</option>
+                <option value="Waterfront Property">Waterfront / Lake Property</option>
                 <option value="Multi-Unit Portfolio">Multi-Unit STR Portfolio</option>
               </select>
             </div>
@@ -266,7 +267,7 @@ export default function AuditForm({
                 <option value="1-2">1 – 2 Bedrooms</option>
                 <option value="3">3 Bedrooms</option>
                 <option value="4">4 Bedrooms</option>
-                <option value="5+">5+ Luxury Bedrooms</option>
+                <option value="5+">5+ Bedrooms</option>
               </select>
             </div>
           </div>
@@ -342,7 +343,7 @@ export default function AuditForm({
               {submitting ? (
                 <span className="inline-flex items-center gap-2">
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  Synthesizing Market Benchmarks...
+                  Preparing Your Property Audit...
                 </span>
               ) : (
                 <>

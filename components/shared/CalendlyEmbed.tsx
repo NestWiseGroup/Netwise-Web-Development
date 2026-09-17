@@ -7,14 +7,16 @@ interface CalendlyEmbedProps {
   hostName?: string;
   hostTitle?: string;
   className?: string;
+  onClose?: () => void;
 }
 
 export default function CalendlyEmbed({
-  hostName = "Marcus Vance",
-  hostTitle = "Principal Director of Operations",
+  hostName = "Emmanuel N. Muvunyi",
+  hostTitle = "President/CEO · NestWise Group LLC",
   className = "",
+  onClose,
 }: CalendlyEmbedProps) {
-  const [selectedDate, setSelectedDate] = useState("2026-09-04");
+  const [selectedDate, setSelectedDate] = useState("2026-09-15");
   const [selectedTime, setSelectedTime] = useState("10:00 AM");
   const [isBooked, setIsBooked] = useState(false);
   const [fullName, setFullName] = useState("");
@@ -38,21 +40,29 @@ export default function CalendlyEmbed({
             </svg>
           </div>
           <h4 className="font-serif text-2xl sm:text-3xl font-bold text-[#1E3A8A]">
-            Strategy Briefing Confirmed
+            Call Confirmed
           </h4>
           <p className="text-sm text-[#4B5563] max-w-md leading-relaxed">
-            Your private 30-Minute Executive Session with{" "}
-            <strong className="text-[#1E3A8A]">{hostName}</strong> (Bellevue Operations HQ) is scheduled for{" "}
+            Your 30-minute conversation with{" "}
+            <strong className="text-[#1E3A8A]">{hostName}</strong> is scheduled for{" "}
             <span className="font-bold text-[#1E3A8A]">{selectedDate}</span> at{" "}
-            <span className="font-bold text-[#1E3A8A]">{selectedTime} (PST)</span>. Calendar invites and video conference coordinates have been dispatched.
+            <span className="font-bold text-[#1E3A8A]">{selectedTime} (PST)</span>. We&apos;ll send calendar invites and meeting coordinates to your email.
           </p>
-          <div className="pt-2">
+          <div className="pt-2 flex items-center gap-3">
             <button
               onClick={() => setIsBooked(false)}
               className="btn-gold px-6 py-2.5 rounded-lg text-xs uppercase font-bold tracking-wider cursor-pointer"
             >
-              Modify Briefing Details
+              Modify Details
             </button>
+            {onClose && (
+              <button
+                onClick={onClose}
+                className="px-5 py-2.5 rounded-lg text-xs font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 cursor-pointer"
+              >
+                Close
+              </button>
+            )}
           </div>
         </div>
       ) : (
@@ -61,8 +71,8 @@ export default function CalendlyEmbed({
           <div className="md:w-5/12 p-6 sm:p-8 bg-white flex flex-col justify-between space-y-6">
             <div>
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-[#1E3A8A] text-[#D4AF37] font-serif font-bold text-lg flex items-center justify-center border border-[#B8860B]/30 shadow-sm">
-                  MV
+                <div className="w-12 h-12 rounded-full bg-[#1E3A8A] text-[#D4AF37] font-serif font-bold text-base flex items-center justify-center border border-[#B8860B]/30 shadow-sm">
+                  EM
                 </div>
                 <div>
                   <div className="font-serif font-bold text-base text-[#1E3A8A]">
@@ -77,20 +87,31 @@ export default function CalendlyEmbed({
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  30-Minute Video Briefing
+                  30-Minute Video / Phone Call
                 </span>
                 <h5 className="font-serif text-lg font-bold text-[#1F2937]">
-                  Executive Property & Strategy Evaluation
+                  Introductory Co-Hosting Conversation
                 </h5>
                 <p className="text-xs text-[#4B5563] leading-relaxed">
-                  A high-touch walkthrough covering Bellevue / Seattle STR zoning compliance (SMC 6.600), custom dynamic yield modeling, and onboarding timeline logistics.
+                  An informal, straightforward conversation about your property, how our 22% flat fee model works, local Washington regulations, and answering any questions you have.
                 </p>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-[#F1F5F9] text-xs text-[#64748B] flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              <span>Bellevue Command Desk / Google Meet</span>
+            <div className="pt-4 border-t border-[#F1F5F9] text-xs text-[#64748B] flex items-center justify-between">
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>Greater Seattle / Renton, WA · Phone or Google Meet</span>
+              </span>
+              {onClose && (
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="text-xs text-slate-400 hover:text-slate-600 font-semibold cursor-pointer"
+                >
+                  Cancel
+                </button>
+              )}
             </div>
           </div>
 

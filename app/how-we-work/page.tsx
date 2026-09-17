@@ -4,8 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Layers, Check } from "@/components/shared/Icons";
-import ComparisonMatrix from "@/components/shared/ComparisonMatrix";
+import { Check } from "@/components/shared/Icons";
 import EarningsPotentialCard from "@/components/shared/EarningsPotentialCard";
 
 // Extracted phase data outside component for better performance
@@ -14,83 +13,83 @@ const PHASES = [
     id: "phase-01",
     phase: "Phase 01",
     tag: "5–7 Business Days",
-    title: "Rapid Onboarding, Staging & Smart Hardware",
-    subtitle: "Transforming your residence into a high-converting, secure asset with zero downtime.",
+    title: "Onboarding, Photography & Smart Locks",
+    subtitle: "Setting up your home for maximum booking appeal and security with a stated one-time $600 fee.",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-    badge: "Zero Onboarding Fees",
-    standout: "Zero Out-of-Pocket Setup: NestWise covers all professional 3D Matterport & commercial smart hardware costs upfront.",
+    badge: "$600 One-Time Setup",
+    standout: "Transparent $600 Onboarding: Covers professional photography, digital listing setup across 5+ channels, and master calendar sync.",
     details: [
       {
-        lead: "Architectural HDR Media:",
-        text: "Full aerial drone photography, twilight captures, and 3D Matterport digital twin walkthroughs.",
+        lead: "Professional Photography:",
+        text: "Curated high-resolution interior, exterior, and detail shots showcasing your home at its best.",
       },
       {
-        lead: "Commercial Smart Hardware:",
-        text: "Installation of keyless digital locks with time-sensitive guest PIN codes that automatically expire upon checkout.",
+        lead: "Keyless Smart Locks:",
+        text: "Installation of keyless digital locks with time-sensitive guest PIN codes that expire upon checkout.",
       },
       {
-        lead: "100% Privacy-Safe Telemetry:",
-        text: "Minut noise & occupancy monitors protecting your property 24/7 without invasive interior cameras.",
+        lead: "Safety & Inventory Check:",
+        text: "Comprehensive inventory audit, smoke and CO detector safety checks, and guest essential staging.",
       },
       {
-        lead: "Turnkey Staging & Compliance:",
-        text: "Comprehensive inventory audit, smoke/CO2 safety checks, and luxury five-star linen staging.",
+        lead: "Multi-Platform Syndication:",
+        text: "Synchronized listing creation across Airbnb, Vrbo, Booking.com, Google Vacation Rentals, and Agoda.",
       },
     ],
   },
   {
     id: "phase-02",
     phase: "Phase 02",
-    tag: "Automated & Daily",
-    title: "AI Dynamic Pricing & Multi-Channel Distribution",
-    subtitle: "Dominating search algorithms across Airbnb, VRBO, and Booking.com simultaneously.",
+    tag: "Updated Daily",
+    title: "Daily Dynamic Pricing & Channel Management",
+    subtitle: "Setting your nightly price using live market data, updated daily.",
     image: "https://images.unsplash.com/photo-1502175353174-a7a70e73b362?auto=format&fit=crop&w=1200&q=80",
-    badge: "Hourly Re-Indexing",
-    standout: "60-Minute Dynamic Curve: Algorithmic rate recalculation captures Seattle event surges without human lag.",
+    badge: "Daily Price Recalibration",
+    standout: "Daily Dynamic Pricing: Nightly rates updated daily from live local comp data to capture Washington event surges without guessing.",
     details: [
       {
-        lead: "60-Minute Rate Recalculation:",
-        text: "Algorithmic pricing engine tracks King County flight volume, hotel compression, and local venue tickets every hour.",
+        lead: "Daily Rate Recalibration:",
+        text: "Nightly prices adjusted daily based on live competitor pricing, local Seattle and Eastside demand, and seasonal patterns.",
       },
       {
-        lead: "Bi-Directional Calendar Sync:",
-        text: "Instant API synchronization across Airbnb, VRBO, and direct booking channels to eliminate double-booking risk permanently.",
+        lead: "Synchronized Calendar Sync:",
+        text: "Instant API synchronization across all booking channels to eliminate double-booking risk permanently.",
       },
       {
-        lead: "Top 1% Algorithmic SEO:",
-        text: "Keyword-engineered titles and photo taxonomy optimized for first-page ranking in Greater Seattle searches.",
+        lead: "Search Optimization:",
+        text: "Carefully worded titles and verified amenity tags to ensure your listing ranks high in local traveler searches.",
       },
       {
-        lead: "High-Margin Stay Controls:",
-        text: "Dynamic minimum stay rules tuned for tech summits (Microsoft/AWS) and high-demand summer lakefront weekends.",
+        lead: "Minimum Stay Optimization:",
+        text: "Adjusting minimum nights between weekends and weekdays to capture high-margin bookings without awkward calendar gaps.",
       },
     ],
   },
   {
     id: "phase-03",
     phase: "Phase 03",
-    tag: "24/7/365 Local Execution",
-    title: "Vetted Guest Screening & White-Glove Care",
-    subtitle: "Five-star hospitality backed by strict asset preservation and rapid physical response.",
+    tag: "24/7/365 Local Support",
+    title: "Guest Vetting, Rapid Response & Turno Cleaners",
+    subtitle: "Answering every guest within three minutes, with photo-verified cleanings after every stay.",
     image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80",
-    badge: "4.97★ Guest Satisfaction",
-    standout: "< 3-Minute Response SLA: Bellevue operations desk responds 24/7/365 with local emergency dispatch under 30 minutes.",
+    badge: "< 3-Min Response Time",
+    standout: "< 3-Minute Response Time: Our Washington-based team answers inquiries around the clock with local care.",
     details: [
       {
-        lead: "Mandatory 25+ Age Screening:",
-        text: "Government ID verification, prior host review vetting, and strict party prevention protocols before key issuance.",
+        lead: "Guest Verification:",
+        text: "Identity verification, prior review screening, and strict house rules against unauthorized parties.",
       },
       {
-        lead: "Sub-3-Minute Guest SLA:",
-        text: "Lightning-fast inquiry resolution around the clock, driving Superhost and Premier Host top tier placement.",
+        lead: "Under 3-Minute Response:",
+        text: "Fast, friendly guest communication 24/7/365 to resolve guest questions and protect high ratings.",
       },
       {
-        lead: "Hospital-Grade Turnovers:",
-        text: "Dedicated local housekeeping crews executing 70-point checklists with photographic, time-stamped inspection logs.",
+        lead: "Turno Professional Cleaners:",
+        text: "Vetted professional cleaners booked through Turno, with photos uploaded after every departure.",
       },
       {
-        lead: "Bellevue Rapid Response:",
-        text: "Immediate on-site dispatch capability from our Bellevue command desk to resolve any physical issue fast.",
+        lead: "Local Washington Support:",
+        text: "When a guest is locked out at 11pm, someone nearby picks up. Feet on the ground, not a phone tree.",
       },
     ],
   },
@@ -98,27 +97,27 @@ const PHASES = [
     id: "phase-04",
     phase: "Phase 04",
     tag: "Monthly on the 5th",
-    title: "Radical Accounting & Direct Bank Payouts",
-    subtitle: "Transparent financial reporting with zero surprise charges or sneaky expense markups.",
+    title: "Clear Monthly Accounting & Direct Payouts",
+    subtitle: "Sending you one clear, itemized report on the 5th of every month. Your job is to read the report.",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
     badge: "Owner Retains 78% Gross",
-    standout: "Owner Retains 78% of Gross: Predictable 22% flat fee with zero linen markups or pass-through surcharges.",
+    standout: "Owner Retains 78% of Gross: Clean 22% flat fee with zero linen markups, hidden fees, or surprise deductions.",
     details: [
       {
-        lead: "Guaranteed Deposit on the 5th:",
-        text: "Direct ACH bank transfers deposited cleanly on the 5th of every month with zero settlement delays.",
+        lead: "Deposit on the 5th:",
+        text: "Direct ACH bank transfers deposited cleanly on the 5th of every month for the prior month's earnings.",
       },
       {
-        lead: "Itemized Financial Statements:",
-        text: "Clear, transparent ledger breaking down gross booking revenues, cleaning reimbursements, and King County lodging taxes.",
+        lead: "Clear Financial Report:",
+        text: "A straightforward monthly statement showing gross nights, realized rates, cleaning distributions, and taxes.",
       },
       {
         lead: "Transparent 22% Flat Fee:",
-        text: "Zero linen fees, credit card processing surcharges, administrative fees, or maintenance markups.",
+        text: "Zero linen replacement fees, credit card surcharges, or maintenance markups.",
       },
       {
-        lead: "24/7 Live Owner Portal:",
-        text: "Continuous access to real-time calendar reservations, daily realized rates, and historical statements.",
+        lead: "30-Day Notice Freedom:",
+        text: "Month-to-month flexibility. If your plans change, you can walk away with simple 30 days notice.",
       },
     ],
   },
@@ -292,11 +291,8 @@ export default function HowWeWorkPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto mb-16 space-y-4"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E3A8A]/5 border border-[#B8860B]/30">
-              <Layers className="w-3.5 h-3.5 text-[#B8860B]" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#B8860B]">
-                END-TO-END EXECUTION
-              </span>
+            <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
+              END-TO-END EXECUTION
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight">
               From Key Handover to <span className="text-[#B8860B]">Flawless Deposits</span>
@@ -318,17 +314,6 @@ export default function HowWeWorkPage() {
               />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Comparison Section */}
-      <section className="py-20 lg:py-24 bg-white border-y border-[#E6DCB8]/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ComparisonMatrix 
-            variant="full"
-            title="The Concrete Industry Comparison"
-            subtitle="Zero confusion: Compare our local co-hosting model against national corporate franchises and the hidden exhaustion of DIY management."
-          />
         </div>
       </section>
 

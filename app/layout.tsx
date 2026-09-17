@@ -3,9 +3,7 @@ import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ChatbaseWidget from "@/components/shared/ChatbaseWidget";
 import PageLoader from "@/components/shared/PageLoader";
-import CustomCursor from "@/components/shared/CustomCursor";
 
 const playfair = Playfair_Display({
   variable: "--font-serif-heading",
@@ -29,17 +27,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "NestWise Group | Elite AI-Powered Property Co-Hosting in Seattle & Bellevue",
+  title: "NestWise Group | Full-Service Co-Hosting in Greater Seattle & Washington State",
   description:
-    "Maximize earning. Erase effort. Seattle's premier AI-powered luxury property co-hosting across Airbnb, VRBO, and Booking.com for a single 22% flat fee with zero long-term lock-ins.",
+    "You own the property. We'll run everything else. Full-service co-hosting across Airbnb, Vrbo, Booking.com, Google, and Agoda for a 22% flat fee with no lock-in contract.",
   keywords: [
-    "Seattle property co-hosting",
-    "Bellevue luxury Airbnb management",
-    "short-term rental management Seattle",
-    "AI property management",
+    "Washington property co-hosting",
+    "Seattle Airbnb co-host",
+    "Bellevue vacation rental management",
+    "Renton short term rental",
     "NestWise Group",
-    "luxury vacation rental co-host",
-    "Medina vacation rental co-hosting",
+    "short-term rental co-host Washington",
+    "Airbnb co-hosting Seattle",
   ],
   authors: [{ name: "NestWise Group LLC" }],
   icons: {
@@ -58,13 +56,11 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${jakarta.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen flex flex-col bg-[#FDFAF5] text-[#1F2937] font-sans selection:bg-[#B8860B]/20 selection:text-[#1E3A8A]">
+      <body className="min-h-screen flex flex-col bg-[#FDFAF5] text-[#1F2937] font-sans selection:bg-[#B8860B]/20 selection:text-[#1E3A8A] overflow-x-hidden w-full max-w-full">
         <PageLoader />
-        <CustomCursor />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
-        <ChatbaseWidget />
       </body>
     </html>
   );
