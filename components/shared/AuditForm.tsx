@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 interface AuditFormProps {
   variant?: "card" | "embedded" | "full";
@@ -32,6 +32,7 @@ export default function AuditForm({
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const submissionIdRef = useRef<string | null>(null);
 
   const handleTurnstileClick = () => {
     if (turnstileVerified) return;
@@ -50,6 +51,10 @@ export default function AuditForm({
       return;
     }
 
+    if (!submissionIdRef.current) {
+      submissionIdRef.current = crypto.randomUUID();
+    }
+
     setSubmitting(true);
     setErrorMessage("");
 
@@ -59,6 +64,7 @@ export default function AuditForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
+          submissionId: "submissionIdRef.current",
           turnstileToken: "simulated-cf-verified-token",
         }),
       });
@@ -138,6 +144,7 @@ export default function AuditForm({
                   listingUrl: "",
                 });
                 setTurnstileVerified(false);
+                submissionIdRef.current = null;
               }}
               className="text-xs font-semibold text-[#B8860B] hover:text-[#1E3A8A] underline cursor-pointer"
             >

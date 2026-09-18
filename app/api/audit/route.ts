@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { fullName, email, phone, address, propertyType, bedrooms, listingUrl, turnstileToken } = body;
+    const { fullName, email, phone, address, propertyType, bedrooms, listingUrl, submissionId, turnstileToken } = body;
 
     // 1. Basic Server-Side Validation
     if (!fullName || !email || !phone || !address) {
@@ -18,6 +18,18 @@ export async function POST(request: Request) {
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { success: false, message: "Please provide a valid professional email address." },
+        { status: 400 }
+      );
+    }
+
+    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+    if (typeof submissionId !== "string" || !uuidRegex.test(submissionId)) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Invalid audit submission identifier.",
+        },
         { status: 400 }
       );
     }
@@ -45,8 +57,9 @@ export async function POST(request: Request) {
     }
 
     // 3. Generate Reference Code and Standardized Payload for Hunter's Webhook
-    const referenceCode = `NW-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+    const referenceCode = `NW-${submissionId.slice(0, 8).toUpperCase()}`;
     const webhookPayload = {
+      submissionId,
       event: "audit_requested",
       timestamp: new Date().toISOString(),
       source: "website_audit_form",
@@ -67,8 +80,8 @@ export async function POST(request: Request) {
     };
 
     // 4. Forward Payload to Zapier webhook
-    const webhookUrl = process.env.AUDIT_WEBHOOK_URL 
-      
+    const webhookUrl = process.env.AUDIT_WEBHOOK_URL
+    
     if (!webhookUrl) {
       console.error("AUDIT_WEBHOOK_URL is not configured.")
 
