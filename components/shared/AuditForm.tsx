@@ -71,9 +71,12 @@ export default function AuditForm({
         setErrorMessage(data.message || "Unable to submit audit request. Please try again.");
         setStatus("error");
       }
-    } catch {
-      // Fallback graceful success for offline/preview mode
-      setStatus("success");
+    } catch (error){
+      console.error("Audit request failed:", error);
+      setErrorMessage(
+        "We could not submit your audit request. Please check your connection and try again."
+      );
+      setStatus("error");
     } finally {
       setSubmitting(false);
     }

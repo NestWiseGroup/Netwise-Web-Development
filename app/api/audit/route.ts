@@ -66,22 +66,51 @@ export async function POST(request: Request) {
       },
     };
 
-    // 4. Forward Payload to Hunter's Webhook / Zapier / Make.com endpoint
-    const webhookUrl = 
-      process.env.HUNTER_WEBHOOK_URL || 
-      process.env.AUDIT_WEBHOOK_URL || 
-      process.env.MAKE_WEBHOOK_URL;
+    // 4. Forward Payload to Zapier webhook
+    const webhookUrl = process.env.AUDIT_WEBHOOK_URL 
+      
+    if (!webhookUrl) {
+      console.error("AUDIT_WEBHOOK_URL is not configured.")
 
-    if (webhookUrl) {
-      try {
-        await fetch(webhookUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(webhookPayload),
-        });
-      } catch (webhookErr) {
-        console.error("Failed to forward lead to webhook:", webhookErr);
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Audit submissions are temporarily unavailable. Please try again later.",
+        },
+          { status: 503 }
+        );
       }
+
+    try {
+      const webhookResponse = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(webhookPayload),
+      });
+
+      if (!webhookResponse.ok) {
+        console.error(
+          `Audit webhook returned status ${webhookResponse.status}.`
+        );
+        
+        return NextResponse.json(
+          {
+            success: false,
+            message: "We could not process your audit request. Please try again.",
+          },
+          { status: 502 }
+        );
+      }
+    } catch (webhookErr) {
+      console.error("Failed to forward lead to webhook:", webhookErr);
+    
+      return NextResponse.json(
+        {
+          success: false,
+          message: "We could not process your audit request. Please try again.",
+        },
+        { status: 502 }
+      );
     }
 
     // Return success response to client
