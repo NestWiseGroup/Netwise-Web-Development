@@ -147,10 +147,7 @@ export default function AuditValueProp() {
           </h2>
 
           <p className="text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-2xl mx-auto font-normal">
-            Before you commit to anything, let us show you the numbers. We&apos;ll compare your property against 12 similar homes nearby and send you a straight answer: what you&apos;re charging, what the market is charging, and what you&apos;re leaving on the table.
-          </p>
-          <p className="text-sm text-[#6B7280] max-w-xl mx-auto">
-            It takes two minutes to request and arrives within 48 hours. It&apos;s free, it&apos;s yours to keep, and you&apos;re welcome to act on it yourself. No catch, and no salesperson calling you afterwards unless you ask.
+            Send us your address. Within 48 hours, you&apos;ll get a short report: what similar homes nearby earn, what you could charge by season, whether your city allows short-term rentals at your address, and what it would take to launch. No obligation.
           </p>
         </motion.div>
 
@@ -173,13 +170,13 @@ export default function AuditValueProp() {
                   <span>NestWise Group LLC</span>
                 </div>
                 <span className="text-[10px] uppercase tracking-wider bg-white/10 px-2.5 py-1 rounded text-slate-200 border border-white/15">
-                  Sample Audit Report (Illustrative Example)
+                  Sample audit
                 </span>
               </div>
 
               <div className="pt-4">
                 <div className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37]">
-                  Report Summary (Illustrative Example)
+                  Sample audit
                 </div>
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mt-1 leading-snug">
                   Property is currently underpriced{" "}
@@ -256,7 +253,7 @@ export default function AuditValueProp() {
             {/* Document Signature */}
             <div className="px-6 py-3.5 bg-[#FDFAF5] border-t border-[#E6DCB8] flex flex-col sm:flex-row items-start sm:items-center justify-between text-[11px] text-[#4B5563] gap-2">
               <div>
-                <strong>Emmanuel N. Muvunyi</strong> · President/CEO · NestWise Group LLC
+                <strong>Emmanuel N. Muvunyi</strong> · Founder &amp; CEO · NestWise Group LLC
               </div>
               <span className="text-[#B8860B] font-semibold flex items-center gap-1">
                 <MapPin className="w-3 h-3" />

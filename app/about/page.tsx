@@ -5,113 +5,82 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { 
-  Sparkles, 
-  MapPin, 
-  ShieldCheck, 
+  PhoneCall, 
   TrendingUp, 
   HeartHandshake, 
-  Building2, 
-  Shield, 
-  Zap,
+  ShieldCheck, 
+  Star, 
   Users, 
-  Home, 
-  Star 
+  Home 
 } from "@/components/shared/Icons";
 import EarningsPotentialCard from "@/components/shared/EarningsPotentialCard";
 
 // ============================================================
-// DATA
+// DATA - Refined per NestWise Refinement Document
 // ============================================================
 
-const CORE_VALUES = [
+const PROMISES = [
   {
-    id: "hyper-local",
-    icon: MapPin,
-    title: "Locally Based in Washington State",
-    desc: "Based in Renton, WA, and serving Greater Seattle & Washington State. When an on-site issue arises, our local team is nearby to resolve it in person—not through an overseas phone tree.",
+    id: "local-people",
+    icon: PhoneCall,
+    title: "Local people you can call",
+    desc: "Based in Renton. When a guest is locked out at 11pm, someone nearby answers and fixes it in person.",
   },
   {
-    id: "algorithmic-yield",
+    id: "daily-pricing",
     icon: TrendingUp,
-    title: "Daily Smart Pricing",
-    desc: "We replace flat rate guesswork with daily dynamic pricing synced with local Washington events, regional conferences, and live market comps.",
+    title: "Pricing updated every day",
+    desc: "Rates move with demand, Seattle events, conferences and nearby listings. No set-and-forget pricing.",
   },
   {
-    id: "radical-transparency",
+    id: "stated-fee",
     icon: HeartHandshake,
-    title: "22% Flat Fee & 30-Day Notice",
-    desc: "Zero hidden line items. Stated $600 onboarding fee. Zero lock-in contract. You retain 78% of your gross earnings with an itemized monthly report.",
+    title: "One fee, stated up front",
+    desc: "22% of booking revenue and a $600 setup fee. No markups. Month-to-month, with 30 days’ notice.",
   },
   {
-    id: "asset-stewardship",
+    id: "careful-guests",
     icon: ShieldCheck,
-    title: "Vetted Guests & Turno Cleaners",
-    desc: "Guest screening, mandatory 25+ age minimums, and vetted background-checked professional cleaners booked through Turno with photo proof.",
-  },
-];
-
-const DIFFERENTIATORS = [
-  {
-    id: "rapid-dispatch",
-    icon: Zap,
-    title: "Local People You Can Call",
-    desc: "When your guest is locked out at 11pm, someone nearby answers your phone and takes care of the issue immediately.",
-  },
-  {
-    id: "hospital-grade",
-    icon: Star,
-    title: "Turno Professional Cleaners",
-    desc: "Cleaners follow an extensive turnover checklist and upload photo-verified inspection logs before every stay.",
-  },
-  {
-    id: "multi-point-security",
-    icon: Shield,
-    title: "Guest Vetting & Clear Rules",
-    desc: "Identity verification, guest review vetting, and strict party prevention rules to protect your home.",
-  },
-  {
-    id: "municipal-compliance",
-    icon: Building2,
-    title: "Municipal Compliance Guidance",
-    desc: "Turnkey permit guidance and quarterly tax remittance support under Seattle SMC 6.600 and City of Bellevue rules.",
+    title: "Careful guests, clean homes",
+    desc: "ID checks, house rules and party screening for guests. Background-checked cleaners with photos after every stay.",
   },
 ];
 
 const MARKETS = [
   {
-    id: "eastside-bellevue",
-    name: "Bellevue & Eastside",
-    subtitle: "Downtown, West Bellevue, Renton, Kirkland, Somerset",
-    highlight: "High Executive & Tech Relocation Demand",
-    color: "from-[#1e3a8a]/10 to-[#1e3a8a]/5",
-  },
-  {
-    id: "seattle-core",
-    name: "Seattle Core",
+    id: "seattle",
+    name: "Seattle",
     subtitle: "Capitol Hill, Queen Anne, South Lake Union, Magnolia",
-    highlight: "SMC 6.600 Regulatory Compliance Experts",
+    highlight: "Licensed under Seattle’s STR rules",
     color: "from-emerald-900/10 to-emerald-600/5",
   },
   {
-    id: "kirkland-waterfront",
-    name: "Kirkland Waterfront",
-    subtitle: "Moss Bay, Market Street, Juanita Bay, Houghton",
-    highlight: "Lake Washington Summer Surge ADRs",
-    color: "from-cyan-900/10 to-cyan-600/5",
+    id: "bellevue",
+    name: "Bellevue",
+    subtitle: "Downtown condos and apartments",
+    highlight: "Business and tech travel",
+    color: "from-[#1e3a8a]/10 to-[#1e3a8a]/5",
   },
   {
-    id: "mercer-island",
-    name: "Mercer Island",
-    subtitle: "First Hill, East Seattle, Mid-Island Residential Homes",
-    highlight: "High-Standard Island Property Stewardship",
-    color: "from-purple-900/10 to-purple-600/5",
+    id: "kirkland",
+    name: "Kirkland",
+    subtitle: "Moss Bay, Market Street, Juanita Bay, Houghton",
+    highlight: "Lake Washington summers",
+    color: "from-cyan-900/10 to-cyan-600/5",
   },
   {
     id: "redmond-woodinville",
     name: "Redmond & Woodinville",
-    subtitle: "Town Center, Education Hill, Wine Country Retreats",
-    highlight: "Corporate Microsoft Stays & Tourism",
+    subtitle: "Downtown Redmond, Education Hill, wine country",
+    highlight: "Corporate stays and wine tourism",
     color: "from-amber-900/10 to-amber-600/5",
+  },
+  {
+    id: "mercer-island",
+    name: "Mercer Island",
+    subtitle: "First Hill, East Seattle, Mid-Island",
+    highlight: "Rules vary; we check each home",
+    color: "from-purple-900/10 to-purple-600/5",
   },
 ];
 
@@ -148,34 +117,6 @@ const SectionHeader = ({
         {subtitle}
       </p>
     )}
-  </motion.div>
-);
-
-const ValueCard = ({ value, index }: { value: typeof CORE_VALUES[0]; index: number }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6, delay: index * 0.1 }}
-    whileHover={{ y: -6, transition: { duration: 0.2 } }}
-    className="group bg-gradient-to-br from-[#FDFAF5] to-white rounded-3xl p-7 border border-[#E6DCB8] shadow-sm hover:shadow-2xl transition-all duration-300"
-  >
-    <div className="space-y-4">
-      <div className="relative">
-        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1E3A8A]/5 to-[#B8860B]/10 border border-[#E6DCB8] flex items-center justify-center text-[#B8860B] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-          <value.icon className="w-7 h-7" />
-        </div>
-        <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#B8860B] text-white flex items-center justify-center text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          {index + 1}
-        </div>
-      </div>
-      <h3 className="font-serif text-xl font-bold text-[#1E3A8A] group-hover:text-[#B8860B] transition-colors duration-300">
-        {value.title}
-      </h3>
-      <p className="text-sm text-[#475569] leading-relaxed">
-        {value.desc}
-      </p>
-    </div>
   </motion.div>
 );
 
@@ -243,13 +184,12 @@ export default function AboutPage() {
               </div>
               
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1E3A8A] tracking-tight leading-tight">
-                Local Expertise,{' '}
-                <span className="text-[#B8860B]">Global Standards</span>
+                Local expertise. <br className="hidden sm:block" />
+                <span className="text-[#B8860B]">Personal accountability.</span>
               </h1>
               
               <p className="mt-4 text-lg sm:text-xl text-[#475569] leading-relaxed max-w-2xl mx-auto">
-                We&apos;re redefining short-term rental management in the Pacific Northwest 
-                with hyper-local execution and radical transparency.
+                We manage short-term rentals in Greater Seattle and the Eastside the way we’d want our own homes managed: in person, in plain numbers, and on your terms.
               </p>
 
               <motion.div 
@@ -259,9 +199,9 @@ export default function AboutPage() {
                 className="mt-8 flex flex-wrap justify-center gap-6"
               >
                 {[
-                  { icon: Star, text: "22% Flat Management Fee" },
-                  { icon: Users, text: "Zero Lock-in (30 Days Notice)" },
-                  { icon: Home, text: "Nightly Rates Updated Daily" },
+                  { icon: Star, text: "22% of booking revenue" },
+                  { icon: Users, text: "Month-to-month" },
+                  { icon: Home, text: "Prices updated daily" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2">
                     <item.icon className="w-4 h-4 text-[#B8860B]" />
@@ -275,13 +215,16 @@ export default function AboutPage() {
         </div>
       </motion.section>
 
+      {/* ============================================================
+          2. OUR STORY & FOUNDER
+          ============================================================ */}
       <section className="py-20 lg:py-28 bg-[#FDFAF5]" aria-label="Our story">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeader
             badge="OUR STORY"
-            title="Built by Real Estate Operators, Not Impersonal Tech Aggregators"
-            subtitle="National vacation rental franchises manage multimillion-dollar Pacific Northwest properties from distant call centers. We built NestWise to deliver high-touch executive stewardship right here in King County."
+            title="Built by operators, not a tech platform."
+            subtitle="National vacation rental companies manage thousands of homes from call centers in other states. We started NestWise to do the opposite: a small local team, responsible for a small number of homes, reachable by phone."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -297,7 +240,7 @@ export default function AboutPage() {
               <div className="relative h-80 sm:h-[420px] w-full rounded-3xl overflow-hidden shadow-2xl border border-[#E6DCB8] group">
                 <Image
                   src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
-                  alt="NestWise property co-hosting in Washington State"
+                  alt="Guest-ready staging for homes across Greater Seattle"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -311,11 +254,8 @@ export default function AboutPage() {
                   transition={{ delay: 0.3 }}
                   className="absolute bottom-6 left-6 right-6 text-white space-y-1"
                 >
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
-                    King County Precision
-                  </span>
-                  <p className="font-serif text-base sm:text-lg font-bold leading-snug">
-                    Curated staging matching high-standard guest expectations across Greater Seattle.
+                  <p className="font-serif text-sm sm:text-base font-medium leading-snug text-slate-200">
+                    Guest-ready staging for homes across Greater Seattle.
                   </p>
                 </motion.div>
               </div>
@@ -332,16 +272,16 @@ export default function AboutPage() {
               
               <div className="space-y-4">
                 <h3 className="font-serif text-2xl font-bold text-[#1E3A8A]">
-                  The Founder Behind NestWise
+                  The founder behind NestWise
                 </h3>
                 <p className="text-[#475569] leading-relaxed">
-                  NestWise Group was founded by Emmanuel N. Muvunyi, who brings over fifteen years of operations leadership running mission-critical organizations where delays meant people went without.
+                  NestWise Group was founded by Emmanuel N. Muvunyi, who has spent fifteen years running operations where delays weren’t an option: global supply chains, facilities, and safety and security for corporate and humanitarian organizations.
                 </p>
                 <p className="text-[#475569] leading-relaxed">
-                  Based right here in Washington State and a graduate of the Community Police Academy, Emmanuel has spent more than a decade building genuine relationships with local vendors, tradespeople, and community partners.
+                  That work is the job of a co-host, at a bigger scale: keep things running, fix problems before they grow, and answer for the result. Emmanuel lives in Washington State, is a graduate of the Community Police Academy, and has spent more than a decade building relationships with local vendors, tradespeople and community partners.
                 </p>
                 <p className="text-[#475569] leading-relaxed">
-                  Our dedicated four-person Washington team manages every aspect of your rental: listing your property across all major booking channels, answering guest messages around the clock, pricing every night using live market data, and sending you a clear report on the 5th of every month.
+                  Our team of four in Washington handles every part of your rental: listings on six booking channels, guest messages day and night, daily pricing, cleaning and repairs, and a clear statement paid by the 5th of each month.
                 </p>
               </div>
 
@@ -351,14 +291,14 @@ export default function AboutPage() {
                 
                 <div className="flex items-center gap-2 text-xs font-bold text-[#B8860B] uppercase tracking-wider mb-3 relative">
                   <span className="w-2 h-2 rounded-full bg-[#B8860B]" />
-                  <span>Our Guiding Principle</span>
+                  <span>Guiding Principle</span>
                 </div>
                 
                 <blockquote className="font-serif text-base sm:text-lg text-[#1E3A8A] font-semibold italic leading-relaxed relative">
                   &ldquo;Feet on the ground, not a phone tree. When your guest has a question or needs help at 11pm, someone nearby picks up.&rdquo;
                 </blockquote>
                 <div className="mt-3 text-xs text-[#6B7280]">
-                  — <strong>Emmanuel N. Muvunyi</strong>, President/CEO · NestWise Group LLC
+                  — <strong>Emmanuel N. Muvunyi</strong>, Founder &amp; CEO, NestWise Group LLC
                 </div>
               </div>
 
@@ -370,63 +310,45 @@ export default function AboutPage() {
       </section>
 
       {/* ============================================================
-          4. HOW WE'RE DIFFERENT
+          3. HOW WE WORK FOR OWNERS (Merged Section)
           ============================================================ */}
-      <section className="py-20 lg:py-24 bg-white border-y border-[#E6DCB8]/60" aria-label="What makes us different">
+      <section className="py-20 lg:py-24 bg-white border-y border-[#E6DCB8]/60" aria-label="What we stand for">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeader
-            badge="WHAT SETS US APART"
-            title="How We Protect & Outperform for Owners"
-            subtitle="Four key pillars that differentiate NestWise from traditional property management companies."
-          />
-
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto"
-          >
-            {DIFFERENTIATORS.map((diff) => (
-              <motion.div
-                key={diff.id}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="p-4 rounded-xl bg-[#FDFAF5] border border-[#E6DCB8] shadow-sm hover:border-[#B8860B] hover:shadow-md transition-all duration-300 flex items-start gap-3 group"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#1E3A8A]/5 flex items-center justify-center shrink-0 group-hover:bg-[#B8860B]/10 transition-colors duration-300">
-                  <diff.icon className="w-5 h-5 text-[#B8860B]" />
-                </div>
-                <div className="space-y-1">
-                  <h4 className="text-sm font-bold text-[#1E3A8A] group-hover:text-[#B8860B] transition-colors duration-300">
-                    {diff.title}
-                  </h4>
-                  <p className="text-xs text-[#475569] leading-relaxed">
-                    {diff.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* ============================================================
-          5. CORE VALUES / PILLARS
-          ============================================================ */}
-      <section className="py-20 lg:py-24 bg-[#FDFAF5]" aria-label="Our core values">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <SectionHeader
-            badge="OUR FOUNDATION"
-            title="The 4 Pillars of Our Operation"
+            badge="WHAT WE STAND FOR"
+            title="Four promises we make every owner"
             subtitle="The core operational principles behind our honest, hands-on Washington co-hosting model."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {CORE_VALUES.map((value, index) => (
-              <ValueCard key={value.id} value={value} index={index} />
+            {PROMISES.map((promise, index) => (
+              <motion.div
+                key={promise.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className="group bg-gradient-to-br from-[#FDFAF5] to-white rounded-3xl p-7 border border-[#E6DCB8] shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="space-y-4">
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1E3A8A]/5 to-[#B8860B]/10 border border-[#E6DCB8] flex items-center justify-center text-[#B8860B] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                      <promise.icon className="w-7 h-7" />
+                    </div>
+                    <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#B8860B] text-white flex items-center justify-center text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {index + 1}
+                    </div>
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-[#1E3A8A] group-hover:text-[#B8860B] transition-colors duration-300">
+                    {promise.title}
+                  </h3>
+                  <p className="text-sm text-[#475569] leading-relaxed">
+                    {promise.desc}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
 
@@ -434,15 +356,15 @@ export default function AboutPage() {
       </section>
 
       {/* ============================================================
-          6. SERVICE AREAS
+          4. SERVICE AREAS
           ============================================================ */}
-      <section className="py-20 lg:py-24 bg-white border-y border-[#E6DCB8]/60" aria-label="Service areas">
+      <section className="py-20 lg:py-24 bg-[#FDFAF5]" aria-label="Where we operate">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeader
             badge="GEOGRAPHIC FOOTPRINT"
-            title="Where We Operate Across King County"
-            subtitle="Specialized local market knowledge tailored to the distinct micro-climates and guest demographics of each neighborhood."
+            title="Where we work in King County"
+            subtitle="Every city here has its own short-term rental rules. Before we take on a home, we check that it can legally be rented short-term at that address."
           />
 
           <motion.div 
@@ -456,7 +378,7 @@ export default function AboutPage() {
               <motion.div
                 key={market.id}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className={`group bg-gradient-to-br ${market.color} rounded-2xl p-6 border border-[#E6DCB8] hover:border-[#B8860B] shadow-sm hover:shadow-xl transition-all duration-300 space-y-3 relative overflow-hidden`}
+                className={`group bg-gradient-to-br ${market.color} rounded-2xl p-6 border border-[#E6DCB8] hover:border-[#B8860B] shadow-sm hover:shadow-xl transition-all duration-300 space-y-3 relative overflow-hidden flex flex-col justify-between`}
               >
                 <div className="absolute -top-6 -right-6 w-16 h-16 bg-[#B8860B]/5 rounded-full group-hover:scale-150 transition-transform duration-500" />
                 
@@ -479,16 +401,16 @@ export default function AboutPage() {
       </section>
 
       {/* ============================================================
-          7. EARNINGS POTENTIAL (Subtle, Not Aggressive)
+          5. EARNINGS POTENTIAL
           ============================================================ */}
-      <section className="py-16 sm:py-20 bg-[#FDFAF5] border-t border-[#E6DCB8]/60">
+      <section className="py-16 sm:py-20 bg-white border-t border-[#E6DCB8]/60">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h3 className="font-serif text-2xl font-bold text-[#1E3A8A]">
-              Interested in Learning More?
+              Curious what your property could earn?
             </h3>
             <p className="text-sm text-[#475569] mt-1">
-              Explore what your property could achieve with our management approach.
+              Get a free, no-obligation audit in 48 hours.
             </p>
           </div>
           <EarningsPotentialCard />

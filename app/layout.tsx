@@ -27,9 +27,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "NestWise Group | Full-Service Co-Hosting in Greater Seattle & Washington State",
+  title: "NestWise Group | Airbnb Co-Hosting in Greater Seattle & the Eastside",
   description:
-    "You own the property. We'll run everything else. Full-service co-hosting across Airbnb, Vrbo, Booking.com, Google, and Agoda for a 22% flat fee with no lock-in contract.",
+    "You own the property. We'll run everything else. Local Airbnb co-hosting across Greater Seattle and the Eastside. 22% of booking revenue. Month-to-month.",
   keywords: [
     "Washington property co-hosting",
     "Seattle Airbnb co-host",

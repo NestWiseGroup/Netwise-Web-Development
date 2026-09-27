@@ -12,7 +12,7 @@ interface CalendlyEmbedProps {
 
 export default function CalendlyEmbed({
   hostName = "Emmanuel N. Muvunyi",
-  hostTitle = "President/CEO · NestWise Group LLC",
+  hostTitle = "Founder & CEO · NestWise Group LLC",
   className = "",
   onClose,
 }: CalendlyEmbedProps) {

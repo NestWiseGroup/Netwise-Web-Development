@@ -12,15 +12,15 @@ export default function ProcessSteps() {
       title: "Tell us about your property.",
       time: "2 Minutes",
       description:
-        "Two minutes on a short form. Address, a listing link if you have one, and how to reach you.",
+        "Address, size, and whether you live there. Two minutes.",
       icon: <Send className="w-5 h-5 text-[#B8860B]" />,
     },
     {
       step: "02",
-      title: "Get your free report in 48 hours.",
+      title: "Get your free audit.",
       time: "Within 48 Hours",
       description:
-        "What your property earns now, what it could earn, and the three changes that would make the biggest difference.",
+        "Earnings estimate, city rules, and launch plan in 48 hours.",
       icon: <FileSearch className="w-5 h-5 text-[#B8860B]" />,
     },
     {
@@ -28,7 +28,7 @@ export default function ProcessSteps() {
       title: "Decide what you want to do.",
       time: "Zero Obligation",
       description:
-        "Use the report yourself, or hand us the keys and we'll run the whole thing. No pressure either way.",
+        "Say yes and we launch in 5–7 business days. Say no and keep the report.",
       icon: <CheckCircle2 className="w-5 h-5 text-[#B8860B]" />,
     },
   ];

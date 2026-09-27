@@ -12,83 +12,87 @@ const PHASES = [
   {
     id: "phase-01",
     phase: "Phase 01",
-    tag: "5–7 Business Days",
-    title: "Onboarding, Photography & Smart Locks",
-    subtitle: "Setting up your home for maximum booking appeal and security with a stated one-time $600 fee.",
+    tag: "5–7 business days",
+    title: "Setup: photos, smart locks and listings",
+    subtitle: "We get your home ready to book and listed everywhere, for a one-time $600 fee.",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
     badge: "$600 One-Time Setup",
-    standout: "Transparent $600 Onboarding: Covers professional photography, digital listing setup across 5+ channels, and master calendar sync.",
+    standout: "Professional photos, a keyless smart lock, and live listings on six channels with one synced calendar.",
     details: [
       {
-        lead: "Professional Photography:",
-        text: "Curated high-resolution interior, exterior, and detail shots showcasing your home at its best.",
+        lead: "Professional photos:",
+        text: "Interior, exterior and detail shots that show your home at its best.",
       },
       {
-        lead: "Keyless Smart Locks:",
-        text: "Installation of keyless digital locks with time-sensitive guest PIN codes that expire upon checkout.",
+        lead: "Keyless smart lock:",
+        text: "Each guest gets a unique code that expires at checkout.",
       },
       {
-        lead: "Safety & Inventory Check:",
-        text: "Comprehensive inventory audit, smoke and CO detector safety checks, and guest essential staging.",
+        lead: "Safety and inventory check:",
+        text: "Smoke and carbon-monoxide alarms tested, required safety information posted, guest essentials stocked.",
       },
       {
-        lead: "Multi-Platform Syndication:",
-        text: "Synchronized listing creation across Airbnb, Vrbo, Booking.com, Google Vacation Rentals, and Agoda.",
+        lead: "Listings on six channels:",
+        text: "Airbnb, Vrbo, Booking.com, Google, Agoda and your direct booking site.",
+      },
+      {
+        lead: "City rules check:",
+        text: "We confirm your home can be rented short-term and help you get the licenses your city requires.",
       },
     ],
   },
   {
     id: "phase-02",
     phase: "Phase 02",
-    tag: "Updated Daily",
-    title: "Daily Dynamic Pricing & Channel Management",
-    subtitle: "Setting your nightly price using live market data, updated daily.",
+    tag: "Ongoing",
+    title: "Daily pricing and channel management",
+    subtitle: "Your nightly rate is reset every day using live market data.",
     image: "https://images.unsplash.com/photo-1502175353174-a7a70e73b362?auto=format&fit=crop&w=1200&q=80",
-    badge: "Daily Price Recalibration",
-    standout: "Daily Dynamic Pricing: Nightly rates updated daily from live local comp data to capture Washington event surges without guessing.",
+    badge: "Daily Rate Updates",
+    standout: "Prices that rise for Seattle events and busy weekends, and drop to fill quiet nights.",
     details: [
       {
-        lead: "Daily Rate Recalibration:",
-        text: "Nightly prices adjusted daily based on live competitor pricing, local Seattle and Eastside demand, and seasonal patterns.",
+        lead: "Daily rate updates:",
+        text: "Based on nearby listings, Seattle and Eastside demand, and the season.",
       },
       {
-        lead: "Synchronized Calendar Sync:",
-        text: "Instant API synchronization across all booking channels to eliminate double-booking risk permanently.",
+        lead: "One synced calendar:",
+        text: "A booking on any channel blocks the dates everywhere else, reducing the risk of double bookings.",
       },
       {
-        lead: "Search Optimization:",
-        text: "Carefully worded titles and verified amenity tags to ensure your listing ranks high in local traveler searches.",
+        lead: "Listing quality:",
+        text: "Clear titles, accurate amenities and strong photos to help your listing rank in search.",
       },
       {
-        lead: "Minimum Stay Optimization:",
-        text: "Adjusting minimum nights between weekends and weekdays to capture high-margin bookings without awkward calendar gaps.",
+        lead: "Minimum-stay rules:",
+        text: "Different minimums for weekends and weekdays, so short gaps between bookings still get filled.",
       },
     ],
   },
   {
     id: "phase-03",
     phase: "Phase 03",
-    tag: "24/7/365 Local Support",
-    title: "Guest Vetting, Rapid Response & Turno Cleaners",
-    subtitle: "Answering every guest within three minutes, with photo-verified cleanings after every stay.",
+    tag: "Every stay",
+    title: "Guest screening, fast replies and cleaning",
+    subtitle: "Every guest is screened, every message answered quickly, and every clean checked with photos.",
     image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80",
-    badge: "< 3-Min Response Time",
-    standout: "< 3-Minute Response Time: Our Washington-based team answers inquiries around the clock with local care.",
+    badge: "Local support, day and night",
+    standout: "A local team answering guests day and night, typically within 15 minutes.",
     details: [
       {
-        lead: "Guest Verification:",
-        text: "Identity verification, prior review screening, and strict house rules against unauthorized parties.",
+        lead: "Guest screening:",
+        text: "ID verification, review history, and house rules that prohibit parties.",
       },
       {
-        lead: "Under 3-Minute Response:",
-        text: "Fast, friendly guest communication 24/7/365 to resolve guest questions and protect high ratings.",
+        lead: "Fast replies:",
+        text: "Friendly, quick answers to guest questions, which protects your ratings.",
       },
       {
-        lead: "Turno Professional Cleaners:",
-        text: "Vetted professional cleaners booked through Turno, with photos uploaded after every departure.",
+        lead: "Background-checked cleaners:",
+        text: "Booked through Turno, with photos uploaded after each clean.",
       },
       {
-        lead: "Local Washington Support:",
+        lead: "Local help on call:",
         text: "When a guest is locked out at 11pm, someone nearby picks up. Feet on the ground, not a phone tree.",
       },
     ],
@@ -96,28 +100,28 @@ const PHASES = [
   {
     id: "phase-04",
     phase: "Phase 04",
-    tag: "Monthly on the 5th",
-    title: "Clear Monthly Accounting & Direct Payouts",
-    subtitle: "Sending you one clear, itemized report on the 5th of every month. Your job is to read the report.",
+    tag: "By the 5th",
+    title: "Monthly statements and direct payouts",
+    subtitle: "One clear statement a month. Your only job is to read it.",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-    badge: "Owner Retains 78% Gross",
-    standout: "Owner Retains 78% of Gross: Clean 22% flat fee with zero linen markups, hidden fees, or surprise deductions.",
+    badge: "Paid by the 5th",
+    standout: "A deposit by the 5th, and a statement showing every booking, every expense and our 22% fee.",
     details: [
       {
-        lead: "Deposit on the 5th:",
-        text: "Direct ACH bank transfers deposited cleanly on the 5th of every month for the prior month's earnings.",
+        lead: "Paid by the 5th:",
+        text: "Direct ACH deposit to your bank account for the previous month’s earnings.",
       },
       {
-        lead: "Clear Financial Report:",
-        text: "A straightforward monthly statement showing gross nights, realized rates, cleaning distributions, and taxes.",
+        lead: "Clear statement:",
+        text: "Nights booked, rates achieved, cleaning costs, taxes collected and our fee, line by line.",
       },
       {
-        lead: "Transparent 22% Flat Fee:",
-        text: "Zero linen replacement fees, credit card surcharges, or maintenance markups.",
+        lead: "One fee, no markups:",
+        text: "22% of booking revenue. No markups on linens, cleaning, card processing or repairs.",
       },
       {
-        lead: "30-Day Notice Freedom:",
-        text: "Month-to-month flexibility. If your plans change, you can walk away with simple 30 days notice.",
+        lead: "Month-to-month:",
+        text: "Cancel with 30 days’ notice.",
       },
     ],
   },
@@ -213,7 +217,7 @@ const PhaseCard = ({
           </p>
         </div>
 
-        {/* Standout Fact Callout */}
+        {/* What You Get Callout */}
         <motion.div 
           whileHover={{ scale: 1.01 }}
           className="p-4 rounded-2xl bg-gradient-to-r from-[#B8860B]/10 via-[#1E3A8A]/5 to-transparent border-l-4 border-[#B8860B] shadow-sm transition-shadow hover:shadow-md"
@@ -224,7 +228,7 @@ const PhaseCard = ({
             </div>
             <div>
               <span className="font-serif text-[10px] font-bold text-[#B8860B] uppercase tracking-wider block">
-                Standout Proof Point
+                What you get
               </span>
               <span className="text-xs sm:text-sm font-bold text-[#1E3A8A] leading-snug">
                 {phase.standout}
@@ -260,7 +264,6 @@ const PhaseCard = ({
 };
 
 export default function HowWeWorkPage() {
-
   return (
     <div className="min-h-screen bg-[#FDFAF5]">
 
@@ -292,14 +295,13 @@ export default function HowWeWorkPage() {
             className="text-center max-w-3xl mx-auto mb-16 space-y-4"
           >
             <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
-              END-TO-END EXECUTION
+              How we work
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight">
-              From Key Handover to <span className="text-[#B8860B]">Flawless Deposits</span>
+              From handing over the keys to <span className="text-[#B8860B]">money in your account.</span>
             </h2>
             <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl mx-auto">
-              Every detail is engineered so you never have to answer a late-night guest message, 
-              coordinate cleaners, or stress over municipal permits.
+              Four steps, one local team. You won’t answer late-night guest messages, book cleaners or chase permits again.
             </p>
           </motion.div>
 

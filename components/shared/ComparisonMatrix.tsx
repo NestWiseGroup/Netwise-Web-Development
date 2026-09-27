@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, X, ArrowRight, ShieldCheck, Clock, TrendingUp, Sparkles } from "@/components/shared/Icons";
+import { Check, ArrowRight, ShieldCheck, Clock, TrendingUp, Sparkles } from "@/components/shared/Icons";
 
 interface ComparisonMatrixProps {
   variant?: "full" | "condensed";
@@ -15,7 +15,6 @@ interface ComparisonMatrixProps {
 }
 
 export default function ComparisonMatrix({
-  variant = "full",
   showTitle = true,
   title,
   subtitle,
@@ -26,50 +25,49 @@ export default function ComparisonMatrix({
 
   const comparisonData = [
     {
-      metric: "Management Fee",
+      metric: "Fee",
       icon: TrendingUp,
-      nestwise: { title: "22% Flat Fee", detail: "Single transparent fee. Stated $600 onboarding. Zero hidden deductions." },
-      legacy: { title: "28% – 30% Commissions", detail: "Padded with linen replacement fees and administrative surcharges." },
-      diy: { title: "0% Cash Fee", detail: "Hidden cost: 15–20 hours a week of owner stress and burnout." },
+      nestwise: { title: "22% of booking revenue, $600 setup", detail: "No markups on cleaning, linens, or repairs." },
+      legacy: { title: "Varies widely", detail: "Varies widely by company and service level." },
+      diy: { title: "No fee", detail: "No fee, but 15–20 hours of your time a week." },
     },
     {
-      metric: "Contract Freedom",
+      metric: "Contract",
       icon: Clock,
-      nestwise: { title: "No Lock-in (30 Days)", detail: "Leave anytime with simple 30 days notice. We earn your business every month." },
-      legacy: { title: "12-Month Lock-in", detail: "Binding year-long contracts, termination penalties, and you lose control of your calendar." },
-      diy: { title: "No Contract", detail: "Total personal responsibility with 100% midnight guest interruption." },
+      nestwise: { title: "Month-to-month, 30 days’ notice", detail: "No long-term contract. We earn your business every month." },
+      legacy: { title: "Often 12 months or longer", detail: "Binding multi-month or annual lock-in agreements." },
+      diy: { title: "None", detail: "Total personal responsibility for every turnover and guest." },
     },
     {
-      metric: "Dynamic Pricing",
+      metric: "Pricing",
       icon: Sparkles,
-      nestwise: { title: "Daily Market Pricing", detail: "Nightly rates updated daily from live local competitor and event data." },
-      legacy: { title: "Static Weekly Rates", detail: "Manual weekly guesses that leave peak revenue on the table." },
-      diy: { title: "Manual Guessing", detail: "Setting flat rates and missing local event surges." },
+      nestwise: { title: "Updated daily with local knowledge", detail: "Follows Seattle and Eastside demand, events and competing listings." },
+      legacy: { title: "Varies; often automated nationally", detail: "Broad regional algorithms that miss local event surges." },
+      diy: { title: "Set by you", detail: "Manual guesswork and flat rates that leave money on the table." },
     },
     {
-      metric: "Guest Response Time",
+      metric: "Guest support",
       icon: Clock,
-      nestwise: { title: "Under 3 Minutes", detail: "Our Washington team answers guest messages day and night." },
-      legacy: { title: "Hours (Call Centers)", detail: "Remote call centers 2,000 miles away with zero local knowledge." },
-      diy: { title: "Whenever Available", detail: "Late-night lockouts interrupt your sleep and life." },
+      nestwise: { title: "Local team in Renton", detail: "A local person replies, typically within 15 minutes, day and night." },
+      legacy: { title: "Usually a regional or national call center", detail: "Remote call center queues and support tickets." },
+      diy: { title: "You, at any hour", detail: "Late-night lockouts and 11pm messages interrupt your life." },
     },
     {
-      metric: "Turnover & Care",
+      metric: "Cleaning",
       icon: ShieldCheck,
-      nestwise: { title: "Turno Cleaners & Photos", detail: "Background-checked cleaners with photo proof after every stay." },
-      legacy: { title: "Unvetted Subcontractors", detail: "Inconsistent cleaning standards and linen fee deductions." },
-      diy: { title: "Clean It Yourself", detail: "Last-minute cleaner cancellations and dirty turnover reviews." },
+      nestwise: { title: "Background-checked cleaners, photo proof", detail: "Booked through Turno with photo verification after every stay." },
+      legacy: { title: "Varies", detail: "Inconsistent turnover standards across third-party contractors." },
+      diy: { title: "You find and manage cleaners", detail: "Handling last-minute cleaner cancellations and dirty reviews yourself." },
     },
     {
-      metric: "Municipal Compliance",
+      metric: "City rules",
       icon: ShieldCheck,
-      nestwise: { title: "Local Permit Guidance", detail: "Assistance navigating Seattle SMC 6.600 2-unit caps and Bellevue lodging rules." },
-      legacy: { title: "Owner Burden", detail: "National franchises disclaim all regulatory responsibility." },
-      diy: { title: "Complex Paperwork", detail: "High penalty risks for city tax and licensing non-compliance." },
+      nestwise: { title: "We check your address and help with licenses", detail: "Pre-launch qualification check and permit application assistance." },
+      legacy: { title: "Often left to the owner", detail: "National managers often leave municipal licensing entirely to you." },
+      diy: { title: "You research and file", detail: "Navigating complex city zoning, caps, and tax filings on your own." },
     },
   ];
 
-  // Preserve all 6 rows across both condensed and full variants so Municipal Compliance is never omitted
   const rows = comparisonData;
 
   return (
@@ -83,7 +81,7 @@ export default function ComparisonMatrix({
             transition={{ duration: 0.4 }}
             className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none"
           >
-            THE HEAD-TO-HEAD COMPARISON
+            How we compare
           </motion.div>
 
           <motion.h2 
@@ -93,7 +91,7 @@ export default function ComparisonMatrix({
             transition={{ duration: 0.5, delay: 0.1 }}
             className="font-serif text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight"
           >
-            {title || "Why Property Owners Choose NestWise"}
+            {title || "Three ways to run a short-term rental"}
           </motion.h2>
 
           <motion.p 
@@ -104,10 +102,10 @@ export default function ComparisonMatrix({
             className="text-sm sm:text-base text-[#475569] max-w-2xl mx-auto leading-relaxed"
           >
             {subtitle ||
-              "See the exact operational differences between our local Washington co-hosting model, national corporate franchises, and self-hosting."}
+              "Here’s how local co-hosting compares with a large management company and with doing it yourself."}
           </motion.p>
 
-          {/* Interactive View Switcher (Declutters information for skimmers) */}
+          {/* Interactive View Switcher */}
           <div className="flex items-center justify-center pt-2">
             <div className="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200">
               <button
@@ -138,7 +136,7 @@ export default function ComparisonMatrix({
       {/* Main Comparative View */}
       <AnimatePresence mode="wait">
         {activeTab === "cards" ? (
-          /* Cards View: Decluttered, Special, High-Visual Hierarchy */
+          /* Cards View */
           <motion.div
             key="cards"
             initial={{ opacity: 0, y: 20 }}
@@ -147,17 +145,17 @@ export default function ComparisonMatrix({
             transition={{ duration: 0.4 }}
             className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch"
           >
-            {/* Card 1: Legacy Franchises */}
+            {/* Card 1: Large management company */}
             <div className="rounded-3xl p-6 sm:p-8 bg-white border border-slate-200 shadow-sm flex flex-col justify-between order-2 lg:order-1 opacity-90 hover:opacity-100 transition-opacity">
               <div className="space-y-6">
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-rose-500 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-200">
-                    Outdated Model
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">
+                    Corporate Model
                   </span>
                   <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-800 mt-2">
-                    Legacy Franchises
+                    Large management company
                   </h3>
-                  <p className="text-xs text-slate-500 mt-1">Vacasa, Evolve & National Chains</p>
+                  <p className="text-xs text-slate-500 mt-1">Scale over personal attention</p>
                 </div>
 
                 <div className="space-y-4 pt-2 divide-y divide-slate-100">
@@ -166,10 +164,12 @@ export default function ComparisonMatrix({
                       <span className="text-[11px] font-semibold text-slate-400 block uppercase tracking-wider">
                         {row.metric}
                       </span>
-                      <div className="flex items-start gap-2 text-xs font-bold text-rose-600 mt-1">
-                        <X className="w-4 h-4 shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-2 text-xs font-medium text-slate-700 mt-1">
+                        <div className="w-4 h-4 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 mt-0.5 text-[10px]">
+                          —
+                        </div>
                         <div>
-                          <span>{row.legacy.title}</span>
+                          <strong className="block text-slate-800">{row.legacy.title}</strong>
                           <p className="text-[11px] font-normal text-slate-500 mt-0.5">{row.legacy.detail}</p>
                         </div>
                       </div>
@@ -179,11 +179,11 @@ export default function ComparisonMatrix({
               </div>
 
               <div className="mt-8 pt-4 border-t border-slate-100 text-center">
-                <span className="text-xs text-slate-500 italic">High commissions & locked calendars</span>
+                <span className="text-xs text-slate-500 italic">Scale over personal attention.</span>
               </div>
             </div>
 
-            {/* Card 2: NestWise Group (Featured, Special, Hero Spotlight) */}
+            {/* Card 2: NestWise (Featured Spotlight) */}
             <motion.div
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
@@ -196,15 +196,15 @@ export default function ComparisonMatrix({
                   <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-linear-to-r from-[#B8860B] to-[#D4AF37] px-3 py-1 rounded-full shadow-xs">
                     ★ Partner Choice
                   </span>
-                  <span className="text-xs font-bold text-[#D4AF37]">Local Washington Team</span>
+                  <span className="text-xs font-bold text-[#D4AF37]">Local Team in Renton</span>
                 </div>
 
                 <div>
                   <h3 className="font-serif text-2xl sm:text-3xl font-extrabold tracking-tight">
-                    NestWise Group
+                    NestWise
                   </h3>
                   <p className="text-xs text-slate-300 mt-1">
-                    Full-Service Co-Hosting · Greater Seattle &amp; Washington State
+                    22% · Month-to-month · Local team
                   </p>
                 </div>
 
@@ -233,16 +233,16 @@ export default function ComparisonMatrix({
                   href="/audit"
                   className="btn-gold w-full py-3.5 rounded-xl font-serif font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md hover:shadow-gold-glow transition-all"
                 >
-                  <span>Get My Free Property Audit</span>
+                  <span>Get My Free Revenue Audit</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <p className="text-[11px] text-center text-slate-300">
-                  22% Flat Fee · No lock-in contract · 30 days notice
+                  22% · Month-to-month · Local team
                 </p>
               </div>
             </motion.div>
 
-            {/* Card 3: DIY Self-Hosting */}
+            {/* Card 3: Doing it yourself */}
             <div className="rounded-3xl p-6 sm:p-8 bg-white border border-slate-200 shadow-sm flex flex-col justify-between order-3 opacity-90 hover:opacity-100 transition-opacity">
               <div className="space-y-6">
                 <div>
@@ -250,9 +250,9 @@ export default function ComparisonMatrix({
                     Solo Management
                   </span>
                   <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-800 mt-2">
-                    DIY Self-Hosting
+                    Doing it yourself
                   </h3>
-                  <p className="text-xs text-slate-500 mt-1">Solo Landlord on Airbnb / VRBO</p>
+                  <p className="text-xs text-slate-500 mt-1">Self-Hosting Solo</p>
                 </div>
 
                 <div className="space-y-4 pt-2 divide-y divide-slate-100">
@@ -276,12 +276,12 @@ export default function ComparisonMatrix({
               </div>
 
               <div className="mt-8 pt-4 border-t border-slate-100 text-center">
-                <span className="text-xs text-slate-500 italic">Zero cash fee, but constant burnout</span>
+                <span className="text-xs text-slate-500 italic">No fee, but your evenings.</span>
               </div>
             </div>
           </motion.div>
         ) : (
-          /* Table View: Spacious, Uncluttered, Elegant */
+          /* Table View */
           <motion.div
             key="table"
             initial={{ opacity: 0, y: 20 }}
@@ -295,21 +295,21 @@ export default function ComparisonMatrix({
                 <thead>
                   <tr className="border-b border-[#E6DCB8]/80 bg-[#FDFAF5]">
                     <th className="py-5 px-6 font-serif text-xs font-bold text-[#1E3A8A] w-1/4 uppercase tracking-wider">
-                      Dimension
+                      Comparison
                     </th>
                     <th className="py-5 px-6 font-serif text-sm font-extrabold text-white bg-[#1E3A8A] w-[32%] relative">
                       <div className="flex items-center gap-2">
-                        <span>NestWise Group</span>
+                        <span>NestWise</span>
                         <span className="text-[10px] font-sans font-bold bg-[#B8860B] text-white px-2 py-0.5 rounded-full uppercase tracking-wider">
                           Partner Choice
                         </span>
                       </div>
                     </th>
                     <th className="py-5 px-6 font-serif text-xs font-semibold text-[#64748B] w-1/4">
-                      Legacy Franchises
+                      Large management company
                     </th>
                     <th className="py-5 px-6 font-serif text-xs font-semibold text-[#64748B] w-1/4">
-                      DIY Self-Hosting
+                      Doing it yourself
                     </th>
                   </tr>
                 </thead>
@@ -331,12 +331,9 @@ export default function ComparisonMatrix({
                         </div>
                       </td>
                       <td className="py-5 px-6 text-[#64748B]">
-                        <div className="flex items-start gap-2 text-rose-600">
-                          <X className="w-4 h-4 shrink-0 mt-0.5" />
-                          <div>
-                            <strong className="block text-slate-800">{row.legacy.title}</strong>
-                            <span className="text-xs text-slate-500 font-normal">{row.legacy.detail}</span>
-                          </div>
+                        <div>
+                          <strong className="block text-slate-800">{row.legacy.title}</strong>
+                          <span className="text-xs text-slate-500 font-normal">{row.legacy.detail}</span>
                         </div>
                       </td>
                       <td className="py-5 px-6 text-[#64748B]">
@@ -353,7 +350,7 @@ export default function ComparisonMatrix({
 
             <div className="p-5 bg-[#FDFAF5] border-t border-[#E6DCB8]/60 flex flex-col sm:flex-row items-center justify-between gap-4">
               <span className="text-xs text-[#475569]">
-                <strong className="text-[#1E3A8A]">Summary:</strong> NestWise guarantees direct owner access, 78% net earnings, and zero contractual lock-in.
+                <strong className="text-[#1E3A8A]">Summary:</strong> NestWise guarantees direct owner access, 22% of booking revenue, and month-to-month flexibility.
               </span>
               <Link
                 href="/audit"

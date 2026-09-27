@@ -16,84 +16,137 @@ import { conciergeRadarLottie } from "@/lib/lottieData";
 
 interface FaqItem {
   q: string;
-  a: string;
-  category: "pricing" | "regulations" | "security" | "operations";
+  a: React.ReactNode;
+  category: "fees" | "regulations" | "care" | "getting-started";
 }
 
 const FAQS: FaqItem[] = [
-    // Pricing
-    {
-      category: "pricing",
-      q: "How does the 22% flat fee structure work?",
-      a: "NestWise charges a single, transparent 22% management fee on gross booking revenues. Unlike national franchises that charge 28% to 30% plus linen markups and administrative surcharges, we take a clean 22%. You retain 78% of your gross earnings with an itemized monthly report.",
-    },
-    {
-      category: "pricing",
-      q: "Are there any upfront onboarding or setup charges?",
-      a: "We charge a transparent, one-time $600 onboarding fee — we state it directly rather than hiding it in fine print. This covers professional photography, cross-channel digital listing creation across Airbnb, Vrbo, Booking.com, Google, and Agoda, and master calendar synchronization.",
-    },
-    {
-      category: "pricing",
-      q: "How and when do I receive payouts?",
-      a: "Net booking revenues are deposited directly to your bank account via automated ACH on the 5th of each month for the preceding calendar month. Every deposit includes an itemized financial report outlining booked nights, nightly rates, guest-paid cleaning fees, and lodging taxes.",
-    },
-    {
-      category: "pricing",
-      q: "What is your contract duration and lock-in policy?",
-      a: "Our agreements are strictly month-to-month with zero long-term lock-in. If your personal or portfolio plans change, you can terminate anytime with a standard 30-day notice with zero penalty. You never lose control of your calendar.",
-    },
+  // Fees & payouts
+  {
+    category: "fees",
+    q: "How does the 22% fee work?",
+    a: "We charge 22% of booking revenue. That’s our only ongoing fee: no markups on linens, cleaning, card processing or repairs, and no admin charges. Cleaning is paid by the guest. Repairs and supplies are billed to you at cost, with receipts. Your monthly statement shows every line.",
+  },
+  {
+    category: "fees",
+    q: "Are there any upfront or setup charges?",
+    a: "Yes, one: a $600 setup fee, paid once. It covers professional photos, smart lock setup, and building your listings on six channels with one synced calendar. There are no other upfront charges.",
+  },
+  {
+    category: "fees",
+    q: "How and when do I get paid?",
+    a: "By direct deposit (ACH) by the 5th of each month, for the previous month’s stays. You get an itemized statement with every booking, the rate earned, cleaning costs, taxes collected and our fee.",
+  },
+  {
+    category: "fees",
+    q: "What is your contract length?",
+    a: "Month-to-month. You can end the agreement at any time with 30 days’ written notice, with no cancellation fee.",
+  },
 
-    // Regulations
-    {
-      category: "regulations",
-      q: "How does NestWise handle Seattle SMC 6.600 regulations?",
-      a: "Under Seattle Municipal Code 6.600, short-term rental operators may operate a maximum of two dwelling units in the city (a primary residence and one secondary unit). NestWise assists by auditing property records, coordinating the necessary Seattle STR Operator License, and keeping your listings fully compliant.",
-    },
-    {
-      category: "regulations",
-      q: "What are the rules for short-term rentals in Bellevue and the Eastside?",
-      a: "Bellevue requires transient lodging registration and remittance of Washington State Retail Sales Tax and King County Lodging Taxes. Our local Washington team assists with these registrations and filings on your behalf, keeping your property in good standing with local authorities.",
-    },
-    {
-      category: "regulations",
-      q: "Can I do short-term rentals in an HOA condominium?",
-      a: "HOA CC&Rs vary widely across Greater Seattle. During our initial 48-Hour Audit, we perform a thorough review of your HOA bylaws. If your building prohibits stays under 30 days, we can configure an executive 30+ day medium-term rental model tailored to corporate relocations.",
-    },
+  // City rules & permits
+  {
+    category: "regulations",
+    q: "How does NestWise handle Seattle’s short-term rental rules?",
+    a: (
+      <span>
+        Seattle requires a business license and a short-term rental operator license, and the license number must appear on every listing. Most operators can run at most two units, and one must be their own primary residence. Before we list your home, we confirm it qualifies and help you apply. Check{" "}
+        <a 
+          href="https://www.seattle.gov/business-regulations/short-term-rentals" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-[#B8860B] underline font-medium hover:text-[#1E3A8A]"
+        >
+          Seattle’s short-term rental rules
+        </a>.
+      </span>
+    ),
+  },
+  {
+    category: "regulations",
+    q: "What are the rules in Bellevue and the Eastside?",
+    a: (
+      <span>
+        They vary by city, which is why we check every address first. In Bellevue, entire single-family homes can’t be rented for under 30 days; condos and apartments can, with a registration notice and building limits. Kirkland ties short-term rentals to the owner’s primary residence. Redmond requires a business license for each unit. See details for{" "}
+        <a 
+          href="https://bellevuewa.gov/city-government/departments/development/zoning-and-land-use/zoning-requirements/rentals" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-[#B8860B] underline font-medium hover:text-[#1E3A8A]"
+        >
+          Bellevue
+        </a>{" · "}
+        <a 
+          href="https://kirkland.municipal.codes/KMC/7.02.300" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-[#B8860B] underline font-medium hover:text-[#1E3A8A]"
+        >
+          Kirkland
+        </a>{" · "}
+        <a 
+          href="https://www.redmond.gov/2301/Short-Term-Rentals" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-[#B8860B] underline font-medium hover:text-[#1E3A8A]"
+        >
+          Redmond
+        </a>.
+      </span>
+    ),
+  },
+  {
+    category: "regulations",
+    q: "Can I rent my condo short-term if it has an HOA?",
+    a: "Often, but it depends on your association’s declaration and rules, which can limit or ban rentals under 30 days. Send us your HOA documents and we’ll review the rental rules with you before you commit. If your building allows it, we give every guest the association’s house rules before arrival.",
+  },
 
-    // Security & Property Care
-    {
-      category: "security",
-      q: "How do you protect my property from unauthorized parties?",
-      a: "We enforce strict guest screening: mandatory identity verification, prior host review checks, 25+ age requirements, and clear house rules prohibiting unauthorized events. Because our team lives right here in Washington, we handle local issues with immediate responsiveness.",
-    },
-    {
-      category: "security",
-      q: "What insurance coverage is in place for property damage?",
-      a: "Every booking is backed by platform protections (including Airbnb AirCover and Vrbo host protection), along with guest damage waivers or security deposits where appropriate, ensuring you are protected against accidental guest damages.",
-    },
-    {
-      category: "security",
-      q: "Who handles housekeeping and property turnovers?",
-      a: "We outsource cleaning assignments to vetted, background-checked professional cleaners through Turno. After every departure, cleaners follow an extensive turnover checklist and upload photo-verified inspection reports so you know your property is in pristine condition for every guest.",
-    },
+  // Property care
+  {
+    category: "care",
+    q: "How do you prevent parties and unauthorized guests?",
+    a: "We verify each guest’s ID, check their review history, and set house rules that prohibit parties, with occupancy limits on every listing. If something goes wrong, a local team member can be at your door, not just on the phone.",
+  },
+  {
+    category: "care",
+    q: "What insurance covers damage?",
+    a: (
+      <span>
+        Washington law requires short-term rental operators to carry at least $1 million in liability coverage, or to use a platform that provides equivalent coverage (
+        <a 
+          href="https://app.leg.wa.gov/RCW/default.aspx?cite=64.37.050" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-[#B8860B] underline font-medium hover:text-[#1E3A8A]"
+        >
+          RCW 64.37.050
+        </a>
+        ). Booking platforms offer their own host protection, but it has limits and exclusions. We recommend a short-term rental policy in your name and will help you review it.
+      </span>
+    ),
+  },
+  {
+    category: "care",
+    q: "Who handles cleaning and turnovers?",
+    a: "We do. We book background-checked cleaners through Turno, give them a detailed checklist, and check their photos after every clean before the next guest arrives.",
+  },
 
-    // Operations
-    {
-      category: "operations",
-      q: "Can I still use my home for personal vacations or family stays?",
-      a: "Absolutely. You can block out any dates for personal use whenever you wish. There are zero penalties or limitations on owner usage as long as the dates are reserved prior to an incoming guest booking.",
-    },
-    {
-      category: "operations",
-      q: "How quickly can NestWise launch my listing?",
-      a: "Our standard onboarding takes 5 to 7 business days from physical key handover. This covers professional photography, smart lock configuration, listing copy across Airbnb, Vrbo, Booking.com, Google, and Agoda, and master calendar synchronization.",
-    },
-    {
-      category: "operations",
-      q: "How does your dynamic pricing work?",
-      a: "We update your nightly rate daily using live market data and competitor benchmarks. We factor in local demand surges, Washington events, concerts, conferences, and seasonal patterns so you never underprice peak dates or sit vacant during slow periods.",
-    },
-  ];
+  // Getting started
+  {
+    category: "getting-started",
+    q: "Can I still use my home for personal stays?",
+    a: "Yes. Tell us the dates and we block them on every channel. We only ask for notice so we don’t have to cancel a guest’s booking.",
+  },
+  {
+    category: "getting-started",
+    q: "How quickly can you launch my listing?",
+    a: "Usually 5–7 business days after you sign, once any required city license is in place. Photos, smart lock and listings happen in that window.",
+  },
+  {
+    category: "getting-started",
+    q: "How does your pricing work?",
+    a: "We reset your nightly rate every day using nearby listings, local demand, Seattle events and the season. Prices rise on busy nights and drop to fill quiet ones. You can set a minimum nightly rate, and we’ll never go below it.",
+  },
+];
 
 export default function FaqPage() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
@@ -104,10 +157,11 @@ export default function FaqPage() {
   const filteredFaqs = useMemo(() => {
     return FAQS.filter((item) => {
       const matchesCategory = activeCategory === "all" || item.category === activeCategory;
+      const textToSearch = typeof item.a === "string" ? item.a : "";
       const matchesSearch =
         searchQuery.trim() === "" ||
         item.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.a.toLowerCase().includes(searchQuery.toLowerCase());
+        textToSearch.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
   }, [activeCategory, searchQuery]);
@@ -148,7 +202,7 @@ export default function FaqPage() {
           </nav>
 
           <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
-            KNOWLEDGE BASE &amp; ADVISORY
+            Owner questions
           </div>
 
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#1E3A8A] tracking-tight">
@@ -159,7 +213,7 @@ export default function FaqPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl mx-auto">
-            Everything you need to know about our transparent 22% fee model, King County regulatory compliance, guest screening, and seamless onboarding.
+            Straight answers on our fee, city rules, guest screening and getting started.
           </p>
 
           {/* Interactive Search Bar */}
@@ -170,7 +224,7 @@ export default function FaqPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search topics: fees, taxes, Seattle SMC 6.600, screening..."
+                placeholder="Search: fees, Seattle license, cleaning, contract…"
                 className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white border border-[#E6DCB8] shadow-sm text-sm focus:outline-none focus:border-[#B8860B] focus:ring-2 focus:ring-[#B8860B]/20 transition-all placeholder:text-[#94A3B8]"
               />
               {searchQuery && (
@@ -205,15 +259,15 @@ export default function FaqPage() {
             </button>
 
             <button
-              onClick={() => setActiveCategory("pricing")}
+              onClick={() => setActiveCategory("fees")}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                activeCategory === "pricing"
+                activeCategory === "fees"
                   ? "bg-[#1E3A8A] text-white shadow-sm"
                   : "bg-white text-[#475569] border border-[#E6DCB8] hover:border-[#B8860B]"
               }`}
             >
               <DollarSign className="w-3.5 h-3.5 text-[#B8860B]" />
-              <span>22% Fee & Payouts</span>
+              <span>Fees &amp; payouts</span>
             </button>
 
             <button
@@ -225,31 +279,31 @@ export default function FaqPage() {
               }`}
             >
               <Scale className="w-3.5 h-3.5 text-[#B8860B]" />
-              <span>Regulations & Permits</span>
+              <span>City rules &amp; permits</span>
             </button>
 
             <button
-              onClick={() => setActiveCategory("security")}
+              onClick={() => setActiveCategory("care")}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                activeCategory === "security"
+                activeCategory === "care"
                   ? "bg-[#1E3A8A] text-white shadow-sm"
                   : "bg-white text-[#475569] border border-[#E6DCB8] hover:border-[#B8860B]"
               }`}
             >
               <Shield className="w-3.5 h-3.5 text-[#B8860B]" />
-              <span>Property Care & Protection</span>
+              <span>Property care</span>
             </button>
 
             <button
-              onClick={() => setActiveCategory("operations")}
+              onClick={() => setActiveCategory("getting-started")}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                activeCategory === "operations"
+                activeCategory === "getting-started"
                   ? "bg-[#1E3A8A] text-white shadow-sm"
                   : "bg-white text-[#475569] border border-[#E6DCB8] hover:border-[#B8860B]"
               }`}
             >
               <Sliders className="w-3.5 h-3.5 text-[#B8860B]" />
-              <span>Operations & Onboarding</span>
+              <span>Getting started</span>
             </button>
           </div>
 
@@ -283,7 +337,7 @@ export default function FaqPage() {
               </div>
               <h3 className="font-serif text-lg font-bold text-[#1E3A8A]">No matching questions found</h3>
               <p className="text-xs text-[#64748B] max-w-sm mx-auto">
-                Try searching for general keywords like &quot;pricing&quot;, &quot;permits&quot;, or &quot;screening&quot;. Or reach out to our executive desk directly.
+                Try searching for general keywords like &quot;fees&quot;, &quot;permits&quot;, or &quot;cleaning&quot;. Or call our local team directly.
               </p>
               <button
                 onClick={() => {
@@ -330,7 +384,7 @@ export default function FaqPage() {
 
                     {isOpen && (
                       <div className="px-5 sm:px-6 pb-6 pt-1 text-sm text-[#475569] leading-relaxed border-t border-slate-100">
-                        <p>{faq.a}</p>
+                        {typeof faq.a === "string" ? <p>{faq.a}</p> : faq.a}
                       </div>
                     )}
                   </div>
@@ -339,7 +393,7 @@ export default function FaqPage() {
             </div>
           )}
 
-          {/* High-Touch Executive Support Card with Concierge Lottie */}
+          {/* Bottom Contact Card */}
           <div className="mt-16 bg-white rounded-3xl p-8 border border-[#E6DCB8] shadow-luxury flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-6">
               <div className="w-24 h-24 shrink-0">
@@ -353,13 +407,13 @@ export default function FaqPage() {
               <div className="space-y-1 text-left">
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#B8860B] uppercase tracking-wider">
                   <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                  Washington Operations Team
+                  Talk to our team
                 </div>
                 <h4 className="font-serif text-xl font-bold text-[#1E3A8A]">
-                  Have a Unique Regulatory or Portfolio Question?
+                  Have a question about your city or your property?
                 </h4>
                 <p className="text-xs text-[#64748B] max-w-md">
-                  Our team is available for direct consultation regarding short-term rental permits, city regulations, and how our 22% flat fee model works for your property.
+                  Call us for a direct answer on licenses, city rules, or how our 22% fee would work for your home.
                 </p>
               </div>
             </div>
@@ -370,13 +424,13 @@ export default function FaqPage() {
                 className="btn-gold px-6 py-3 rounded-xl font-serif font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md"
               >
                 <Phone className="w-4 h-4" />
-                <span>(425) 414-6819</span>
+                <span>Call (425) 414-6819</span>
               </a>
               <Link
                 href="/audit"
                 className="px-5 py-3 rounded-xl border border-[#1E3A8A]/20 bg-white hover:bg-[#1E3A8A]/5 text-xs font-bold text-[#1E3A8A] text-center"
               >
-                Request Audit
+                Request free audit
               </Link>
             </div>
           </div>

@@ -20,27 +20,27 @@ import {
 export default function WhySection() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
-  // Pain points data (National managers & DIY)
+  // Pain points data (Remote management)
   const painPoints = [
     {
       icon: Headphones,
       title: "Call Centers 2,000 Miles Away",
-      desc: "When something goes wrong, national companies route your guest to a distant call center agent who has never seen your street and doesn't know which streets flood in November."
+      desc: "When something goes wrong, guests are routed to a distant call center with no one nearby to visit the property."
     },
     {
       icon: Lock,
       title: "12-Month Lock-in Contracts",
-      desc: "Legacy managers tie you down with year-long binding contracts, early cancellation penalties, and you lose control of your calendar."
+      desc: "Often require 12-month or longer binding agreements with early termination penalties."
     },
     {
       icon: Percent,
-      title: "28% – 30% Fees + Hidden Deductions",
-      desc: "Steep commissions padded with hidden administrative surcharges, linen replacement deductions, and maintenance markups."
+      title: "Variable Fees & Surcharges",
+      desc: "Commissions that vary widely, often paired with extra linen replacement fees and administrative charges."
     },
     {
       icon: Clock,
-      title: "Self-Hosting Burnout & Guesswork",
-      desc: "Doing it yourself means answering guest lockouts at 11pm, cleaners cancelling last minute, and pricing that is really just guessing."
+      title: "Tickets, Not People",
+      desc: "Lockouts and emergencies become support tickets in a queue instead of someone arriving in person to help."
     }
   ];
 
@@ -49,22 +49,22 @@ export default function WhySection() {
     {
       icon: PhoneCall,
       title: "Someone Nearby Picks Up",
-      desc: "We live right here in Washington. When your guest is locked out at 11pm, someone nearby answers. We know the permit rules city by city and the local tradespeople."
+      desc: "When your guest is locked out at 11pm, someone nearby answers and fixes it in person the same night."
     },
     {
       icon: CheckCircle2,
-      title: "22% Flat Fee (Zero Hidden Deductions)",
-      desc: "A clean 22% management fee on gross bookings, plus a stated $600 one-time onboarding fee. No linen charges, no hidden line items."
+      title: "22% of Booking Revenue",
+      desc: "Our single management fee, plus a stated $600 setup fee. No markups on cleaning, linens, or repairs."
     },
     {
       icon: Sparkles,
-      title: "No Lock-in Contract (30 Days Notice)",
-      desc: "We earn your trust every single month. If your plans change, you can walk away anytime with a simple 30 days notice."
+      title: "Month-to-Month Agreement",
+      desc: "Cancel with 30 days' notice. No long-term contract—we earn your business every month."
     },
     {
       icon: TrendingUp,
       title: "Daily Pricing & Turno Cleaners",
-      desc: "Nightly rates updated daily from live market data, and professional background-checked cleaners booked through Turno with photo proof after every stay."
+      desc: "Nightly rates updated daily from live local data, and background-checked cleaners booked through Turno with photo proof."
     }
   ];
 
@@ -94,19 +94,19 @@ export default function WhySection() {
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight leading-[1.15]">
             We live here.{" "}
             <span className="bg-gradient-to-r from-[#B8860B] to-[#D4A017] bg-clip-text text-transparent">
-              That changes everything.
+              That changes the service.
             </span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-2xl mx-auto font-normal">
-            When something goes wrong at your property, national companies route your guest to a call center two thousand miles away. We&apos;re based right here in Washington. We know the neighborhoods, city permit rules, and local tradespeople.
+            When a guest is locked out at 11pm, a national manager opens a ticket. We send someone. Our team lives and works in King County, so problems get solved in person, the same night.
           </p>
         </motion.div>
 
         {/* 2-Column Comparison Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Pain Points Column (National Managers) */}
+          {/* Pain Points Column (Remote Management) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -125,10 +125,10 @@ export default function WhySection() {
                 </div>
                 <div>
                   <h3 className="font-serif text-xl font-bold text-slate-900">
-                    National Managers &amp; Call Centers
+                    Remote Management
                   </h3>
                   <span className="text-xs text-rose-600 font-semibold flex items-center">
-                    Vacasa, Evolve &amp; Distant Phone Trees
+                    National Call Centers &amp; Phone Trees
                   </span>
                 </div>
               </div>
@@ -189,11 +189,11 @@ export default function WhySection() {
                 </div>
                 <div>
                   <h3 className="font-serif text-xl font-bold text-white">
-                    The NestWise Co-Hosting Solution
+                    NestWise, Local Co-Hosting
                   </h3>
                   <span className="text-xs text-[#D4AF37] font-semibold flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                    Local Washington People You Can Actually Call
+                    Local People You Can Actually Call
                   </span>
                 </div>
               </div>
@@ -223,11 +223,11 @@ export default function WhySection() {
             <div className="pt-5 mt-5 border-t border-white/10 text-xs text-[#D4AF37] font-semibold flex items-center justify-between relative z-10">
               <span className="flex items-center gap-2">
                 <span>✦</span>
-                <span>Owner keeps 78% cleanly · 30 days notice to leave</span>
+                <span>22% of booking revenue · Month-to-month · Local King County team</span>
               </span>
               <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full text-white text-[11px]">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                Our Team in Washington
+                Team in Renton, WA
               </span>
             </div>
           </motion.div>

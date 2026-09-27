@@ -32,7 +32,7 @@ export default function EarningsPotentialCard({ className = "" }: EarningsPotent
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-xs font-bold uppercase tracking-[0.22em] text-[#D4AF37] select-none"
         >
-          Zero Obligation · Arrives in 48 Hours
+          Free · No obligation · Ready in 48 hours
         </motion.div>
 
         {/* Heading - Section 8 CEO Copy */}
@@ -57,7 +57,7 @@ export default function EarningsPotentialCard({ className = "" }: EarningsPotent
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal"
         >
-          No contract, no commitment, and nothing to pay. Just an honest look at what your property could be earning — and a conversation, if you want one.
+          No contract and nothing to pay. Just an honest look at what your property could earn, and a conversation if you want one.
         </motion.p>
 
         {/* Action Buttons - Section 8 CEO Buttons */}
@@ -73,7 +73,7 @@ export default function EarningsPotentialCard({ className = "" }: EarningsPotent
               href="/audit"
               className="btn-gold px-8 py-4 rounded-xl font-serif font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-gold-glow transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
             >
-              <span>Get My Free Property Audit</span>
+              <span>Get My Free Revenue Audit</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
@@ -84,7 +84,7 @@ export default function EarningsPotentialCard({ className = "" }: EarningsPotent
               className="px-6 py-4 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-xs sm:text-sm font-semibold text-white transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <Phone className="w-4 h-4 text-[#D4AF37]" />
-              <span>Or call us: (425) 414-6819</span>
+              <span>Call (425) 414-6819</span>
             </a>
           </motion.div>
         </motion.div>
@@ -99,15 +99,15 @@ export default function EarningsPotentialCard({ className = "" }: EarningsPotent
         >
           <div className="flex items-center justify-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>22% Flat Fee (No Hidden Costs)</span>
+            <span>22% of booking revenue</span>
           </div>
           <div className="flex items-center justify-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>0-Day Lock-in (Leave Any Time)</span>
+            <span>Month-to-month</span>
           </div>
           <div className="flex items-center justify-center gap-1.5">
             <Clock className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Report Delivered in 48 Hours</span>
+            <span>Audit in 48 hours</span>
           </div>
         </motion.div>
 
