@@ -64,7 +64,7 @@ export default function AuditForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          submissionId: "submissionIdRef.current",
+          submissionId: submissionIdRef.current,
           turnstileToken: "simulated-cf-verified-token",
         }),
       });
