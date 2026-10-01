@@ -98,7 +98,7 @@ export default function Hero() {
             {/* Minimal Kicker without pill container */}
             <motion.div variants={itemVariants}>
               <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
-                Full-Service Co-Hosting · Greater Seattle &amp; Washington State
+                Airbnb co-hosting · Greater Seattle &amp; the Eastside
               </span>
             </motion.div>
 
@@ -116,7 +116,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-sm sm:text-base text-[#4B5563] leading-relaxed font-normal max-w-lg"
             >
-              We handle multi-platform listings, 24/7 guest communication, live dynamic pricing, and housekeeping turnover. You earn passive rental income without touching a thing.
+              Listings, pricing, guest messages, cleaners and monthly statements, handled by a local team you can call. 22% of booking revenue. Month-to-month.
             </motion.p>
 
             {/* Supporting Line */}
@@ -125,7 +125,7 @@ export default function Hero() {
               className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#1E3A8A]"
             >
               <MapPin className="w-3.5 h-3.5 text-[#B8860B] shrink-0" />
-              <span>22% flat fee · No lock-in contract · Local Seattle team</span>
+              <span>Local team in Renton · No long-term contract · Audit in 48 hours</span>
             </motion.div>
 
             {/* Buttons: Primary & Secondary */}
@@ -140,27 +140,32 @@ export default function Hero() {
                     href="/audit"
                     className="btn-gold py-3 px-6 sm:px-7 rounded-xl font-serif font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-luxury hover:shadow-gold-glow transition-all"
                   >
-                    <span>Get My Free Property Audit</span>
+                    <span>Get My Free Revenue Audit</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </motion.div>
 
-                <motion.button
-                  type="button"
-                  onClick={() => setBookingModalOpen(true)}
+                <motion.a
+                  href="tel:+14254146819"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="py-3 px-6 rounded-xl font-serif font-bold text-xs sm:text-sm text-[#1E3A8A] bg-white border border-[#E6DCB8] hover:border-[#B8860B] hover:bg-[#FDFAF5] transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
                 >
-                  <span>Book a Call</span>
-                </motion.button>
+                  <span>Call (425) 414-6819</span>
+                </motion.a>
               </div>
 
               {/* Under the Buttons */}
               <div className="text-[11px] sm:text-xs text-[#6B7280] flex flex-wrap items-center gap-2 pl-1">
-                <span>Free, no obligation · Report within 48 hours</span>
+                <span>Free, no obligation · Audit in 48 hours</span>
                 <span>·</span>
-                <span>Prefer to call? <a href="tel:+14254146819" className="text-[#1E3A8A] font-semibold hover:underline">(425) 414-6819</a></span>
+                <button
+                  type="button"
+                  onClick={() => setBookingModalOpen(true)}
+                  className="text-[#1E3A8A] font-semibold hover:underline cursor-pointer"
+                >
+                  Or book a call
+                </button>
               </div>
             </motion.div>
 

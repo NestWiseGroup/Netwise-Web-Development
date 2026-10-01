@@ -9,28 +9,24 @@ export default function FaqSection() {
 
   const faqs = [
     {
-      q: "How does the 22% flat fee structure work?",
-      a: "NestWise charges a single, transparent 22% management fee on gross booking revenues. There is a stated one-time $600 onboarding fee to professionally photograph, stage, and set up your multi-channel listings. There are zero hidden deductions, zero linen markups, and zero administrative surcharges.",
+      q: "How does the 22% fee work?",
+      a: "We charge 22% of booking revenue. That’s our only ongoing fee: no markups on linens, cleaning, card processing or repairs, and no admin charges. Cleaning is paid by the guest. Repairs and supplies are billed to you at cost, with receipts. Your monthly statement shows every line.",
     },
     {
-      q: "What is your contract duration and lock-in policy?",
-      a: "We have zero long-term lock-in contracts. Our agreements are month-to-month. If your personal plans or portfolio goals change, you can walk away anytime with a simple 30-day notice. You never lose control of your calendar.",
+      q: "Who pays for cleaning?",
+      a: "The guest pays a cleaning fee at checkout, so cleaning doesn’t come out of your earnings. We book background-checked cleaners through Turno and check their photos after every stay.",
     },
     {
-      q: "How do you handle cleaning and property turnovers?",
-      a: "We partner with vetted, background-checked professional cleaners through Turno. After every checkout, cleaners follow a rigorous inspection checklist and take verification photos, ensuring your home is pristine before the next guest arrives.",
+      q: "What is your contract length?",
+      a: "Month-to-month. You can end the agreement at any time with 30 days’ written notice, with no cancellation fee.",
     },
     {
-      q: "How does your dynamic pricing work?",
-      a: "We update your nightly rate daily using live market data and competitor benchmarks. We factor in local demand surges, Washington events, concerts, conferences, and seasonal patterns so you never underprice peak dates or sit vacant during slow periods.",
+      q: "How does your pricing work?",
+      a: "We reset your nightly rate every day using nearby listings, local demand, Seattle events and the season. Prices rise on busy nights and drop to fill quiet ones. You can set a minimum nightly rate, and we’ll never go below it.",
     },
     {
-      q: "How does NestWise handle Seattle SMC 6.600 and Bellevue STR permits?",
-      a: "Seattle limits short-term operators to two dwelling units (primary residence plus one secondary unit). Bellevue requires city transient lodging registration and King County lodging tax filings. We help navigate the permit paperwork and quarterly lodging tax filings to keep your home fully compliant.",
-    },
-    {
-      q: "Why is the 5-Point Property Revenue Audit 100% free?",
-      a: "We benchmark your property against 12 nearby comparable homes to show you what you're charging, what the market is earning, and what you're leaving on the table. The report is delivered in 48 hours, is 100% free, and is yours to keep with no obligation.",
+      q: "What are the rules in Seattle, Bellevue, and the Eastside?",
+      a: "They vary by city, which is why we check every address first. In Bellevue, entire single-family homes can’t be rented for under 30 days; condos and apartments can, with a registration notice and building limits. Seattle requires a business license and STR operator license, with the license number on every listing. Kirkland ties short-term rentals to the owner's primary residence, and Redmond requires a business license per unit. Before we list your home, we confirm it qualifies and help you apply.",
     },
   ];
 

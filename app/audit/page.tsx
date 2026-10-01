@@ -6,7 +6,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Free 48-Hour Property Revenue Audit | NestWise Group",
   description:
-    "Request your personalized, deeply benchmarked market report matching your Greater Seattle or Washington State property against its 12 closest real-time market comparables.",
+    "Request your personalized, deeply benchmarked market report matching your Greater Seattle and Eastside property against its 12 closest real-time market comparables.",
 };
 
 export default function AuditPage() {
@@ -35,7 +35,7 @@ export default function AuditPage() {
             Free 48-Hour Property Revenue Audit
           </h1>
           <p className="text-base sm:text-lg text-[#4B5563] max-w-2xl mx-auto leading-relaxed">
-            Receive an honest, personalized market report matching your home against its 12 closest real-time comparables in Washington State.
+            Receive an honest, personalized market report matching your home against its 12 closest real-time comparables in Greater Seattle and the Eastside.
           </p>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function AuditPage() {
                 22% Fee Model Preview
               </div>
               <p className="text-xs text-[#6B7280]">
-                See exactly how much you save vs. legacy 28%–30% management franchises.
+                22% of booking revenue with no hidden markups and no long-term contract.
               </p>
             </div>
           </div>

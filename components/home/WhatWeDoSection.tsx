@@ -15,33 +15,33 @@ import {
 export default function WhatWeDoSection() {
   const items = [
     {
-      title: "Multi-Platform Listings",
-      desc: "Listing your property on Airbnb, Vrbo, Booking.com, Google and Agoda",
+      title: "Listings on 6 channels",
+      desc: "More places to book, one calendar, no double bookings.",
       icon: Globe,
     },
     {
-      title: "Round-the-Clock Support",
-      desc: "Answering every guest, any hour, usually within three minutes",
+      title: "Guest messages, day and night",
+      desc: "A local person replies, not a script.",
       icon: MessageSquare,
     },
     {
-      title: "Live Daily Pricing",
-      desc: "Setting your nightly price using live market data, updated daily",
+      title: "Pricing updated daily",
+      desc: "Rates follow demand, events and competing listings.",
       icon: TrendingUp,
     },
     {
-      title: "Turno Cleaners & Photos",
-      desc: "Booking and paying professional cleaners, with photos after every stay",
+      title: "Cleaners with photo proof",
+      desc: "Background-checked cleaners, photos after every stay.",
       icon: Sparkles,
     },
     {
-      title: "Repairs & Maintenance",
-      desc: "Handling maintenance, repairs and the vendors who do them",
+      title: "Repairs and maintenance",
+      desc: "Local tradespeople. Nothing over $300 without your approval.",
       icon: Wrench,
     },
     {
-      title: "Monthly Owner Accounting",
-      desc: "Sending you one clear report on the 5th of every month",
+      title: "Monthly statements",
+      desc: "Paid by the 5th, with every booking and expense itemized.",
       icon: FileText,
     },
   ];
@@ -67,7 +67,7 @@ export default function WhatWeDoSection() {
           </h2>
 
           <p className="text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-2xl mx-auto font-normal">
-            Most owners buy a rental to build wealth and end up with a second job instead. Guest messages at midnight. Cleaners who cancel. Pricing that&apos;s really just guessing. We take all of it — not some of it, all of it — so your property earns while you get on with your life.
+            Most owners hire help and still end up answering guests at midnight. With NestWise, you don&apos;t. Here&apos;s what we do, so you don&apos;t have to.
           </p>
         </motion.div>
 
@@ -101,7 +101,7 @@ export default function WhatWeDoSection() {
 
                 <div className="pt-5 mt-5 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-[#B8860B]">
                   <CheckCircle2 className="w-4 h-4 text-[#B8860B] shrink-0" />
-                  <span>Included in 22% flat fee</span>
+                  <span>Included in 22% fee</span>
                 </div>
               </motion.div>
             );

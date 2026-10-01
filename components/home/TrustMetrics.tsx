@@ -7,26 +7,26 @@ export default function TrustMetrics() {
   const metrics = [
     {
       value: "22%",
-      label: "Flat fee.",
-      subtext: "Nothing hidden.",
+      label: "of booking revenue,",
+      subtext: "nothing added",
       highlight: true,
     },
     {
-      value: "0 Days",
-      label: "Lock-in.",
-      subtext: "Leave any time.",
+      value: "30 days",
+      label: "notice to leave,",
+      subtext: "any time",
       highlight: false,
     },
     {
-      value: "5+",
-      label: "Booking sites,",
+      value: "6",
+      label: "booking channels,",
       subtext: "one calendar",
       highlight: false,
     },
     {
-      value: "Under 3 min",
-      label: "Guest response,",
-      subtext: "day or night",
+      value: "15 min",
+      label: "typical guest",
+      subtext: "reply time",
       highlight: false,
     },
   ];

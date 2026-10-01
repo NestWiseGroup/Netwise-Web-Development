@@ -32,7 +32,7 @@ export default function Footer() {
               </Link>
 
               <p className="text-xs sm:text-sm text-slate-300 max-w-md font-normal leading-relaxed">
-                Full-service vacation rental co-hosting across Washington State. We manage your property across Airbnb, Vrbo, Booking.com, Google, and Agoda for a 22% flat fee with no lock-in contract.
+                Local Airbnb co-hosting for Greater Seattle and the Eastside. We list, price, clean and manage your home across 6 booking channels for 22% of booking revenue, month-to-month.
               </p>
 
               {/* Clean Contact Details */}
@@ -126,12 +126,12 @@ export default function Footer() {
           {/* Minimalist Bottom Bar */}
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-3">
             <div>
-              © 2026 NestWise Group LLC. Renton, WA. All Rights Reserved.
+              © 2026 NestWise Group LLC · Renton, WA · 22% co-hosting · Month-to-month
             </div>
             <div className="flex items-center gap-3 text-slate-400">
-              <span>22% Flat Fee Co-Hosting</span>
+              <span>22% of booking revenue</span>
               <span>·</span>
-              <span>30 Days Notice to Leave</span>
+              <span>Month-to-month</span>
             </div>
           </div>
 

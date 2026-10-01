@@ -106,10 +106,10 @@ export default function ChannelsSection() {
       logo: <BookingLogo />,
     },
     {
-      name: "Google Vacation Rentals",
-      category: "Direct Search",
-      tag: "Search Dominance",
-      detail: "Direct appearance inside Google Travel and Maps search results.",
+      name: "Google",
+      category: "Listed on Google",
+      tag: "Search Reach",
+      detail: "Your home appears in Google Travel and Google Maps search results.",
       logo: <GoogleLogo />,
     },
     {
@@ -151,10 +151,7 @@ export default function ChannelsSection() {
           </h2>
 
           <p className="text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-2xl mx-auto font-normal">
-            Most owners list on one site, usually Airbnb, because juggling several by hand is how you end up double-booked. That quietly costs them money every month.
-          </p>
-          <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed max-w-2xl mx-auto font-normal">
-            We put your property on all of them — Airbnb, Vrbo, Booking.com, Google Vacation Rentals and Agoda — plus a direct booking page of your own, where there&apos;s no platform commission at all. One calendar keeps them in step, so a booking on one site instantly blocks the dates everywhere else.
+            Airbnb guests and Booking.com guests are often different travelers. We list your home on six channels and sync one calendar, so you reach more of them without the risk of two bookings on the same night.
           </p>
         </motion.div>
 
@@ -214,17 +211,17 @@ export default function ChannelsSection() {
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl bg-[#1E3A8A] text-white shadow-xl max-w-3xl mx-auto">
             <div className="text-left flex-1 space-y-1">
               <p className="font-serif text-base sm:text-lg font-bold text-[#FDF6E2]">
-                More people see your property. More of them book it.
+                More places to book means fewer empty nights.
               </p>
               <p className="text-xs text-slate-300">
-                And you never have to think about it.
+                One calendar keeps every site synchronized without double-bookings.
               </p>
             </div>
             <Link
               href="/audit"
               className="btn-gold py-3 px-6 rounded-xl font-serif font-bold text-xs uppercase tracking-wider whitespace-nowrap shadow-md flex items-center gap-2"
             >
-              <span>See What It Could Earn</span>
+              <span>See Your Free Audit</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

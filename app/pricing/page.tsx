@@ -11,28 +11,28 @@ import {
 export const metadata: Metadata = {
   title: "Transparent Pricing & Fee Structure | NestWise Group",
   description:
-    "Simple, honest pricing. 22% flat management fee, $600 one-time onboarding fee, 0-day contract lock-in. Full-service property co-hosting across Greater Seattle & Washington State.",
+    "Simple, honest pricing. 22% of booking revenue, $600 one-time setup fee, month-to-month. Full-service Airbnb co-hosting across Greater Seattle and the Eastside.",
 };
 
 const PRICING_PILLARS = [
   {
-    title: "22% Management Fee",
-    subtitle: "On gross booking revenue",
-    description: "You keep 78% of your rental revenue. No linen markups, no administrative surcharges, and no nickel-and-diming.",
+    title: "22% management fee",
+    subtitle: "Of booking revenue",
+    description: "Our only ongoing fee. No markups on linens, cleaning or repairs, and no admin charges.",
     badge: "Flat & Simple",
     highlight: true,
   },
   {
-    title: "$600 One-Time Setup",
-    subtitle: "Stated upfront, once",
-    description: "Covers professional photography, smart locks, digital listings across 5 platforms, and master calendar synchronization.",
+    title: "$600 one-time setup",
+    subtitle: "Paid once, at launch",
+    description: "Professional photos, smart lock setup, listings on six channels and one synced calendar.",
     badge: "One-Time Fee",
     highlight: false,
   },
   {
-    title: "0 Days Contract Lock-in",
-    subtitle: "Month-to-month flexibility",
-    description: "We earn your trust every 30 days. If your plans change, walk away anytime with a simple 30 days notice.",
+    title: "Month-to-month",
+    subtitle: "Cancel with 30 days’ notice",
+    description: "No long-term contract. We earn your business every month.",
     badge: "Leave Anytime",
     highlight: false,
   },
@@ -40,47 +40,47 @@ const PRICING_PILLARS = [
 
 const INCLUDED_SERVICES = [
   {
-    title: "5-Channel Multi-Listing",
-    desc: "Syndicated across Airbnb, Vrbo, Booking.com, Google Vacation Rentals, Agoda, and your own direct booking site.",
+    title: "Listings on 6 channels",
+    desc: "Airbnb, Vrbo, Booking.com, Google, Agoda and your own direct booking site.",
   },
   {
-    title: "Daily Dynamic Pricing",
-    desc: "Nightly rates adjusted daily based on live local demand, competitor benchmarks, and Seattle area event surges.",
+    title: "Pricing updated daily",
+    desc: "Rates reset every day based on demand, nearby listings and Seattle events.",
   },
   {
-    title: "24/7/365 Guest Communication",
-    desc: "Every guest question answered day or night, usually within 3 minutes, by local people based in Washington.",
+    title: "Guest messages, day and night",
+    desc: "A local person replies, typically within 15 minutes.",
   },
   {
-    title: "Turno Professional Cleaners",
-    desc: "Vetted, background-checked professional cleaners booked through Turno, with photo verification after every stay.",
+    title: "Background-checked cleaners",
+    desc: "Booked through Turno, with photos after every clean.",
   },
   {
-    title: "Maintenance & Vendor Coordination",
-    desc: "Coordination with trusted local tradespeople. No surprise maintenance fees without prior authorization.",
+    title: "Repairs and vendors",
+    desc: "Trusted local tradespeople. Nothing over $300 without your approval.",
   },
   {
-    title: "Monthly Financial Statements",
-    desc: "Itemized payouts deposited directly via ACH on the 5th of each month, with clean statements your CPA will love.",
+    title: "Monthly statements",
+    desc: "Paid by ACH on the 5th, with a statement your accountant will like.",
   },
 ];
 
 const PRICING_FAQS = [
   {
-    q: "Who pays for cleaning and turnover fees?",
-    a: "Cleaning fees are paid directly by the booking guest at checkout, not out of your rental earnings. We coordinate vetted professional cleaners via Turno and verify photographic checklists after every departure.",
+    q: "Who pays for cleaning?",
+    a: "The guest pays a cleaning fee at checkout, so cleaning doesn’t come out of your earnings. We book background-checked cleaners through Turno and check their photos after every stay.",
   },
   {
-    q: "How does the $600 onboarding fee work?",
-    a: "We state our $600 onboarding fee plainly upfront rather than hiding it in recurring fee surcharges. It covers professional architectural photography, keyless smart lock setup, and multi-channel listing creation across Airbnb, Vrbo, Booking.com, Google Vacation Rentals, and Agoda.",
+    q: "What does the $600 setup fee cover?",
+    a: "Professional photos, smart lock setup, and building your listings on Airbnb, Vrbo, Booking.com, Google, Agoda and your direct site, with one synced calendar. We state it up front instead of hiding it in your monthly fees.",
   },
   {
-    q: "When and how are my monthly payouts distributed?",
-    a: "Revenues are deposited directly to your bank account via ACH on the 5th of each month for the preceding calendar month. You receive an itemized statement detailing booked nights, rates, lodging taxes, and your 78% net earnings.",
+    q: "When do I get paid?",
+    a: "By the 5th of each month, by direct deposit, for the previous month. Your statement lists every booking, the rate earned, cleaning costs, taxes collected and our fee.",
   },
   {
-    q: "What if I want to pause or terminate our agreement?",
-    a: "There are zero long-term commitments or termination penalties. Our agreements are strictly month-to-month. If your personal or portfolio plans change, you can walk away anytime with a simple 30 days notice.",
+    q: "What if I want to stop?",
+    a: "Give us 30 days’ notice. No cancellation fee. We’ll hand back your listings, calendar and guest bookings in good order.",
   },
 ];
 
@@ -105,7 +105,7 @@ export default function PricingPage() {
           </nav>
 
           <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
-            TRANSPARENT &amp; HONEST PRICING
+            Transparent pricing
           </div>
 
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight leading-[1.15]">
@@ -113,7 +113,7 @@ export default function PricingPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-2xl mx-auto font-normal">
-            National managers charge 28% to 30%, lock you into 12-month contracts, and pad invoices with hidden administrative fees. We do the opposite: 22% flat, month-to-month, with complete transparency.
+            Many full-service managers charge 25% or more, ask for 12-month contracts, and add fees for linens, supplies and admin. We charge 22% of booking revenue, month-to-month, and list every cost on your statement.
           </p>
         </div>
       </section>
@@ -177,7 +177,7 @@ export default function PricingPage() {
                   }`}
                 >
                   <Check className="w-4 h-4 shrink-0" />
-                  <span>Always stated in writing</span>
+                  <span>Written into your agreement</span>
                 </div>
               </div>
             ))}
@@ -193,10 +193,10 @@ export default function PricingPage() {
               FULL-SERVICE SCOPE
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#1E3A8A]">
-              Everything Included in Your 22% Fee
+              Everything Included in Your 22%
             </h2>
             <p className="text-sm sm:text-base text-[#4B5563]">
-              We handle every aspect of your short-term rental from end to end. You never have to step in.
+              We handle your short-term rental from start to finish, so you never have to step in.
             </p>
           </div>
 
@@ -226,8 +226,8 @@ export default function PricingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ComparisonMatrix
             variant="full"
-            title="The Concrete Industry Comparison"
-            subtitle="Zero confusion: Compare our local co-hosting model against national corporate franchises and the hidden exhaustion of DIY self-hosting."
+            title="Three ways to run a short-term rental"
+            subtitle="Here’s how local co-hosting compares with a large management company and with doing it yourself."
           />
         </div>
       </section>

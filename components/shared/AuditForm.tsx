@@ -13,7 +13,7 @@ interface AuditFormProps {
 export default function AuditForm({
   variant = "card",
   title = "Request Your Free 48-Hour Property Revenue Audit",
-  subtitle = "We benchmark your property against its 12 closest real-time market comparables across Greater Seattle & Washington State.",
+  subtitle = "We benchmark your property against its 12 closest real-time market comparables across Greater Seattle & the Eastside.",
   buttonText = "Get My Free Property Audit",
   className = "",
 }: AuditFormProps) {
