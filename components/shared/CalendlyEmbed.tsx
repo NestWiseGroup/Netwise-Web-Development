@@ -101,7 +101,7 @@ export default function CalendlyEmbed({
             <div className="pt-4 border-t border-[#F1F5F9] text-xs text-[#64748B] flex items-center justify-between">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span>Greater Seattle / Renton, WA · Phone or Google Meet</span>
+                <span>Greater Seattle / Bellevue, WA · Phone or Google Meet</span>
               </span>
               {onClose && (
                 <button

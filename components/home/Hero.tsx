@@ -1,19 +1,24 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, MapPin } from "@/components/shared/Icons";
+import { ArrowRight, Calendar, ShieldCheck, MapPin } from "@/components/shared/Icons";
 import BookingModal from "@/components/shared/BookingModal";
+import OwnerSegmentationModal from "@/components/shared/OwnerSegmentationModal";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 500, y: 300 });
   const [isHovered, setIsHovered] = useState(false);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [segmentationModalOpen, setSegmentationModalOpen] = useState(false);
 
-  // Dynamic interactive pointer tracking for Antigravity-style grid illumination
+  // Trigger "Which property owner are you" pop-up immediately after website loads
+  useEffect(() => {
+    setSegmentationModalOpen(true);
+  }, []);
+
+  // Dynamic pointer tracking for grid illumination
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!heroRef.current) return;
     const rect = heroRef.current.getBoundingClientRect();
@@ -24,30 +29,6 @@ export default function Hero() {
     setIsHovered(true);
   };
 
-  // Staggered cascade animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.65,
-        ease: [0.16, 1, 0.3, 1] as const,
-      },
-    },
-  };
-
   return (
     <section
       ref={heroRef}
@@ -55,17 +36,18 @@ export default function Hero() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 bg-[#FDFAF5] border-b border-[#E6DCB8]/60 overflow-hidden cursor-default select-none"
+      aria-label="NestWise Hero"
     >
       {/* 
-        Hero Grid: Completely HIDDEN by default. 
-        ONLY visible and illuminated around the cursor when hovered (Bigger 56px grid size) 
+        Dynamic Interactive Cursor Illumination Effect 
+        Follows cursor when hovered across the hero area
       */}
       <div
         className={`absolute inset-0 pointer-events-none transition-opacity duration-300 ${
           isHovered ? "opacity-100" : "opacity-0"
         }`}
         style={{
-          background: `radial-gradient(480px circle at ${mousePos.x}px ${mousePos.y}px, rgba(184, 134, 11, 0.16) 0%, rgba(30, 58, 138, 0.06) 50%, transparent 80%)`,
+          background: `radial-gradient(540px circle at ${mousePos.x}px ${mousePos.y}px, rgba(184, 134, 11, 0.16) 0%, rgba(30, 58, 138, 0.06) 50%, transparent 80%)`,
         }}
       />
 
@@ -75,131 +57,94 @@ export default function Hero() {
         }`}
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(184, 134, 11, 0.35) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(184, 134, 11, 0.35) 1px, transparent 1px)
+            linear-gradient(to right, rgba(184, 134, 11, 0.30) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(184, 134, 11, 0.30) 1px, transparent 1px)
           `,
           backgroundSize: "56px 56px",
-          maskImage: `radial-gradient(380px circle at ${mousePos.x}px ${mousePos.y}px, black 25%, transparent 75%)`,
-          WebkitMaskImage: `radial-gradient(380px circle at ${mousePos.x}px ${mousePos.y}px, black 25%, transparent 75%)`,
+          maskImage: `radial-gradient(420px circle at ${mousePos.x}px ${mousePos.y}px, black 25%, transparent 75%)`,
+          WebkitMaskImage: `radial-gradient(420px circle at ${mousePos.x}px ${mousePos.y}px, black 25%, transparent 75%)`,
         }}
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
-          {/* Left Column: Staggered Cascading Reveal */}
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="lg:col-span-6 flex flex-col space-y-5 text-left"
-          >
-            
-            {/* Minimal Kicker without pill container */}
-            <motion.div variants={itemVariants}>
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none">
-                Airbnb co-hosting · Greater Seattle &amp; the Eastside
-              </span>
-            </motion.div>
 
-            {/* Headline */}
-            <motion.h1 
-              variants={itemVariants}
-              className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#1E3A8A] leading-[1.16] tracking-tight"
-            >
-              You own the property. <br className="hidden sm:block" />
-              <span className="text-[#B8860B]">We&apos;ll run everything else.</span>
-            </motion.h1>
+          {/* Left Column: Clean, High-Impact Copy */}
+          <div className="lg:col-span-7 flex flex-col space-y-6 text-left">
 
-            {/* Subheading - Clear, punchy and balanced text size */}
-            <motion.p 
-              variants={itemVariants}
-              className="text-sm sm:text-base text-[#4B5563] leading-relaxed font-normal max-w-lg"
-            >
-              Listings, pricing, guest messages, cleaners and monthly statements, handled by a local team you can call. 22% of booking revenue. Month-to-month.
-            </motion.p>
+            {/* Small Text Above - Clean Brand & Category Identifier */}
+            <div className="text-xs sm:text-sm font-bold uppercase tracking-[0.22em] text-[#B8860B] select-none flex items-center gap-2 flex-wrap">
+              <span>NestWise Group</span>
+              <span className="text-[#B8860B]/50" aria-hidden="true">•</span>
+              <span>Airbnb Co-Hosting Company</span>
+            </div>
 
-            {/* Supporting Line */}
-            <motion.div 
-              variants={itemVariants}
-              className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#1E3A8A]"
-            >
-              <MapPin className="w-3.5 h-3.5 text-[#B8860B] shrink-0" />
-              <span>Local team in Renton · No long-term contract · Audit in 48 hours</span>
-            </motion.div>
+            {/* Main Headline: Highlighted & Prominent */}
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-[#1E3A8A] leading-[1.12] tracking-tight">
+              You own the property. <br className="hidden sm:inline" />
+              <span className="text-[#B8860B]">We run everything.</span>
+            </h1>
 
-            {/* Buttons: Primary & Secondary */}
-            <motion.div variants={itemVariants} className="pt-2 flex flex-col items-start gap-3">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-                <motion.div 
-                  whileHover={{ scale: 1.02 }} 
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <Link
-                    href="/audit"
-                    className="btn-gold py-3 px-6 sm:px-7 rounded-xl font-serif font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-luxury hover:shadow-gold-glow transition-all"
-                  >
-                    <span>Get My Free Revenue Audit</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </motion.div>
+            {/* Crisp, Simple & Engaging Subtitle */}
+            <p className="text-base sm:text-lg text-[#374151] leading-relaxed font-normal max-w-2xl">
+              NestWise Group coordinates the complete rental operation across Washington—from smart nightly pricing to turnovers and 24/7 guest care—so your property earns more while you stay hands-off.
+            </p>
 
-                <motion.a
-                  href="tel:+14254146819"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="py-3 px-6 rounded-xl font-serif font-bold text-xs sm:text-sm text-[#1E3A8A] bg-white border border-[#E6DCB8] hover:border-[#B8860B] hover:bg-[#FDFAF5] transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
-                >
-                  <span>Call (425) 414-6819</span>
-                </motion.a>
+            {/* Clean CTAs */}
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() => setSegmentationModalOpen(true)}
+                className="btn-gold py-3.5 px-7 rounded-xl font-serif font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-luxury hover:shadow-gold-glow transition-all cursor-pointer"
+                aria-label="See What My Property Could Earn - Select Owner Path"
+              >
+                <span>See What My Property Could Earn</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setBookingModalOpen(true)}
+                className="py-3.5 px-6 rounded-xl font-serif font-bold text-xs sm:text-sm text-[#1E3A8A] bg-white border border-[#E6DCB8] hover:border-[#B8860B] hover:bg-[#FDFAF5] transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                aria-label="Book a Free 30-Minute Call"
+              >
+                <Calendar className="w-4 h-4 text-[#B8860B]" aria-hidden="true" />
+                <span>Book a Free 30-Minute Call</span>
+              </button>
+            </div>
+
+            {/* Clean Trust Indicators without capsule styling */}
+            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold text-[#1E3A8A]">
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-[#B8860B] shrink-0" aria-hidden="true" />
+                <span>Free Property Analysis</span>
               </div>
-
-              {/* Under the Buttons */}
-              <div className="text-[11px] sm:text-xs text-[#6B7280] flex flex-wrap items-center gap-2 pl-1">
-                <span>Free, no obligation · Audit in 48 hours</span>
-                <span>·</span>
-                <button
-                  type="button"
-                  onClick={() => setBookingModalOpen(true)}
-                  className="text-[#1E3A8A] font-semibold hover:underline cursor-pointer"
-                >
-                  Or book a call
-                </button>
+              <span className="text-[#B8860B] font-bold" aria-hidden="true">•</span>
+              <span>No Obligation</span>
+              <span className="text-[#B8860B] font-bold" aria-hidden="true">•</span>
+              <div className="flex items-center gap-1.5">
+                <MapPin className="w-4 h-4 text-[#B8860B] shrink-0" aria-hidden="true" />
+                <span>Local Washington Operations</span>
               </div>
-            </motion.div>
+            </div>
 
-          </motion.div>
+          </div>
 
-          {/* Right Column: Clean Luxury Airbnb Apartment Image with Continuous Float Motion */}
-          <motion.div 
-            initial={{ opacity: 0, x: 35, scale: 0.94 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
-            className="lg:col-span-6 relative"
-          >
-            {/* Ambient Background Glow Behind Image */}
-            <div className="absolute -inset-3 bg-gradient-to-tr from-[#B8860B]/20 via-[#D4AF37]/10 to-[#1E3A8A]/15 rounded-[36px] blur-2xl pointer-events-none -z-10" />
-
-            {/* Floating Container (Continuous gentle breathing float) */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              whileHover={{ scale: 1.015, transition: { duration: 0.3 } }}
-              className="relative rounded-3xl overflow-hidden border border-[#E6DCB8] shadow-luxury-lg bg-white p-2.5 hover:border-[#B8860B] transition-colors duration-500 hover:shadow-2xl"
-            >
-              <div className="relative h-[400px] sm:h-[480px] lg:h-[500px] w-full rounded-2xl overflow-hidden bg-slate-100">
+          {/* Right Column: Clean Architectural Visual */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative rounded-3xl overflow-hidden border border-[#E6DCB8] shadow-luxury-lg bg-white p-2.5">
+              <div className="relative h-[360px] sm:h-[440px] w-full rounded-2xl overflow-hidden bg-slate-100">
                 <Image
                   src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=85"
-                  alt="Modern Luxury Airbnb Apartment Co-Hosted by NestWise Group in Bellevue WA"
+                  alt="Professionally operated residential property managed by NestWise Group in Washington"
                   fill
                   priority
-                  className="object-cover object-center hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
                 />
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -207,6 +152,11 @@ export default function Hero() {
       <BookingModal
         isOpen={bookingModalOpen}
         onClose={() => setBookingModalOpen(false)}
+      />
+
+      <OwnerSegmentationModal
+        isOpen={segmentationModalOpen}
+        onClose={() => setSegmentationModalOpen(false)}
       />
     </section>
   );

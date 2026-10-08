@@ -222,7 +222,7 @@ export default function AuditForm({
               id="address"
               type="text"
               required
-              placeholder="e.g. 560 Naches Ave SW, Renton, WA 98057"
+              placeholder="e.g. 11808 Northup Way, Suite 100, Bellevue, WA 98005"
               value={formData.address}
               onChange={(e) => setFormData({ ...formData, address: e.target.value })}
               className="w-full px-4 py-3 rounded-lg border border-[#D1D5DB] bg-[#FDFAF5]/60 text-sm text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#B8860B] focus:border-transparent transition-all"

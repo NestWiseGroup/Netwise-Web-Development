@@ -39,7 +39,13 @@ export default function Footer() {
               <div className="pt-1 space-y-2 text-xs text-slate-300">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>560 Naches SW · Renton, WA 98057</span>
+                  <span>11808 Northup Way, Suite 100 · Bellevue, WA 98005</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[#D4AF37] font-bold">✉</span>
+                  <a href="mailto:hello@nestwisegroup.com" className="hover:text-[#D4AF37] transition-colors font-medium">
+                    hello@nestwisegroup.com
+                  </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
@@ -64,12 +70,12 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link href="/how-we-work" className="hover:text-white transition-colors">
-                      How We Work
+                      How we Work
                     </Link>
                   </li>
                   <li>
                     <Link href="/pricing" className="hover:text-white transition-colors">
-                      Pricing
+                      Pricing (22%)
                     </Link>
                   </li>
                   <li>
@@ -79,33 +85,45 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link href="/about" className="hover:text-white transition-colors">
-                      About
+                      About NestWise
                     </Link>
+                  </li>
+                  <li>
+                    <a
+                      href="https://my.hospitable.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#D4AF37] text-white/90 font-semibold transition-colors flex items-center gap-1"
+                    >
+                      <span>Owner Portal</span>
+                      <ArrowRight className="w-3 h-3 text-[#D4AF37]" />
+                    </a>
                   </li>
                 </ul>
               </div>
 
               <div>
                 <h5 className="font-serif text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-3">
-                  Get Started
+                  Direct Action
                 </h5>
                 <ul className="space-y-2.5 text-xs text-slate-300">
                   <li>
                     <Link
                       href="/audit"
-                      className="text-[#D4AF37] hover:underline font-semibold flex items-center gap-1"
+                      className="text-[#D4AF37] hover:underline font-bold flex items-center gap-1"
                     >
                       <span>Get Free Property Audit</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3 h-3" />
                     </Link>
                   </li>
                   <li>
                     <button
+                      type="button"
                       onClick={() => setBookingModalOpen(true)}
                       className="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer text-left"
                     >
                       <Calendar className="w-3.5 h-3.5 text-[#D4AF37]" />
-                      <span>Book a Call</span>
+                      <span>Book a 30-Min Call</span>
                     </button>
                   </li>
                   <li>
@@ -126,12 +144,12 @@ export default function Footer() {
           {/* Minimalist Bottom Bar */}
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-3">
             <div>
-              © 2026 NestWise Group LLC · Renton, WA · 22% co-hosting · Month-to-month
+              © 2026 NestWise Group LLC · 11808 Northup Way, Suite 100, Bellevue, WA 98005 · Month-to-month
             </div>
             <div className="flex items-center gap-3 text-slate-400">
               <span>22% of booking revenue</span>
               <span>·</span>
-              <span>Month-to-month</span>
+              <span>Local Bellevue Operations</span>
             </div>
           </div>
 

@@ -24,7 +24,7 @@ const PROMISES = [
     id: "local-people",
     icon: PhoneCall,
     title: "Local people you can call",
-    desc: "Based in Renton. When a guest is locked out at 11pm, someone nearby answers and fixes it in person.",
+    desc: "Based in Bellevue. When a guest is locked out at 11pm, someone nearby answers and fixes it in person.",
   },
   {
     id: "daily-pricing",

@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, Sparkles, CheckCircle2, Clock } from "@/components/shared/Icons";
+import { ArrowRight, Phone, CheckCircle2, Clock } from "@/components/shared/Icons";
 
 interface EarningsPotentialCardProps {
   className?: string;

@@ -1,47 +1,53 @@
 import React from "react";
 import Hero from "@/components/home/Hero";
 import TrustMetrics from "@/components/home/TrustMetrics";
-import WhatWeDoSection from "@/components/home/WhatWeDoSection";
-import WhySection from "@/components/home/WhySection";
+import OwnershipSection from "@/components/home/OwnershipSection";
+import MarketOperationsSection from "@/components/home/MarketOperationsSection";
+import DifferentiatorSection from "@/components/home/DifferentiatorSection";
 import ChannelsSection from "@/components/home/ChannelsSection";
-import AuditValueProp from "@/components/home/AuditValueProp";
-import ProcessSteps from "@/components/home/ProcessSteps";
+import PropertyCareSection from "@/components/home/PropertyCareSection";
+import OwnerSegmentationSection from "@/components/home/OwnerSegmentationSection";
 import FaqSection from "@/components/home/FaqSection";
-import EarningsPotentialCard from "@/components/shared/EarningsPotentialCard";
+import FinalConversionSection from "@/components/home/FinalConversionSection";
+
+export const metadata = {
+  title: "NestWise Group | Airbnb Co-Hosting & Rental Operations Company",
+  description:
+    "Airbnb co-hosting company, you own the property, we run everything. Smart pricing, turnovers, guest support, and owner reporting across Washington. 22% flat fee, month-to-month.",
+};
 
 export default function HomePage() {
   return (
     <div className="overflow-x-hidden">
-      {/* 1. Hero Section */}
+      {/* 1. Clean Hero: Airbnb co-hosting company, you own the property, we run everything */}
       <Hero />
 
-      {/* 2. The Four-Stat Strip */}
+      {/* Trust Strip & Core Metrics */}
       <TrustMetrics />
 
-      {/* 3. What We Actually Do */}
-      <WhatWeDoSection />
+      {/* 2. Ownership & Effort: Owning Airbnb rental property shouldn't be your second job */}
+      <OwnershipSection />
 
-      {/* 4. Why Local Matters */}
-      <WhySection />
+      {/* 3. Market-Focused Operations (Eight Parts under Single Heading) */}
+      <MarketOperationsSection />
 
-      {/* 5. Where Your Property Gets Seen */}
+      {/* 4. Differentiator: Smart Technology. Real People. Local Operations */}
+      <DifferentiatorSection />
+
+      {/* 5. Distribution: One Property. Multiple Booking Channels. One Management Team */}
       <ChannelsSection />
 
-      {/* 6. The Free Audit */}
-      <AuditValueProp />
+      {/* 6. Property Care: Your Property Is More Than a Booking. We Manage It Like an Investment */}
+      <PropertyCareSection />
 
-      {/* 7. How It Works */}
-      <ProcessSteps />
+      {/* 7. Owner Segmentation: Which Property Owner Are You? */}
+      <OwnerSegmentationSection />
 
       {/* Frequently Asked Questions */}
       <FaqSection />
 
-      {/* 8. Closing Section */}
-      <section className="py-16 sm:py-24 bg-[#FDFAF5]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <EarningsPotentialCard />
-        </div>
-      </section>
+      {/* 8. Final Conversion: Analyze My Property / Book a Free 30-Minute Call */}
+      <FinalConversionSection />
     </div>
   );
 }

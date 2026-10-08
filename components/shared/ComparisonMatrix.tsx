@@ -48,7 +48,7 @@ export default function ComparisonMatrix({
     {
       metric: "Guest support",
       icon: Clock,
-      nestwise: { title: "Local team in Renton", detail: "A local person replies, typically within 15 minutes, day and night." },
+      nestwise: { title: "Local team in Bellevue", detail: "A local person replies, typically within 15 minutes, day and night." },
       legacy: { title: "Usually a regional or national call center", detail: "Remote call center queues and support tickets." },
       diy: { title: "You, at any hour", detail: "Late-night lockouts and 11pm messages interrupt your life." },
     },
@@ -196,7 +196,7 @@ export default function ComparisonMatrix({
                   <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-linear-to-r from-[#B8860B] to-[#D4AF37] px-3 py-1 rounded-full shadow-xs">
                     ★ Partner Choice
                   </span>
-                  <span className="text-xs font-bold text-[#D4AF37]">Local Team in Renton</span>
+                  <span className="text-xs font-bold text-[#D4AF37]">Local Team in Bellevue</span>
                 </div>
 
                 <div>
