@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, ArrowRight, Calendar } from "@/components/shared/Icons";
+import { MapPin, Phone, ArrowRight, Calendar, Facebook, Instagram } from "@/components/shared/Icons";
 import BookingModal from "@/components/shared/BookingModal";
 
 export default function Footer() {
@@ -43,8 +43,8 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[#D4AF37] font-bold">✉</span>
-                  <a href="mailto:hello@nestwisegroup.com" className="hover:text-[#D4AF37] transition-colors font-medium">
-                    hello@nestwisegroup.com
+                  <a href="mailto:hellonestwiseco@gmail.com" className="hover:text-[#D4AF37] transition-colors font-medium">
+                    hellonestwiseco@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
@@ -52,6 +52,33 @@ export default function Footer() {
                   <a href="tel:+14254146819" className="hover:text-[#D4AF37] transition-colors font-semibold">
                     (425) 414-6819 (Direct Local Line)
                   </a>
+                </div>
+
+                {/* Social Media Channels */}
+                <div className="pt-2 flex items-center gap-3">
+                  <a
+                    href="https://www.facebook.com/share/1C5UkLghGG/?mibextid=wwXIfr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#1877F2] text-white flex items-center justify-center transition-all hover:scale-105"
+                    aria-label="NestWise Group on Facebook"
+                    title="Facebook"
+                  >
+                    <Facebook className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/hellonestwiseco?obrf=MW9icmZoeXd1MDNlOQ%3D%3D&utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-lg bg-white/10 hover:bg-gradient-to-tr hover:from-[#FD1D1D] hover:via-[#E1306C] hover:to-[#833AB4] text-white flex items-center justify-center transition-all hover:scale-105"
+                    aria-label="NestWise Group on Instagram"
+                    title="Instagram"
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                  <span className="text-xs text-slate-400 font-medium ml-1">
+                    Follow @hellonestwiseco
+                  </span>
                 </div>
               </div>
             </div>
@@ -70,7 +97,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link href="/how-we-work" className="hover:text-white transition-colors">
-                      How we Work
+                      How It Works
                     </Link>
                   </li>
                   <li>

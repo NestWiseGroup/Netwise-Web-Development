@@ -24,9 +24,9 @@ export default function TrustMetrics() {
       highlight: false,
     },
     {
-      value: "15 min",
-      label: "typical guest",
-      subtext: "reply time",
+      value: "24/7",
+      label: "Guest messages answered",
+      subtext: "around the clock",
       highlight: false,
     },
   ];

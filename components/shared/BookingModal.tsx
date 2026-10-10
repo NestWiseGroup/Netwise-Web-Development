@@ -1,25 +1,36 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { X } from "@/components/shared/Icons";
 import CalendlyEmbed from "./CalendlyEmbed";
 
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
+  prefillName?: string;
+  prefillEmail?: string;
 }
 
-export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
+export default function BookingModal({
+  isOpen,
+  onClose,
+  prefillName = "",
+  prefillEmail = "",
+}: BookingModalProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
+
     if (isOpen) {
+      // Prevent background scrolling on both html root and body
+      document.documentElement.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
     }
+
     return () => {
-      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
@@ -27,24 +38,20 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4 overflow-y-auto overscroll-contain">
       {/* Backdrop */}
-      <div 
-        className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
+      <div
+        className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity overscroll-contain"
         onClick={onClose}
       />
 
-      {/* Modal Card */}
-      <div className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden z-10 border border-[#E6DCB8] animate-in fade-in zoom-in-95 duration-200">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 z-20 transition-colors cursor-pointer"
-          aria-label="Close modal"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        <CalendlyEmbed onClose={onClose} />
+      {/* Modal Card - Compact max-w-3xl to fit on laptop screens cleanly */}
+      <div className="relative w-full max-w-2xl lg:max-w-3xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden z-10 border border-[#E6DCB8] animate-in fade-in zoom-in-95 duration-200 my-auto">
+        <CalendlyEmbed
+          onClose={onClose}
+          prefillName={prefillName}
+          prefillEmail={prefillEmail}
+        />
       </div>
     </div>
   );

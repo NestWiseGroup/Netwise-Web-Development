@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, ChevronRight, Calendar, MapPin, Lock } from "@/components/shared/Icons";
+import { Phone, Menu, X, ChevronRight, Calendar, MapPin, Lock, Facebook, Instagram } from "@/components/shared/Icons";
 import BookingModal from "@/components/shared/BookingModal";
 
 export default function Navbar() {
@@ -43,11 +43,11 @@ export default function Navbar() {
             <div className="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs ml-auto">
               {/* Email */}
               <a
-                href="mailto:hello@nestwisegroup.com"
+                href="mailto:hellonestwiseco@gmail.com"
                 className="hidden md:inline-flex items-center gap-1 text-white hover:text-[#FDFAF5] font-medium transition-colors"
                 title="Email NestWise Group"
               >
-                <span>hello@nestwisegroup.com</span>
+                <span>hellonestwiseco@gmail.com</span>
               </a>
 
               <span className="hidden md:inline text-white/50" aria-hidden="true">|</span>
@@ -61,6 +61,32 @@ export default function Navbar() {
                 <Phone className="w-3 h-3 text-white" aria-hidden="true" />
                 <span>(425) 414-6819</span>
               </a>
+
+              <span className="hidden sm:inline text-white/50" aria-hidden="true">|</span>
+
+              {/* Social Media Links */}
+              <div className="hidden sm:flex items-center gap-2">
+                <a
+                  href="https://www.facebook.com/share/1C5UkLghGG/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-[#FDFAF5] transition-transform hover:scale-110"
+                  aria-label="Facebook"
+                  title="NestWise on Facebook"
+                >
+                  <Facebook className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/hellonestwiseco?obrf=MW9icmZoeXd1MDNlOQ%3D%3D&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-[#FDFAF5] transition-transform hover:scale-110"
+                  aria-label="Instagram"
+                  title="NestWise on Instagram"
+                >
+                  <Instagram className="w-3.5 h-3.5" />
+                </a>
+              </div>
 
               <span className="hidden sm:inline text-white/50" aria-hidden="true">|</span>
 
@@ -99,7 +125,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-sm font-semibold text-white/90">
+            <nav className="hidden md:flex items-center gap-4 lg:gap-8 text-sm font-semibold text-white/90 whitespace-nowrap">
               <Link
                 href="/"
                 className="hover:text-[#D4AF37] transition-colors py-1 relative group tracking-wide"
@@ -111,7 +137,7 @@ export default function Navbar() {
                 href="/how-we-work"
                 className="hover:text-[#D4AF37] transition-colors py-1 relative group tracking-wide"
               >
-                How we Work
+                How It Works
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D4AF37] transition-all duration-200 group-hover:w-full" />
               </Link>
               <Link
@@ -188,7 +214,28 @@ export default function Navbar() {
             <div className="p-3 bg-white/5 rounded-xl border border-white/10 text-xs space-y-1 text-slate-200">
               <div className="font-semibold text-white">NestWise Group LLC</div>
               <div>11808 Northup Way, Suite 100, Bellevue, WA 98005</div>
-              <div className="text-[#D4AF37]">hello@nestwisegroup.com</div>
+              <div className="text-[#D4AF37]">hellonestwiseco@gmail.com</div>
+              <div className="pt-2 flex items-center gap-3">
+                <a
+                  href="https://www.facebook.com/share/1C5UkLghGG/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1 rounded bg-white/10 text-white hover:bg-white/20 transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/hellonestwiseco?obrf=MW9icmZoeXd1MDNlOQ%3D%3D&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1 rounded bg-white/10 text-white hover:bg-white/20 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-3.5 h-3.5" />
+                </a>
+                <span className="text-[11px] text-slate-300">@hellonestwiseco</span>
+              </div>
             </div>
 
             <nav className="flex flex-col space-y-3 text-sm font-semibold text-slate-200">
@@ -206,7 +253,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 px-3 rounded-lg hover:bg-white/10 hover:text-[#D4AF37] transition-colors flex items-center justify-between"
               >
-                <span>How we Work</span>
+                <span>How It Works</span>
                 <ChevronRight className="w-4 h-4 text-[#D4AF37]" />
               </Link>
 

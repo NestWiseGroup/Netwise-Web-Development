@@ -49,7 +49,7 @@ const INCLUDED_SERVICES = [
   },
   {
     title: "Guest messages, day and night",
-    desc: "A local person replies, typically within 15 minutes.",
+    desc: "Guest messages answered around the clock by our local team.",
   },
   {
     title: "Background-checked cleaners",

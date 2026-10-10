@@ -26,11 +26,13 @@ export default function OwnerSegmentationModal({
       if (e.key === "Escape") onClose();
     };
     if (isOpen) {
+      document.documentElement.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
     }
     return () => {
-      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
@@ -66,7 +68,7 @@ export default function OwnerSegmentationModal({
 
   return (
     <div
-      className="fixed inset-0 z-[9999] overflow-y-auto"
+      className="fixed inset-0 z-[9999] overflow-y-auto overscroll-contain"
       role="dialog"
       aria-modal="true"
       aria-labelledby="column-segmentation-modal-title"

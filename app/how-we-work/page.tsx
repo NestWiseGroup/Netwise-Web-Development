@@ -77,7 +77,7 @@ const PHASES = [
     subtitle: "Every guest is screened, every message answered quickly, and every clean checked with photos.",
     image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80",
     badge: "Local support, day and night",
-    standout: "A local team answering guests day and night, typically within 15 minutes.",
+    standout: "Guest messages answered around the clock by our local team.",
     details: [
       {
         lead: "Guest screening:",

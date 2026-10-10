@@ -13,9 +13,12 @@ export default function Hero() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [segmentationModalOpen, setSegmentationModalOpen] = useState(false);
 
-  // Trigger "Which property owner are you" pop-up immediately after website loads
+  // Trigger "Which property owner are you" pop-up after website mounts
   useEffect(() => {
-    setSegmentationModalOpen(true);
+    const timer = setTimeout(() => {
+      setSegmentationModalOpen(true);
+    }, 120);
+    return () => clearTimeout(timer);
   }, []);
 
   // Dynamic pointer tracking for grid illumination

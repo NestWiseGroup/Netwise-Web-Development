@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import { Calendar, X } from "@/components/shared/Icons";
 
 interface CalendlyEmbedProps {
   url?: string;
+  prefillName?: string;
+  prefillEmail?: string;
   hostName?: string;
   hostTitle?: string;
   className?: string;
@@ -11,205 +14,127 @@ interface CalendlyEmbedProps {
 }
 
 export default function CalendlyEmbed({
-  hostName = "Emmanuel N. Muvunyi",
-  hostTitle = "Founder & CEO · NestWise Group LLC",
+  url,
+  prefillName = "",
+  prefillEmail = "",
+  hostName = "NestWise Group Team",
+  hostTitle = "Free 30-Minute Property Consultation",
   className = "",
   onClose,
 }: CalendlyEmbedProps) {
-  const [selectedDate, setSelectedDate] = useState("2026-09-15");
-  const [selectedTime, setSelectedTime] = useState("10:00 AM");
-  const [isBooked, setIsBooked] = useState(false);
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [portfolioNotes, setPortfolioNotes] = useState("");
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
-  const handleBooking = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsBooked(true);
-  };
+  // Configured Calendly URL (supports Vercel env variable NEXT_PUBLIC_CALENDLY_URL)
+  const defaultCalendlyUrl =
+    url ||
+    process.env.NEXT_PUBLIC_CALENDLY_URL ||
+    "https://calendly.com/hellonestwiseco/30min";
+
+  // Build full URL with query parameters for prefilling and clean embedding
+  const calendlySrc = useMemo(() => {
+    try {
+      const parsed = new URL(defaultCalendlyUrl);
+      parsed.searchParams.set("hide_gdpr_banner", "1");
+      parsed.searchParams.set("primary_color", "1e3a8a");
+      parsed.searchParams.set("text_color", "1f2937");
+      if (prefillName) {
+        parsed.searchParams.set("name", prefillName);
+      }
+      if (prefillEmail) {
+        parsed.searchParams.set("email", prefillEmail);
+      }
+      if (typeof window !== "undefined") {
+        parsed.searchParams.set("embed_domain", window.location.hostname);
+        parsed.searchParams.set("embed_type", "Inline");
+      }
+      return parsed.toString();
+    } catch {
+      return defaultCalendlyUrl;
+    }
+  }, [defaultCalendlyUrl, prefillName, prefillEmail]);
 
   return (
     <div
-      className={`rounded-2xl border border-[#E2E8F0] bg-[#FAFAF8] overflow-hidden flex flex-col shadow-sm ${className}`}
+      className={`rounded-2xl border border-[#E6DCB8] bg-white overflow-hidden flex flex-col shadow-luxury ${className}`}
     >
-      {isBooked ? (
-        <div className="p-8 sm:p-12 flex flex-col items-center justify-center text-center space-y-4 bg-white min-h-[420px]">
-          <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center">
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
-            </svg>
+      {/* Header Bar - Compact for laptop viewports */}
+      <div className="bg-[#1E3A8A] text-white px-4 py-2.5 sm:px-5 sm:py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-[#B8860B]/30">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-white/10 text-[#D4AF37] border border-white/20 flex items-center justify-center font-serif font-bold text-xs shrink-0">
+            <Calendar className="w-4 h-4 text-[#D4AF37]" />
           </div>
-          <h4 className="font-serif text-2xl sm:text-3xl font-bold text-[#1E3A8A]">
-            Call Confirmed
-          </h4>
-          <p className="text-sm text-[#4B5563] max-w-md leading-relaxed">
-            Your 30-minute conversation with{" "}
-            <strong className="text-[#1E3A8A]">{hostName}</strong> is scheduled for{" "}
-            <span className="font-bold text-[#1E3A8A]">{selectedDate}</span> at{" "}
-            <span className="font-bold text-[#1E3A8A]">{selectedTime} (PST)</span>. We&apos;ll send calendar invites and meeting coordinates to your email.
-          </p>
-          <div className="pt-2 flex items-center gap-3">
+          <div>
+            <div className="font-serif font-bold text-sm sm:text-base text-white leading-tight">
+              {hostTitle}
+            </div>
+            <div className="text-[11px] text-slate-300 flex items-center gap-1.5 mt-0.5">
+              <span>{hostName}</span>
+              <span>•</span>
+              <span className="text-[#D4AF37]">Local Timezone</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2.5 sm:self-center">
+          <a
+            href={calendlySrc}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] font-semibold text-slate-200 hover:text-white underline hover:no-underline flex items-center gap-1 transition-colors"
+          >
+            <span>Open in new tab</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          {onClose && (
             <button
-              onClick={() => setIsBooked(false)}
-              className="btn-gold px-6 py-2.5 rounded-lg text-xs uppercase font-bold tracking-wider cursor-pointer"
+              type="button"
+              onClick={onClose}
+              className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer flex items-center justify-center"
+              aria-label="Close modal"
+              title="Close modal"
             >
-              Modify Details
+              <X className="w-4 h-4" />
             </button>
-            {onClose && (
-              <button
-                onClick={onClose}
-                className="px-5 py-2.5 rounded-lg text-xs font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 cursor-pointer"
-              >
-                Close
-              </button>
-            )}
-          </div>
+          )}
         </div>
-      ) : (
-        <div className="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-[#E2E8F0]">
-          {/* Host Info Side Pane */}
-          <div className="md:w-5/12 p-6 sm:p-8 bg-white flex flex-col justify-between space-y-6">
-            <div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-[#1E3A8A] text-[#D4AF37] font-serif font-bold text-base flex items-center justify-center border border-[#B8860B]/30 shadow-sm">
-                  EM
-                </div>
-                <div>
-                  <div className="font-serif font-bold text-base text-[#1E3A8A]">
-                    {hostName}
-                  </div>
-                  <div className="text-xs text-[#64748B]">{hostTitle}</div>
-                </div>
-              </div>
+      </div>
 
-              <div className="mt-6 space-y-3">
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#B8860B] bg-[#FDFAF5] px-2.5 py-1 rounded border border-[#E6DCB8]">
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  30-Minute Video / Phone Call
-                </span>
-                <h5 className="font-serif text-lg font-bold text-[#1F2937]">
-                  Introductory Co-Hosting Conversation
-                </h5>
-                <p className="text-xs text-[#4B5563] leading-relaxed">
-                  An informal, straightforward conversation about your property, how our 22% flat fee model works, local Washington regulations, and answering any questions you have.
-                </p>
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-[#F1F5F9] text-xs text-[#64748B] flex items-center justify-between">
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span>Greater Seattle / Bellevue, WA · Phone or Google Meet</span>
-              </span>
-              {onClose && (
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="text-xs text-slate-400 hover:text-slate-600 font-semibold cursor-pointer"
-                >
-                  Cancel
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* Calendar Picker Side Pane */}
-          <div className="md:w-7/12 p-6 sm:p-8 bg-[#FAFAF8] flex flex-col justify-between">
-            <form onSubmit={handleBooking} className="space-y-4">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#1E3A8A] block mb-2">
-                  1. Select Target Date
-                </span>
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { label: "Thu, Sep 3", date: "2026-09-03" },
-                    { label: "Fri, Sep 4", date: "2026-09-04" },
-                    { label: "Mon, Sep 7", date: "2026-09-07" },
-                  ].map((d) => (
-                    <button
-                      type="button"
-                      key={d.date}
-                      onClick={() => setSelectedDate(d.date)}
-                      className={`py-2 px-2 text-xs font-semibold rounded-lg border text-center transition-all cursor-pointer ${
-                        selectedDate === d.date
-                          ? "bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-sm"
-                          : "bg-white text-[#374151] border-[#CBD5E1] hover:border-[#B8860B]"
-                      }`}
-                    >
-                      {d.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#1E3A8A] block mb-2">
-                  2. Select Pacific Time (PST) Slot
-                </span>
-                <div className="grid grid-cols-2 gap-2">
-                  {["09:30 AM", "11:00 AM", "02:30 PM", "04:00 PM"].map((t) => (
-                    <button
-                      type="button"
-                      key={t}
-                      onClick={() => setSelectedTime(t)}
-                      className={`py-2 px-3 text-xs font-semibold rounded-lg border text-left flex items-center justify-between transition-all cursor-pointer ${
-                        selectedTime === t
-                          ? "bg-[#FDFAF5] text-[#B8860B] border-[#B8860B] font-bold shadow-sm"
-                          : "bg-white text-[#374151] border-[#CBD5E1] hover:bg-[#F8FAFC]"
-                      }`}
-                    >
-                      <span>{t} PST</span>
-                      {selectedTime === t && (
-                        <svg className="w-3.5 h-3.5 text-[#B8860B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
-                        </svg>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <input
-                  type="text"
-                  required
-                  placeholder="Your Name"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  className="px-3 py-2 text-xs rounded-lg border border-[#CBD5E1] bg-white focus:outline-none focus:ring-1 focus:ring-[#B8860B]"
-                />
-                <input
-                  type="email"
-                  required
-                  placeholder="Your Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="px-3 py-2 text-xs rounded-lg border border-[#CBD5E1] bg-white focus:outline-none focus:ring-1 focus:ring-[#B8860B]"
-                />
-              </div>
-
-              <div>
-                <input
-                  type="text"
-                  placeholder="Property address or portfolio notes (optional)"
-                  value={portfolioNotes}
-                  onChange={(e) => setPortfolioNotes(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-[#CBD5E1] bg-white focus:outline-none focus:ring-1 focus:ring-[#B8860B]"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full btn-gold py-3 rounded-xl font-serif font-bold text-xs uppercase tracking-wider shadow-sm cursor-pointer"
+      {/* Calendly Interactive Embed Frame */}
+      <div className="relative w-full h-[490px] sm:h-[520px] md:h-[540px] bg-[#FAFAF8]">
+        {!iframeLoaded && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-2.5 z-10 bg-[#FAFAF8]">
+            <div className="w-7 h-7 border-2 border-[#1E3A8A] border-t-transparent rounded-full animate-spin" />
+            <p className="text-xs font-semibold text-[#1E3A8A]">
+              Loading NestWise consultation calendar...
+            </p>
+            <p className="text-[11px] text-[#6B7280]">
+              If it takes a moment, you can{" "}
+              <a
+                href={calendlySrc}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#B8860B] underline font-bold"
               >
-                Confirm {selectedTime} Briefing on {selectedDate}
-              </button>
-            </form>
+                book directly on Calendly
+              </a>{" "}
+              or call us at{" "}
+              <a href="tel:+14254146819" className="text-[#1E3A8A] font-bold">
+                (425) 414-6819
+              </a>
+              .
+            </p>
           </div>
-        </div>
-      )}
+        )}
+
+        <iframe
+          src={calendlySrc}
+          title="NestWise Consultation Scheduling"
+          className="w-full h-full border-0"
+          onLoad={() => setIframeLoaded(true)}
+          allow="camera; microphone; autoplay; clipboard-write; encrypted-media"
+        />
+      </div>
     </div>
   );
 }

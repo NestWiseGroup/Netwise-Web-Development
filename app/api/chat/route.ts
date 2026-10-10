@@ -34,7 +34,7 @@ const KNOWLEDGE_BASE: KnowledgeItem[] = [
   {
     keywords: ["response", "sla", "message", "guest", "inquiry", "support", "time", "hours", "minute"],
     response:
-      "Guests get a reply from a local person within 15 minutes, day or night. Attentive, quick answers protect your ratings and search ranking.",
+      "Guest messages are answered around the clock by our local team. Attentive, quick answers protect your ratings and search ranking.",
   },
   {
     keywords: ["audit", "report", "free", "5-point", "48", "comp", "estimate"],
