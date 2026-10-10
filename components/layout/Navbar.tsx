@@ -25,23 +25,39 @@ export default function Navbar() {
       <header className="sticky top-0 z-50 w-full max-w-full bg-[#1E3A8A]">
         {/* Golden Top Utility Strip with White Text - Smoothly collapses on scroll with zero visual artifacts */}
         <div
-          className={`bg-gradient-to-r from-[#B8860B] via-[#C59B27] to-[#B8860B] text-white text-xs font-medium transition-all duration-300 ease-in-out overflow-hidden ${
-            isScrolled
+          className={`bg-gradient-to-r from-[#B8860B] via-[#C59B27] to-[#B8860B] text-white text-xs font-medium transition-all duration-300 ease-in-out overflow-hidden ${isScrolled
               ? "max-h-0 opacity-0 py-0 pointer-events-none"
-              : "max-h-14 opacity-100 py-1.5"
-          }`}
+              : "max-h-12 opacity-100 py-1.5"
+            }`}
         >
-          <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
-            
-            {/* Location Address */}
-            <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
+
+            {/* Mobile View: Compact Location & Direct Call */}
+            <div className="flex sm:hidden items-center gap-2 text-[11px] font-semibold text-white min-w-0">
+              <div className="flex items-center gap-1 shrink-0 text-white/95">
+                <MapPin className="w-3 h-3 text-white shrink-0" aria-hidden="true" />
+                <span>Bellevue, WA</span>
+              </div>
+              <span className="text-white/40 shrink-0" aria-hidden="true">•</span>
+              <a
+                href="tel:+14254146819"
+                className="flex items-center gap-1 text-white font-bold hover:text-[#FDFAF5] transition-colors truncate"
+                title="Call NestWise Group"
+              >
+                <Phone className="w-3 h-3 text-white shrink-0" aria-hidden="true" />
+                <span>(425) 414-6819</span>
+              </a>
+            </div>
+
+            {/* Desktop View: Full Location Address */}
+            <div className="hidden sm:flex items-center gap-1.5 text-xs font-semibold text-white">
               <MapPin className="w-3.5 h-3.5 text-white shrink-0" aria-hidden="true" />
               <span>11808 Northup Way, Suite 100, Bellevue, WA 98005</span>
             </div>
 
-            {/* Email, Phone & Owner Login (Hospitable) */}
-            <div className="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs ml-auto">
-              {/* Email */}
+            {/* Desktop Actions + Mobile Owner Login */}
+            <div className="flex items-center gap-2.5 sm:gap-4 text-[11px] sm:text-xs shrink-0">
+              {/* Email (Desktop Only) */}
               <a
                 href="mailto:hellonestwiseco@gmail.com"
                 className="hidden md:inline-flex items-center gap-1 text-white hover:text-[#FDFAF5] font-medium transition-colors"
@@ -52,10 +68,10 @@ export default function Navbar() {
 
               <span className="hidden md:inline text-white/50" aria-hidden="true">|</span>
 
-              {/* Phone */}
+              {/* Phone (Desktop Only - mobile is on left) */}
               <a
                 href="tel:+14254146819"
-                className="flex items-center gap-1 text-white font-bold hover:text-[#FDFAF5] transition-colors"
+                className="hidden sm:flex items-center gap-1 text-white font-bold hover:text-[#FDFAF5] transition-colors"
                 title="Call NestWise Group"
               >
                 <Phone className="w-3 h-3 text-white" aria-hidden="true" />
@@ -64,7 +80,7 @@ export default function Navbar() {
 
               <span className="hidden sm:inline text-white/50" aria-hidden="true">|</span>
 
-              {/* Social Media Links */}
+              {/* Social Media Links (Tablet & Desktop) */}
               <div className="hidden sm:flex items-center gap-2">
                 <a
                   href="https://www.facebook.com/share/1C5UkLghGG/?mibextid=wwXIfr"
@@ -90,13 +106,13 @@ export default function Navbar() {
 
               <span className="hidden sm:inline text-white/50" aria-hidden="true">|</span>
 
-              {/* Owner Login (Hospitable) */}
+              {/* Owner Login */}
               <a
                 href="https://my.hospitable.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 bg-[#1E3A8A] text-white hover:bg-white hover:text-[#1E3A8A] px-2.5 py-0.5 rounded-md font-bold text-[10px] sm:text-[11px] transition-all shadow-xs"
-                title="Owner Portal - Hospitable Login"
+                className="flex items-center gap-1 bg-[#1E3A8A] text-white hover:bg-white hover:text-[#1E3A8A] px-2 sm:px-2.5 py-0.5 rounded-md font-bold text-[10px] sm:text-[11px] transition-all shadow-xs"
+                title="Owner Portal Login"
               >
                 <Lock className="w-3 h-3 text-[#D4AF37]" aria-hidden="true" />
                 <span>Owner Login</span>
@@ -109,7 +125,7 @@ export default function Navbar() {
         {/* Main Navbar */}
         <div className="bg-[#1E3A8A] border-b border-[#B8860B]/30 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
-            
+
             {/* Brand Logo */}
             <Link href="/" className="flex items-center py-1 group">
               <div className="relative h-12 sm:h-14 w-40 sm:w-60 max-w-[48vw] sm:max-w-none flex items-center">
@@ -311,7 +327,7 @@ export default function Navbar() {
                 className="py-2 px-4 rounded-xl bg-white/10 text-center text-xs font-semibold text-[#D4AF37] hover:bg-white/20 flex items-center justify-center gap-2"
               >
                 <Lock className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span>Owner Portal Login (Hospitable)</span>
+                <span>Owner Portal Login</span>
               </a>
             </div>
           </div>
