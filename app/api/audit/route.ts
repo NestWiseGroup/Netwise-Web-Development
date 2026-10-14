@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { randomUUID } from "crypto";
 
 // Security Configuration Limits
 const MAX_REQUEST_SIZE_BYTES = 32 * 1024; // 32 KB
@@ -117,6 +118,8 @@ export async function POST(request: Request) {
         { status: 400, headers: SECURITY_HEADERS }
       );
     }
+
+    const submissionId = randomUUID();
 
     const {
       fullName,
@@ -268,10 +271,11 @@ export async function POST(request: Request) {
     duplicateSubmissionMap.set(duplicateKey, now);
 
     // 8. Generate Audit Reference Code & Standard Payload
-    const referenceCode = `NW-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+    const referenceCode = `NW-${submissionId.slice(0, 8).toUpperCase()}`;
     const timestampIso = new Date(now).toISOString();
 
     const webhookPayload = {
+      submissionId,
       event: "audit_requested",
       timestamp: timestampIso,
       source: "website_audit_form",
